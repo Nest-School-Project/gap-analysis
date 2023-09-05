@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  background-color: #ffbe64;
+  font-family:Subjectivity;
+  height: 730px;
+  width: 1500px;
+  margin-bottom:20px;
+
 }
 
 .App-logo {
@@ -27,7 +33,46 @@
 .App-link {
   color: #61dafb;
 }
+#un{
+  background: linear-gradient(21deg, #fcfcfb, #bdbbba);
+  border-radius: 6px;
+  margin-bottom:30px;
+  margin-left: 663px;
+  margin-top: 80px;
+  height:35px;
+width:200px; 
+	
+	
+}
+#pd{
+  background: linear-gradient(21deg, #fcfcfb, #bdbbba);
+  border-radius: 6px;
+  margin-bottom:30px;
+  margin-left: 663px;
 
+  height:35px;
+width:200px; 
+}
+#sub{
+  background: linear-gradient(21deg, #fcfcfb, #bdbbba);
+  border-radius: 6px;
+  margin-left: 660px;
+}
+
+#logo{
+  position: absolute;
+  top:50px;
+  left:20px;
+ /*display: block;
+   margin-left: 50px;
+margin-right: 2200px;
+margin-top: 20px;*/
+}
+.title{
+ position:relative;
+ top:60px;
+ left:22%;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
