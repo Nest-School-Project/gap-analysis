@@ -44,26 +44,26 @@ export const Login = () => {
         <link rel="stylesheet" href="//2ttf.com/webfont/6IF8GLA3aiM/webfont.ttf"></link>
         <h1 className="title">WELCOME</h1>
         <span class="input">
-        <input id="un"
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        /></span>
+          <input id="un"
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          /></span>
         <br></br>
         <input
-        id="pd"
+          id="pd"
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          
+
         />
-        
+
         <img src="https://onemg.com/work/images/portfolio-images/nest/nest-banner-latest.jpg" id="logo" alt="nest logo" width="750" height="550"></img>
-        
+
         <br></br>
-       
+
         <button onClick={handleLogin} id="sub">Login</button>
       </div>
     );

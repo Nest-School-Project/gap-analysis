@@ -8,6 +8,7 @@ import { Grades } from './Grades';
 
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {Tabs} from './Tabs';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
      </Routes>
      </BrowserRouter>
       {/* <Login></Login> */}
+      <Tabs></Tabs>
       
     </div>
   );
