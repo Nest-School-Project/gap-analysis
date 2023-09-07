@@ -1,16 +1,22 @@
 import './App.css';
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
+  let navigate = useNavigate();
 
   const handleLogin = () => {
     // You can implement actual authentication logic here.
     // For simplicity, we'll check if both username and password are 'admin'.
     if (username === 'admin' && password === 'admin') {
       setLoggedIn(true);
+      
+  
+    
+        navigate("/entry")
     } else {
       alert('Invalid credentials. Please try again.');
     }
