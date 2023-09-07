@@ -1,16 +1,22 @@
 import './App.css';
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
+  let navigate = useNavigate();
 
   const handleLogin = () => {
     // You can implement actual authentication logic here.
     // For simplicity, we'll check if both username and password are 'admin'.
     if (username === 'admin' && password === 'admin') {
       setLoggedIn(true);
+      
+  
+    
+        navigate("/entry")
     } else {
       alert('Invalid credentials. Please try again.');
     }
@@ -35,7 +41,7 @@ export const Login = () => {
         <br></br>
         <br></br>
         <br></br>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Subjectivity"></link>
+        <link rel="stylesheet" href="//2ttf.com/webfont/6IF8GLA3aiM/webfont.ttf"></link>
         <h1 className="title">WELCOME</h1>
         <span class="input">
         <input id="un"

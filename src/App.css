@@ -1,13 +1,36 @@
 .App {
   text-align: center;
   background-color: #ffbe64;
-  font-family:Subjectivity;
+  font-family:Skyscapers;
   height: 730px;
   width: 1500px;
   margin-bottom:20px;
 
 }
 
+.Edit{
+  text-align: center;
+  background-color: #ffbe64;
+  height: 730px;
+  width: 1500px;
+  margin-bottom:20px;
+}
+.text-primary {
+  text-align: left;
+--bs-text-opacity: 1;
+  color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
+}
+.container-fluid{
+  background-color: #20217a;
+
+}
+#menu{
+  margin-left: 10px;
+}
+.ins{
+  margin-bottom: 20px;
+
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

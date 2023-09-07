@@ -2,9 +2,12 @@
 import './App.css';
 import './Grades.css';
 import Header from './Components/Header';
+import { Entry } from './Entry';
 import { Login } from './Login';
 import { Grades } from './Grades';
 
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -12,6 +15,13 @@ function App() {
      
       <Login></Login>
       <Grades></Grades>
+     <BrowserRouter>
+     <Routes>
+      <Route path="/" element={<Login/>} />
+      <Route path="entry" element={<Entry/>} />
+     </Routes>
+     </BrowserRouter>
+      {/* <Login></Login> */}
     </div>
   );
 }
