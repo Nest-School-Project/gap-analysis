@@ -10,6 +10,9 @@ export const Grades = () => {
     <Boxes Names="LKG"></Boxes>
     <Boxes Names="UKG"></Boxes>
     <Boxes Names="1"></Boxes>
+    <Boxes Names="2"></Boxes>
+    <Boxes Names="3"></Boxes>
+    {/* <Boxes Names=""></Boxes> */}
     </div>
     </div>
   )
