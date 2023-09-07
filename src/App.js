@@ -2,12 +2,16 @@
 import './App.css';
 import Header from './Components/Header';
 import { Login } from './Login';
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-     
-      <Login></Login>
+     <BrowserRouter>
+     <Routes><Route path="/" element={<Login/>} /></Routes>
+     </BrowserRouter>
+      {/* <Login></Login> */}
     </div>
   );
 }
