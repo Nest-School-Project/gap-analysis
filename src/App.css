@@ -36,6 +36,7 @@
 .space{
   margin-left: 25px; 
 }
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -107,5 +108,49 @@ margin-top: 20px;*/
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.tabs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tabs active-tabs
+{
+  border-top: #de4cba 2px solid;
+}
+.tabs {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.tab-button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.tab-content {
+  width: 100%;
+  max-width: 800px;
+}
+
+@media (max-width: 1000px) {
+  .tabs {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .tab-button {
+    margin-right: 0;
+    margin-bottom: 10px;
   }
 }
