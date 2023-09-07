@@ -14,12 +14,12 @@ function App() {
   return (
     <div className="App">
      
-      <Login></Login>
-      <Grades></Grades>
+    
      <BrowserRouter>
      <Routes>
       <Route path="/" element={<Login/>} />
       <Route path="entry" element={<Entry/>} />
+      <Route path="/grade" element={<Grades/>}/>
      </Routes>
      </BrowserRouter>
       {/* <Login></Login> */}
