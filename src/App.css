@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #ffbe64;
+  background-color: #fcd6c4;
   font-family:Skyscapers;
   height: 730px;
   width: 1500px;
@@ -10,7 +10,7 @@
 
 .Edit{
   text-align: center;
-  background-color: #ffbe64;
+  background-color: #fcd6c4;
   height: 730px;
   width: 1500px;
   margin-bottom:20px;
@@ -27,9 +27,14 @@
 #menu{
   margin-left: 10px;
 }
-.ins{
-  margin-bottom: 20px;
 
+  label, input {
+    display: inline-block;
+    margin-right: 10px; 
+    margin-bottom: 25px;
+}
+.space{
+  margin-left: 25px; 
 }
 .App-logo {
   height: 40vmin;
