@@ -8,11 +8,20 @@
     border-radius: 10px;
   }
   .Boxstyle{
-     
+     position: absolute;
+     left: 250px;
+     top: 150px;
       display: flex;
-      flex-wrap: nowrap;
-      background-color: rgb(108, 137, 165);
-    
-    
-    
+      flex-wrap:wrap;
+      width: 1100px;
+      background-color: #fcd6c4;
+  
   }
+  /* .Boxstyle1{
+    
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(108, 137, 165);
+
+  } */
+    
