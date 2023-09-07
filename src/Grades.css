@@ -9,11 +9,11 @@
   }
   .Boxstyle{
      position: absolute;
-     left: 400px;
+     left: 250px;
      top: 150px;
       display: flex;
       flex-wrap:wrap;
-      width: 730px;
+      width: 1100px;
       background-color: #fcd6c4;
   
   }

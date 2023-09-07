@@ -22,8 +22,7 @@ function App() {
       <Route path="/grade" element={<Grades/>}/>
      </Routes>
      </BrowserRouter>
-      {/* <Login></Login> */}
-      <Tabs></Tabs>
+  
       
     </div>
   );
