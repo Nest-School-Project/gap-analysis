@@ -41,7 +41,7 @@ export const Login = () => {
         <br></br>
         <br></br>
         <br></br>
-        <link rel="stylesheet" href="//2ttf.com/webfont/6IF8GLA3aiM/webfont.ttf"></link>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme"></link>
         <h1 className="title">WELCOME</h1>
         <span class="input">
         <input id="un"
