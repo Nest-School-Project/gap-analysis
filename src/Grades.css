@@ -1,0 +1,18 @@
+.box {
+  position: relative;
+    width: 100px;
+    height: 50px;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+  }
+  .Boxstyle{
+     
+      display: flex;
+      flex-wrap: nowrap;
+      background-color: rgb(108, 137, 165);
+    
+    
+    
+  }
