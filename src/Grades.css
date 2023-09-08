@@ -14,9 +14,13 @@
       display: flex;
       flex-wrap:wrap;
       width: 1100px;
-      background-color: #fcd6c4;
+      background-color: transparent;
   
   }
+  /* .Logo{ */
+    /* background-image:url("../src/download.jpg"); */
+
+  /* } */
   /* .Boxstyle1{
     
     display: flex;
