@@ -1,4 +1,6 @@
 import React from 'react'
+import { Graph } from './Components/Graph'
+import './App.css';
 
 export const Gap_analysis = () => {
   return (
@@ -20,6 +22,9 @@ export const Gap_analysis = () => {
   </tr>
   
 </table>
+    <div className='graphst'>
+      <Graph></Graph>
+    </div>
 
     </div>
   )
