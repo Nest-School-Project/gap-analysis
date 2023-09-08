@@ -15,7 +15,7 @@ export const Grades = () => {
     <button onClick={handleclick} style={{margin:"30px"}}><Boxes Names="LKG"></Boxes></button>
     <button  style={{margin:"30px"}}> <Boxes Names="UKG"></Boxes></button>
     <button style={{margin:"30px"}}> <Boxes Names="1"></Boxes></button>
-    <button style={{margin:"30px"}} style={{margin:"30px"}}> <Boxes Names="2"></Boxes></button>
+    <button style={{margin:"30px"}} > <Boxes Names="2"></Boxes></button>
     <button style={{margin:"30px"}}><Boxes Names="3"></Boxes></button>
     <button style={{margin:"30px"}}> <Boxes Names="4"></Boxes></button>
     <button style={{margin:"30px"}}><Boxes Names="5"></Boxes></button>
