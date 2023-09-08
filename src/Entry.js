@@ -11,14 +11,7 @@ export const Entry = () => {
     const toggleTab = (index) => {
         setToggleState(index);
     }
-    function Slider() {
-      // Initialize the slider value with a default value
-      const [sliderValue, setSliderValue] = useState(50);
     
-      // Function to update the slider value
-      const handleSliderChange = (event) => {
-        setSliderValue(event.target.value);
-      }};
   return (
     
     <div className='Edit'>
@@ -29,30 +22,30 @@ export const Entry = () => {
             <br></br>
             <br></br>
             <label className='ins' >Name</label>
-            <input
+            <input className='lab'
             type="text"
             required
             ></input>
             <br></br>
             <label className='ins'>Class</label>
-            <input
+            <input className='lab'
             type="text"
             required
             ></input>
             <br></br>
             <label className='ins'>Sec</label>
-            <input
+            <input className='lab'
             type="text"
             required
             ></input>
             <br></br>
-            <label className='ins'>USN No</label>
-            <input
+            <label className='ins'>USN </label>
+            <input className='lab'
             type="text"
             required
             ></input>
 <br></br>
-<label className='ins'>ASSESSMENT TYPE</label>
+<label >ASSESSMENT TYPE</label>
 <span className='space'></span>
     <input type="radio" name="color" value="red"></input>
   <label>FORMATIVE ASSESSMENT</label>
@@ -75,42 +68,94 @@ export const Entry = () => {
   </li>
  
 </ul>
+<div class="tab-content" id="myTabsContent">
+                <div class={toggleState === 1 ? "tab-pane fade show active" : "tab-pane fade"}>
+                <label className='ins'>Scope and Sequence</label>
 
-<div class="tab-content">
-  <div class="tab-pane fade show active" id="content1">
-   <label>Scope and Sequence</label>
+<input className='lab'
+            type="text"
+            required
+            ></input>
 <br></br>
-<div class="slidecontainer">
-  <input type="range" min="1" max="100" value="50" class="slider" id="myRange"/>
-</div>
-   <label>Scope and Sequence</label>
-   <br></br>
+   <label className='ins'> Scope and Sequence</label>
+  
+   <input className='lab'
+            type="text"
+            required
+            ></input><br></br>
+   <label className='ins'>Success Criteria from Unit Planner</label>
    
-   <label>Scope and Sequence</label>
-   <br></br>
-   <label>Scope and Sequence</label>
-   <br></br>
-  </div>
-  <div class="tab-pane fade" id="content2">
+   <input className='lab'
+            type="text"
+            required
+            ></input><br></br>
+   <label className='ins'>Assessment Specific</label>
    
-    <p>This is the content of Tab 2.</p>
+   <input className='lab'
+            type="text"
+            required
+            ></input>
+                   
+                </div>
+
+
+                <div class={toggleState === 2 ? "tab-pane fade show active" : "tab-pane fade"}>
+                   
+          
+                <label className='ins'>Scope and Sequence</label>
+
+<input className='lab'
+            type="text"
+            required
+            ></input>
+<br></br>
+   <label className='ins'> Scope and Sequence</label>
+  
+   <input className='lab'
+            type="text"
+            required
+            ></input><br></br>
+   <label className='ins'>Real World Application</label>
+   
+   <input className='lab'
+            type="text"
+            required
+            ></input><br></br>
+   <label className='ins'>NEST Pillar Reference</label>
+   
+   <input className='lab'
+            type="text"
+            required
+            ></input>
+            <label className='ins'>Approaches to Learning -I</label>
+   
+   <input className='lab'
+            type="text"
+            required
+            ></input>
+            <label className='ins'>Approaches to Learning -II</label>
+   
+   <input className='lab'
+            type="text"
+            required
+            ></input>
+            <label className='ins'>Higher Order Thinking</label>
+   
+   <input className='lab'
+            type="text"
+            required
+            ></input>
+  
+   
+ 
   </div>
  
 </div>
+<input type="submit" name="submit"></input>  
 
-<div>
-      <input
-        type="range"
-        id="myRange"
-        value={sliderValue}
-        onChange={handleSliderChange}
-      />
-      <p>Value: {sliderValue}</p>
-    </div>
 
      </div>
      
   )
   
 }
-export default Slider;
