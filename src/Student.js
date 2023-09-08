@@ -8,7 +8,7 @@ export const Student = () => {
   };
   return (
     <div>
-    <h1>Student Entry</h1>
+    <p>Student Entry</p>
     <form>
         <label>Name:</label>
         <input type='text' name='Name' placeholder='name' ></input>
