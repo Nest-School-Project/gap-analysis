@@ -10,15 +10,15 @@ export const Entry = () => {
   const [toggleState, setToggleState] = useState(1);
     const toggleTab = (index) => {
         setToggleState(index);
-    }
-    function Slider() {
-      // Initialize the slider value with a default value
-      const [sliderValue, setSliderValue] = useState(50);
+    } 
+    // function Slider() {
+    //   // Initialize the slider value with a default value
+    //   const [sliderValue, setSliderValue] = useState(50);
     
-      // Function to update the slider value
-      const handleSliderChange = (event) => {
-        setSliderValue(event.target.value);
-      }};
+    //   // Function to update the slider value
+    //   const handleSliderChange = (event) => {
+    //     setSliderValue(event.target.value);
+    //   }};
   return (
     
     <div className='Edit'>

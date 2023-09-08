@@ -3,8 +3,8 @@ import React from 'react'
 export const Add=
 () =>{
   return (
-    <div>Add
-        <h1>ADD ClASS</h1>
+    <div>
+        {/* <h1>ADD CLASS</h1> */}
         <form>
             <label>Class</label>
             <select name="Class" id="standard">
@@ -19,6 +19,7 @@ export const Add=
     <option value="7th">7th</option>
     <option value="8th">8th</option>
 </select>
+<br></br>
 <label>Section</label>
 <select name="Class" id="standard">
     <option value="A">A</option>
