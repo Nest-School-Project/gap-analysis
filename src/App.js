@@ -5,6 +5,9 @@ import Header from './Components/Header';
 import { Entry } from './Entry';
 import { Login } from './Login';
 import { Grades } from './Grades';
+import { Student } from './Student';
+import { Add } from './Add';
+
 
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -24,7 +27,8 @@ function App() {
       <Route path="entry" element={<Entry/>} />
       <Route path="Gap-analysis" element={<Gap_analysis />} />
       <Route path="/grade" element={<Grades/>}/>
-      <Route path="/student" element={<Student/>}/>
+      <Route path="/Student" element={<Student/>}/>
+      <Route path="/Add" element={<Add/>}/>
      </Routes>
      </BrowserRouter>
   
