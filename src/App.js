@@ -22,10 +22,10 @@ function App() {
      <Routes>
 
       <Route path="/" element={<Login/>} />
-      {/* <Route path="entry" element={<Entry/>} /> */}
+      <Route path="entry" element={<Entry/>} />
       <Route path="Gap-analysis" element={<Gap_analysis />} />
       <Route path="/grade" element={<Grades/>}/>
-      <Route path="/graph" element={<Graph/>}/>
+      <Route path="/student" element={<Student/>}/>
      </Routes>
      </BrowserRouter>
   
