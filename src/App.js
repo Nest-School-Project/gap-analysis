@@ -2,17 +2,18 @@
 import './App.css';
 import './Grades.css';
 import Header from './Components/Header';
-import { Entry } from './Entry';
+// import { Entry } from './Entry';
 import { Login } from './Login';
 import { Grades } from './Grades';
 import { Student } from './Student';
 import { Add } from './Add';
 
+import {Gap_analysis} from './Gap-analysis';
 
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Gap_analysis } from './Gap-analysis';
 import {Tabs} from './Tabs';
+import {Graph} from './Components/Graph';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
      
     
      <BrowserRouter>
-     {/* <Gap_analysis></Gap_analysis> */}
+     
      <Routes>
 
       <Route path="/" element={<Login/>} />
