@@ -9,34 +9,38 @@ height: 730px;
   
 }
 
-.Edit{
+.Edit {
   text-align: center;
   background-color: #fcd6c4;
   font-family:Acme;
   height: 730px;
   width: 1500px;
-  margin-bottom:20px;
+  margin-bottom: 20px;
 }
+
 .text-primary {
   text-align: left;
---bs-text-opacity: 1;
+  --bs-text-opacity: 1;
   color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
 }
-.container-fluid{
-  background-color: #20217a;
 
+.container-fluid {
+  background-color: #20217a;
 }
-#menu{
+
+#menu {
   margin-left: 10px;
 }
 
-  label, input {
-    display: inline-block;
-    margin-right: 10px; 
-    margin-bottom: 25px;
+label,
+input {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 25px;
 }
-.space{
-  margin-left: 25px; 
+
+.space {
+  margin-left: 25px;
 }
 
 .App-logo {
@@ -61,10 +65,17 @@ height: 730px;
   color: white;
 }
 
+.Gradename {
+  font-family: Caveat;
+  font-size: 40px;
+  margin-left: 10px;
+}
+
 .App-link {
   color: #61dafb;
 }
-#un{
+
+#un {
   background: linear-gradient(21deg, #fcfcfb, #bdbbba);
   border-radius: 6px;
   font-family:Acme;
@@ -77,17 +88,19 @@ font-size: 20px;
 	
 	
 }
-#pd{
+
+#pd {
   background: linear-gradient(21deg, #fcfcfb, #bdbbba);
   border-radius: 6px;
-  margin-bottom:30px;
+  margin-bottom: 30px;
   margin-left: 663px;
   font-family:Acme;
   height:35px;
 width:200px; 
 font-size: 20px;
 }
-#sub{
+
+#sub {
   background: linear-gradient(21deg, #fcfcfb, #bdbbba);
   border-radius: 6px;
   margin-left: 660px;
@@ -130,27 +143,31 @@ font-size: 20px;
 }
 #logo{
   position: absolute;
-  top:50px;
-  left:20px;
- /*display: block;
+  top: 50px;
+  left: 20px;
+  /*display: block;
    margin-left: 50px;
 margin-right: 2200px;
 margin-top: 20px;*/
 }
-.title{
- position:relative;
- top:60px;
- left:22%;
+
+.title {
+  position: relative;
+  top: 60px;
+  left: 22%;
 }
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
+/*
 .tabs-container {
   display: flex;
   flex-direction: column;
@@ -177,7 +194,7 @@ margin-top: 20px;*/
   background-color: #007bff;
   color: white;
 }
-
+*/
 .tab-content {
   width: 100%;
   max-width: 800px;
