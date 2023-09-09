@@ -119,9 +119,13 @@ custom-slider {
 }
 
 .Gradename {
-  font-family: Caveat;
-  font-size: 40px;
+  font-family: Acme;
+  font-size: 60px;
+  text-align: left;
   margin-left: 10px;
+  border-bottom: #261e50 double ;
+  
+  
 }
 
 .App-link {

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Header from './Components/Header';
 import './App.css';
-
 export const Class_details = () => {
     const [toggleState, setToggleState] = useState(1);
     const toggleTab = (index) => {
@@ -9,6 +8,7 @@ export const Class_details = () => {
     }
     return (
         <div ><Header></Header>
+        <br></br>
             <p className="Gradename" >LKG</p>
             <ul class="nav nav-tabs" id="myTabs" role="tablist">
                 <li class="nav-item">
