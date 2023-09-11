@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 export const Grades = () => {
   let navigate=useNavigate();
   const handleclick = () => {
-    navigate("/entry")
+    navigate("/class-details")
   };
   return(<div>
 

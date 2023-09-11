@@ -23,13 +23,12 @@ height: 1500px;
   --bs-text-opacity: 1;
   color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
 }
-<<<<<<< HEAD
+
 .container-fluid{
   background-color: #20217a;
   width:100px ;
 
-=======
->>>>>>> a980d772c4169101647e739bd808878fa930c574
+}
 
 .container-fluid {
   background-color: #20217a;

@@ -13,22 +13,16 @@ export const Login = () => {
     // For simplicity, we'll check if both username and password are 'admin'.
     if (username === 'admin' && password === 'admin') {
       setLoggedIn(true);
-      
-  
-      
-    
-        navigate("/entry")
+      navigate("/Grade")
     } else {
       alert('Invalid credentials. Please try again.');
     }
   };
-
   const handleLogout = () => {
     setLoggedIn(false);
     setUsername('');
     setPassword('');
   };
-
   if (loggedIn) {
     return (
       <div className="App">
