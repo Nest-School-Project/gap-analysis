@@ -10,20 +10,8 @@ export const Entry = () => {
   const [toggleState, setToggleState] = useState(1);
     const toggleTab = (index) => {
         setToggleState(index);
-<<<<<<< HEAD
     }
     
-=======
-    } 
-    // function Slider() {
-    //   // Initialize the slider value with a default value
-    //   const [sliderValue, setSliderValue] = useState(50);
-    
-    //   // Function to update the slider value
-    //   const handleSliderChange = (event) => {
-    //     setSliderValue(event.target.value);
-    //   }};
->>>>>>> a980d772c4169101647e739bd808878fa930c574
   return (
     
     <div className='Edit'>
