@@ -27,6 +27,7 @@ height: 1500px;
   background-color: #20217a;
   width:100px ;
 
+}
 
 .container-fluid {
   background-color: #20217a;
@@ -116,9 +117,13 @@ custom-slider {
 }
 
 .Gradename {
-  font-family: Caveat;
-  font-size: 40px;
+  font-family: Acme;
+  font-size: 60px;
+  text-align: left;
   margin-left: 10px;
+  border-bottom: #261e50 double ;
+  
+  
 }
 
 .App-link {
@@ -265,5 +270,4 @@ margin-top: 20px;*/
   width:700px;
   height:1000px;
 
-}
 }
