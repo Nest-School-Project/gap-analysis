@@ -1,5 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import './App.css';
+
 
 export const Student = () => {
     let navigate=useNavigate();
@@ -7,8 +9,10 @@ export const Student = () => {
     navigate("/entry")
   };
   return (
-    <div>
+    <div className='Stu'>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme"></link>
     <p>Student Entry</p>
+
     <form>
         <label>Name:</label>
         <input type='text' name='Name' placeholder='name' ></input>
