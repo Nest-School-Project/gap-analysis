@@ -30,12 +30,12 @@ function App() {
 
                               <Route path="/" element={<Login />} />
                               
-                              <Route path="/class-details" element={ <Class_details />} />
+                              <Route path="/class-details/:classname" element={ <Class_details />} />
                           
                              
 
                              
-                              <Route path="/GapAnalysis" element={<Gap_analysis />} />
+                              <Route path="/GapAnalysis/:name" element={<Gap_analysis />} />
                               <Route path="/Grade" element={<Grades />} />
 
                               <Route path="/Student" element={<Student />} />

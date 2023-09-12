@@ -11,6 +11,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
  import faker from 'faker';
+import Header from './Header';
 
 ChartJS.register(
   CategoryScale,
@@ -35,32 +36,32 @@ export const options = {
   },
 };
 
-const labels = ['PA1', 'PA2', 'PA3', 'PA4', 'PA5', 'PA6', 'PA7'];
+const labels = ['FA1', 'FA2', 'FA3', 'FA4', 'FA5', 'FA6', 'FA7'];
 
 export const data = {
   labels,
   datasets: [
     {
       label: 'SCOPE',
-      data: [30,300,400,500,600,700,800],
+      data: [30,300,200,250,100,300,80],
       borderColor: 'red',
       backgroundColor: 'rgba(255, 99, 132, 0.5)',
     },
     {
       label: 'SEQUENCE',
-      data: [70,300,400,500,600,700,800],
+      data: [70,30,40,50,60,70,80],
       borderColor: 'yellow',
       backgroundColor: 'rgba(53, 162, 235, 0.5)',
     },
     {
         label: 'SUCCESS',
-        data: [60,300,400,500,600,700,800],
+        data: [60,300,400,500,600,70,800],
         borderColor: 'green',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
       {
         label: 'ASSESSMENT SPECIFIC',
-        data: [50,300,400,500,600,700,800],
+        data: [50,150,170,360,600,700,800],
         borderColor: 'blue',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
@@ -68,5 +69,9 @@ export const data = {
 };
 
 export function Graph() {
-  return <Line options={options} data={data} />;
+  return (
+    <div>
+      
+  <Line options={options} data={data} />
+  </div>);
 }
