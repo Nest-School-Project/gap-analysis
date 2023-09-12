@@ -8,35 +8,38 @@ export const Class_details = () => {
         setToggleState(index);
     }
     const students=[{
+        "usn":"12345",
         "name":"Mark",
         "section":"A",
     },
     {
+        "usn":"12356",
         "name":"Antony",
         "section":"B"
+    },
+    {
+        "usn":"4567",
+        "name":"Brat",
+        "section":"C"
+    },
+    {
+        "usn":"09892",
+        "name":"Samuel",
+        "section":"D"
     }
 ]
     const sections=[
         "A",
         "B",
-        "C"
+        "C",
+        "D"
     ]
     const {classname}=useParams();
-    //console.log(name)
     return (
         <div ><Header></Header>
         <br></br>
             <p className="Gradename" >Class:{classname}</p>
             <ul class="nav nav-tabs" id="myTabs" role="tablist">
-                {/* <li class="nav-item">
-                    <button class={toggleState === 1 ? "nav-link active" : "nav-link"} onClick={() => toggleTab(1)}>Section A</button>
-                </li>
-                <li class="nav-item">
-                    <button class={toggleState === 2 ? "nav-link active" : "nav-link"} onClick={() => toggleTab(2)}>Section B</button>
-                </li>
-                <li class="nav-item">
-                    <button class={toggleState === 3 ? "nav-link active" : "nav-link"} onClick={() => toggleTab(3)}>Section C</button>
-                </li> */}
                 {
                     sections.map((sec,index)=>{
                         return (<li class="nav-item">
@@ -47,47 +50,44 @@ export const Class_details = () => {
             </ul>
 
             <div class="tab-content" id="myTabsContent">
-               
-                <div class={toggleState === 1 ? "tab-pane fade show active" : "tab-pane fade"}>
-                    <h2>Section A</h2>
-                    <hr />
-                    <table class="table " >
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Grades</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Sugan</td>
-                                <td>G</td>
-                                <td><a href=
-                                "/GapAnalysis/Sugan">GapAnalysis</a></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Sameer</td>
-                                <td>A</td>
-                                <td><a href="/GapAnalysis/Sameer">GapAnalysis</a></td>
-                            </tr>
+            {
+                sections.map((section,index)=>{
+                    return (
+                        <div className={toggleState===index+1 ? "tab-pane face show active" : "tab-pane fade"}>
+                            <h2>Section {section}</h2>
+                            <table class="table" >
+                            <thead>
+                                <tr>
+                                    <th scope="col">USN</th>
+                                    <th scope="col">First</th>
+                                    <th scope="col">Last</th>
+                                    <th scope="col">Grades</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    students.map((student,index)=>{
+                                        if(student.section===section){
+                                            return (
+                                                <tr>
+                                                    <th scope="row">{student.usn}</th>
+                                                    <td>{student.name}</td>
+                                                    <td>G</td>
+                                                    <td><a href={"/GapAnalysis/"+student.name}>Gap Analysis</a></td>
+                                                </tr>
+                                            )
+                                        }
+                                    })
+                                }
+                            </tbody>
+                            </table>
+                        </div>
 
-                        </tbody>
-                    </table>
-                </div> 
-                <div class={toggleState === 2 ? "tab-pane fade show active" : "tab-pane fade"}>
-                    <h2>Section B</h2>
-                    <hr />
-                    <p>table content of section 2</p>
-                </div>
-                <div class={toggleState === 3 ? "tab-pane fade show active" : "tab-pane fade"}>
-                    <h2>Section C</h2>
-                    <hr />
-                    <p>table content of section 3</p>
-                </div>
+                    )
+                })
+            }
+
+               
             </div>
         </div>
     )

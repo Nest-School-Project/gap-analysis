@@ -1,5 +1,5 @@
 import './Grades.css';
-import'./Boxes.js';
+import './Boxes.js';
 import React, { useState } from 'react';
 import Boxes from './Boxes.js';
 import { useNavigate} from 'react-router-dom';
