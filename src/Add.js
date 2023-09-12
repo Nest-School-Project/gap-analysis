@@ -1,9 +1,13 @@
 import React from 'react'
+import './App.css';
+
 
 export const Add=
 () =>{
   return (
     <div>
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme"></link>
+
         {/* <h1>ADD CLASS</h1> */}
         <form>
             <label>Class</label>
