@@ -18,6 +18,7 @@ import { Themes } from './Themes';
 
 
 import { Graph } from './Components/Graph';
+import SideBar from './Components/SideBar';
 
 function App() {
       return (
@@ -31,15 +32,11 @@ function App() {
                               <Route path="/" element={<Login />} />
                               
                               <Route path="/class-details/:classname" element={ <Class_details />} />
-                          
-                             
-
-                             
                               <Route path="/GapAnalysis/:name" element={<Gap_analysis />} />
                               <Route path="/Grade" element={<Grades />} />
-
-                              <Route path="/Student" element={<Student />} />
+                             <Route path="/Student" element={<Student />} />
                               <Route path="/Add" element={<Add />} />
+                              <Route path="/SideBar" element={<SideBar />} />
                           
                         </Routes >
                   </BrowserRouter >
