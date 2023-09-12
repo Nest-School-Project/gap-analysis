@@ -1,4 +1,5 @@
 import './Grades.css';
+import './App.css';
 import'./Boxes.js';
 import React, { useState } from 'react';
 import Boxes from './Boxes.js';
