@@ -16,7 +16,7 @@ export default props => {
       Add Student
       </a>
 
-      <a className="menu-item" href="/Grade">
+      <a className="menu-item" href="/Themes">
         Add Theme
       </a>
 

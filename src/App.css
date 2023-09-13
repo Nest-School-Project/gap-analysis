@@ -11,6 +11,9 @@ height: 1500px;
 .famarks{
   border: 5px solid #043643;
 }
+th{
+  border:1px solid black;
+}
  .Stu{ text-align: center;
   background-color: #f0ccc0;
   font-family:Acme;
@@ -39,6 +42,8 @@ height: 1500px;
   background-color: #20217a;
   width:100px ;
   height: 65px;
+  position:sticky;
+  top:0;
 
 }
 
@@ -319,6 +324,7 @@ body {
   height: 30px;
   left: 30px;
   top: 20px;
+  
 }
 
 .bm-burger-bars {
@@ -356,3 +362,45 @@ body {
 #nestlogo{
   margin-left: 80px;
 }
+addspace{
+  margin-top: 40px;
+}
+.dropbtn {
+  background-color: #adabb9;
+  color: white;
+  width:250px;
+  height:40px;
+  font-size: 30px;
+  border-radius: 10px;
+  
+}
+.dropdown {
+  text-align: left;
+  display: inline-block;
+  margin-left: 10px;
+}
+.container{
+  margin-left: 50px;
+  display: flex;
+  justify-content: space-between;
+  
+
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  font-size: 20px;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {background-color: #ddd;}
+.dropdown:hover .dropdown-content {display: block; }
+.dropdown:hover .dropbtn {background-color: #c2c0cfc0;}
