@@ -1,12 +1,17 @@
 import React, { useState } from 'react'
 import Header from './Components/Header';
 import './App.css';
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 export const Class_details = () => {
     const [toggleState, setToggleState] = useState(1);
     const toggleTab = (index) => {
         setToggleState(index);
     }
+    
+    const toentry = ()=>
+    {
+        Navigate('/Entry.js');
+    };
     const students=[{
         "name":"Mark",
         "section":"A",
@@ -28,15 +33,6 @@ export const Class_details = () => {
         <br></br>
             <p className="Gradename" >Class:{classname}</p>
             <ul class="nav nav-tabs" id="myTabs" role="tablist">
-                {/* <li class="nav-item">
-                    <button class={toggleState === 1 ? "nav-link active" : "nav-link"} onClick={() => toggleTab(1)}>Section A</button>
-                </li>
-                <li class="nav-item">
-                    <button class={toggleState === 2 ? "nav-link active" : "nav-link"} onClick={() => toggleTab(2)}>Section B</button>
-                </li>
-                <li class="nav-item">
-                    <button class={toggleState === 3 ? "nav-link active" : "nav-link"} onClick={() => toggleTab(3)}>Section C</button>
-                </li> */}
                 {
                     sections.map((sec,index)=>{
                         return (<li class="nav-item">
@@ -54,25 +50,32 @@ export const Class_details = () => {
                     <table class="table " >
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Grades</th>
+                                <th scope="col">S.No</th>
+                                <th scope="col">USN</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">GapAnalysis</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <th scope="row">1</th>
+                                <td>13001</td>
                                 <td>Sugan</td>
                                 <td>G</td>
                                 <td><a href=
-                                "/GapAnalysis/Sugan">GapAnalysis</a></td>
+                                "/GapAnalysis/Sugan">View</a></td>
+                                <td><button onClick={toentry}>Edit</button></td>
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
+                                <td>13002</td>
                                 <td>Sameer</td>
                                 <td>A</td>
-                                <td><a href="/GapAnalysis/Sameer">GapAnalysis</a></td>
+                                <td><a href="/GapAnalysis/Sameer">View</a></td>
+                                <td><button href=
+                                "/GapAnalysis/Sameer">Edit</button></td>
                             </tr>
 
                         </tbody>
