@@ -1,16 +1,21 @@
 import React from 'react'
 import './App.css';
+import Header from './Components/Header';
+import SideBar from './Components/SideBar';
 
 
 export const Add=
 () =>{
   return (
     <div>
+      <Header></Header>
+      <SideBar></SideBar>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme"></link>
 
         {/* <h1>ADD CLASS</h1> */}
         <form>
-            <label>Class</label>
+          <br></br>
+            <label className='addspace'>Class</label>
             <select name="Class" id="standard">
     <option value="LKG">LKG</option>
     <option value="UKG">UKG</option>

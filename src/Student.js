@@ -1,15 +1,19 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './App.css';
+import Header from './Components/Header';
+import SideBar from './Components/SideBar';
 
 
 export const Student = () => {
     let navigate=useNavigate();
   const handleclick = () => {
-    navigate("/entry")
+    navigate("/Grade")
   };
   return (
     <div className='Stu'>
+      <Header></Header>
+   <SideBar></SideBar>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme"></link>
     <p>Student Entry</p>
 
