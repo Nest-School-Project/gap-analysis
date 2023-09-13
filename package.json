@@ -9,8 +9,10 @@
     "bootstrap": "^5.3.1",
     "gsap": "^3.12.2",
     "react": "^18.2.0",
+    "react-burger-menu": "^3.0.9",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
+    "react-pro-sidebar": "^1.1.0-alpha.1",
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
