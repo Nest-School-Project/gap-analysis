@@ -1,12 +1,17 @@
 import React, { useState } from 'react'
 import Header from './Components/Header';
 import './App.css';
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 export const Class_details = () => {
     const [toggleState, setToggleState] = useState(1);
     const toggleTab = (index) => {
         setToggleState(index);
     }
+    
+    const toentry = ()=>
+    {
+        Navigate('/Entry.js');
+    };
     const students=[{
         "usn":"12345",
         "name":"Mark",
@@ -27,7 +32,7 @@ export const Class_details = () => {
         "name":"Samuel",
         "section":"D"
     }
-]
+   ]
     const sections=[
         "A",
         "B",
@@ -50,6 +55,10 @@ export const Class_details = () => {
             </ul>
 
             <div class="tab-content" id="myTabsContent">
+               
+                <div class={toggleState === 1 ? "tab-pane fade show active" : "tab-pane fade"}>
+                    <h2>Section A</h2>
+                    <hr />
             {
                 sections.map((section,index)=>{
                     return (
@@ -86,11 +95,9 @@ export const Class_details = () => {
                     )
                 })
             }
-
-               
-            </div>
+                        
         </div>
-    )
+        </div>
+        </div>
+    );
 }
-
-export default Class_details;

@@ -8,6 +8,9 @@ height: 1500px;
   margin-bottom:20px;
   
 }
+.famarks{
+  border: 5px solid #043643;
+}
  .Stu{ text-align: center;
   background-color: #f0ccc0;
   font-family:Acme;
@@ -132,8 +135,7 @@ custom-slider {
   text-align: left;
   margin-left: 10px;
   border-bottom: #261e50 double ;
-  
-  
+   
 }
 
 .App-link {
@@ -150,8 +152,7 @@ custom-slider {
   height:35px;
 width:200px; 
 font-size: 20px;
-	
-	
+
 }
 
 #pd {
@@ -233,34 +234,7 @@ margin-top: 20px;*/
   }
 }
 
-/*
-.tabs-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.tabs active-tabs
-{
-  border-top: #de4cba 2px solid;
-}
-.tabs {
-  display: flex;
-  margin-bottom: 20px;
-}
 
-.tab-button {
-  padding: 10px 20px;
-  margin-right: 10px;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.tab-button.active {
-  background-color: #007bff;
-  color: white;
-}
-*/
 .tab-content {
   width: 100%;
   max-width: 800px;
@@ -280,76 +254,43 @@ margin-top: 20px;*/
 .graphst{
   width:700px;
   height:1000px;
-
 }
 
-html,
-body {
-  margin: 0;
+.dropbtn {
+  background-color: #adabb9;
+  color: white;
+  width:250px;
+  height:40px;
+  font-size: 30px;
+  border-radius: 10px;
+  
 }
-
-#App {
-  font-family: sans-serif;
-  height: 100vh;
-}
-
-#page-wrap {
-  text-align: center;
-  overflow: auto;
-}
-
-.bm-item {
+.dropdown {
+  text-align: left;
   display: inline-block;
+  margin-left: 10px;
+}
+.container{
+  margin-left: 50px;
+  display: flex;
+  justify-content: space-between;
+  
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  font-size: 20px;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px;
   text-decoration: none;
-  margin-bottom: 10px;
-  color: #f8f2f2;
-  transition: color 0.2s;
+  display: block;
 }
-
-.bm-item:hover {
-  color: rgb(245, 107, 57);
-}
-
-.bm-burger-button {
-  position: fixed;
-  width: 36px;
-  height: 30px;
-  left: 30px;
-  top: 20px;
-}
-
-.bm-burger-bars {
-  background: #fafafc;
-}
-
-.bm-cross-button {
-  height: 24px;
-  width: 24px;
-}
-
-.bm-cross {
-  background: #bdc3c7;
-}
-
-.bm-menu {
-  background: #20217a9e;
-  opacity: 90%;
-  padding: 2.5em 1.5em 0;
-  font-size: 1.15em;
-}
-
-.bm-morph-shape {
-  fill: #373a47;
-}
-
-.bm-item-list {
-  color: #1a1802;
-}
-
-.bm-overlay {
-  background: rgba(0, 0, 0, 0.3);
-}
-
-#nestlogo{
-  margin-left: 80px;
-}
+.dropdown-content a:hover {background-color: #ddd;}
+.dropdown:hover .dropdown-content {display: block; }
+.dropdown:hover .dropbtn {background-color: #c2c0cfc0;}

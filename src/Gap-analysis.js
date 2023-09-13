@@ -9,6 +9,7 @@ export const Gap_analysis = () => {
     <div>
       <Header ></Header>
         <h1>GAP ANALYSIS:{name}</h1>
+
         {/* <label className='gap1' >Formative assessment</label>
             <input
             type="text"
@@ -24,9 +25,31 @@ export const Gap_analysis = () => {
     <td><input type="text" name="field2"/></td>
   </tr>
   
-</table> */}
+</table> */}         
     <div className='graphst'>
       <h2>Formative Assessment</h2>
+      <table className='famarks'>
+        <tr>
+          <th>PA1</th>
+          <th>PA2</th>
+          <th>PA3</th>
+        </tr>
+        <tr>
+          <td>70</td>
+          <td>80</td>
+          <td>80</td>
+        </tr>
+        <tr>
+          <td>70</td>
+          <td>80</td>
+          <td>80</td>
+        </tr>
+        <tr>
+          <td>70</td>
+          <td>80</td>
+          <td>80</td>
+        </tr>
+      </table>
       <Graph></Graph>
    
     </div>

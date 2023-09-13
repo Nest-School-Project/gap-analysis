@@ -12,7 +12,6 @@ import { Gap_analysis } from './Gap-analysis';
 
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import { Class_details } from './Class_details';
 import { Themes } from './Themes';
 
@@ -23,12 +22,8 @@ import SideBar from './Components/SideBar';
 function App() {
       return (
             <div className="App">
-
-
                   <BrowserRouter>
-
                         <Routes>
-
                               <Route path="/" element={<Login />} />
                               <Route path="/Entry" element={ <Entry />} />
                               <Route path="/class-details/:classname" element={ <Class_details />} />
@@ -40,6 +35,7 @@ function App() {
                           
                         </Routes >
                   </BrowserRouter >
+                  <Themes></Themes>
             </div >
 
       );
