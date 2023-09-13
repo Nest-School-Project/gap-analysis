@@ -39,6 +39,8 @@ height: 1500px;
   background-color: #20217a;
   width:100px ;
   height: 65px;
+  position:sticky;
+  top:0;
 
 }
 
@@ -319,6 +321,7 @@ body {
   height: 30px;
   left: 30px;
   top: 20px;
+  
 }
 
 .bm-burger-bars {
