@@ -3,7 +3,7 @@
   background-color: #fcd6c4;
   font-family:Acme;
   font-size: 30px;
-height: 1500px;
+  height: 1500px;
   width: 1519px;
   margin-bottom:20px;
   
@@ -368,10 +368,10 @@ addspace{
 .dropbtn {
   background-color: #adabb9;
   color: white;
-  width:250px;
+  width:350px;
   height:40px;
   font-size: 30px;
-  border-radius: 10px;
+  border-radius: 5px;
   
 }
 .dropdown {

@@ -9,8 +9,10 @@ export const Themes = () => {
 
   return (
     <div ><Header></Header>
-      <p className="Gradename" >THEMES</p>
 
+      <p className="Gradename" >THEMES</p>
+      <h1>Assessment Info and Evidence Sheet</h1>
+      <br />
       <form>
         <div class="container"><span transform="-90px">
           <label >Select Class</label>
@@ -40,6 +42,7 @@ export const Themes = () => {
               </div>
             </div></span>
         </div > <br></br>
+
         <div class="container">
           <span transform="-90px">
             <label >Enter Theme Name</label>
@@ -72,50 +75,59 @@ export const Themes = () => {
       </ul>
       <div class="tab-content" id="myTabsContent">
         <div class={toggleState === 1 ? "tab-pane fade show active" : "tab-pane fade"}>
-          <br/><br/>
+          <br /><br />
           <h2>FORMATIVE ASSESSMENT</h2>
-          <hr/>          
-            <span transform="-90px">
-              <label >Type of Assessment:</label>
-              <div class="dropdown"><input type="text" id="type_as" name="type_as"></input>
-              </div> </span>
-            <br></br>      
-            <span transform="-90px">
+          <hr />
+          <span transform="-90px">
+            <label >Type of Assessment:</label>
+            <div class="dropdown"><input type="text" id="type_as" name="type_as"></input>
+            </div> </span>
+          <br></br>
+          <span transform="-90px">
             <label >Assessment Stratergy :</label>
             <div class="dropdown"><input type="text" id="strat" name="strat"></input>
             </div> </span>
-            <br></br>
-            <span transform="-90px">
+          <br></br>
+          <span transform="-90px">
             <label >Assessment Tool :</label>
             <div class="dropdown"><input type="text" id="tool" name="tool"></input>
             </div> </span>
-            <br></br>  
-
-          </div>
-          <div class={toggleState === 2 ? "tab-pane fade show active" : "tab-pane fade"}>
-            <br /><br/>
-            <h2>SUMMATIVE ASSESSMENT</h2>
-            <hr />
-            <span transform="-90px">
-              <label >Type of Assessment:</label>
-              <div class="dropdown"><input type="text" id="type_as" name="type_as"></input>
-              </div> </span>
-              <span transform="-90px">
+          <br></br>
+          <table class="table" >
+            <thead>
+              <tr>
+                <th scope="col">USN</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Grades</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class={toggleState === 2 ? "tab-pane fade show active" : "tab-pane fade"}>
+          <br /><br />
+          <h2>SUMMATIVE ASSESSMENT</h2>
+          <hr />
+          <span transform="-90px">
+            <label >Type of Assessment:</label>
+            <div class="dropdown"><input type="text" id="type_as" name="type_as"></input>
+            </div> </span>
+          <span transform="-90px">
             <label >Assessment Stratergy :</label>
             <div class="dropdown"><input type="text" id="strat" name="strat"></input>
             </div> </span>
-            <br></br>
-            <span transform="-90px">
+          <br></br>
+          <span transform="-90px">
             <label >Assessment Tool :</label>
             <div class="dropdown"><input type="text" id="tool" name="tool"></input>
             </div> </span>
-            <br></br>
-          </div>
           <br></br>
         </div>
-        
-          
+        <br></br>
+      </div>
+
+
     </div>
-   
+
   )
 }
