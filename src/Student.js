@@ -11,6 +11,7 @@ export const Student = () => {
   return (
     <div className='Stu'>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme"></link>
+      <div className='Sd'>
     <p>Student Entry</p>
 
     <form>
@@ -41,6 +42,7 @@ export const Student = () => {
         <button onClick={handleclick}>submit</button>
         
     </form>
+    </div>
     </div>
 
     
