@@ -1,6 +1,8 @@
 import React from 'react'
 import './App.css';
 import { useNavigate } from 'react-router-dom';
+import Header from './Components/Header';
+import SideBar from './Components/SideBar';
 
 
 export const Add=
@@ -10,6 +12,8 @@ export const Add=
   };
   return (
     <div>
+      <Header></Header>
+      <SideBar></SideBar>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme"></link>
 
         {/* <h1>ADD CLASS</h1> */}
@@ -18,6 +22,8 @@ export const Add=
           <div className='St'>
           <h1> ADD</h1>
             <label>Class</label>
+          <br></br>
+            <label className='addspace'>Class</label>
             <select name="Class" id="standard">
     <option value="LKG">LKG</option>
     <option value="UKG">UKG</option>

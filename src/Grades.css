@@ -16,6 +16,9 @@
       background-color: transparent;
   
   }
+  #title{
+    position:relative;
+  }
   /* .Logo{ */
     /* background-image:url("../src/download.jpg"); */
 

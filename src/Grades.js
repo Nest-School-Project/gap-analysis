@@ -27,7 +27,7 @@ export const Grades = () => {
   ]
   return(<div>
     <Header />
-    <h1>Grades </h1>
+    <h1 id="title">Grades </h1>
     <div className='Boxstyle'>
     {
       grades.map((grade,index)=>{
