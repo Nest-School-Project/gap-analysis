@@ -6,11 +6,9 @@ export const Themes = () => {
   const toggleTab = (index) => {
     setToggleState(index);
   }
-
-  return (
+return (
     <div ><Header></Header>
-
-      <p className="Gradename" >THEMES</p>
+ <p className="Gradename" >THEMES</p>
       <h1>Assessment Info and Evidence Sheet</h1>
       <br />
       <form>
@@ -42,8 +40,25 @@ export const Themes = () => {
               </div>
             </div></span>
         </div > <br></br>
-
-        <div class="container">
+        <table>
+  
+  <tr>
+    <th>Enter Theme Name :</th>
+    <td><input type="text" name="TA"/></td>
+  
+  </tr>
+  <tr>
+  <th>Enter Central Idea :</th>
+    <td><input type="text" name="AS"/></td>
+  
+  </tr>
+  <tr>
+  <th>Enter Line of Inquiry :</th>
+    <td><input type="text" name="AT"/></td>
+  
+  </tr>
+</table>
+ {/* <div class="container">
           <span transform="-90px">
             <label >Enter Theme Name</label>
             <div class="dropdown"><input type="text" id="theme" name="theme"></input>
@@ -62,7 +77,7 @@ export const Themes = () => {
             <label >Enter Line of Inquiry</label>
             <div class="dropdown"><input type="text" id="inquiry" name="inquiry"></input>
             </div> </span>
-        </div>
+        </div> */}
         <br></br>
       </form>
       <ul class="nav nav-tabs" id="myTabs" role="tablist">
@@ -75,7 +90,7 @@ export const Themes = () => {
       </ul>
       <div class="tab-content" id="myTabsContent">
         <div class={toggleState === 1 ? "tab-pane fade show active" : "tab-pane fade"}>
-          <br /><br />
+          {/* <br /><br />
           <h2>FORMATIVE ASSESSMENT</h2>
           <hr />
           <span transform="-90px">
@@ -92,42 +107,128 @@ export const Themes = () => {
             <label >Assessment Tool :</label>
             <div class="dropdown"><input type="text" id="tool" name="tool"></input>
             </div> </span>
-          <br></br>
-          <table class="table" >
-            <thead>
-              <tr>
-                <th scope="col">USN</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Grades</th>
-              </tr>
-            </thead>
-          </table>
+          <br></br> */}
+
+<h2>FORMATIVE ASSESSMENT</h2>
+<hr />
+<table>
+  
+  <tr>
+    <th>Type of Assessment:</th>
+    <td><input type="text" name="TA"/></td>
+  
+  </tr>
+  <tr>
+  <th>Assessment Stratergy :</th>
+    <td><input type="text" name="AS"/></td>
+  
+  </tr>
+  <tr>
+  <th>Assessment Tool :</th>
+    <td><input type="text" name="AT"/></td>
+  
+  </tr>
+</table>
+<br>
+</br>
+<br></br>
+<table>
+  <tr>
+    <th>LEADS</th>
+    <th>CRITERIA</th>
+  </tr>
+  <tr>
+    <th>SCOPE AND SEQUENCE</th>
+    <td><input type="text" name="TA"/></td>
+  
+  </tr>
+  <tr>
+  <th>SCOPE AND SEQUENCE</th>
+    <td><input type="text" name="AS"/></td>
+  
+  </tr>
+  <tr>
+  <th>SUCCESS CRITERIA FROM UNIT PLANNER</th>
+    <td><input type="text" name="AT"/></td>
+  
+  </tr>
+  <tr>
+  <th>ACADEMIC SPECIFIC</th>
+    <td><input type="text" name="AT"/></td>
+  
+  </tr>
+</table>
+
         </div>
         <div class={toggleState === 2 ? "tab-pane fade show active" : "tab-pane fade"}>
-          <br /><br />
-          <h2>SUMMATIVE ASSESSMENT</h2>
-          <hr />
-          <span transform="-90px">
-            <label >Type of Assessment:</label>
-            <div class="dropdown"><input type="text" id="type_as" name="type_as"></input>
-            </div> </span>
-          <span transform="-90px">
-            <label >Assessment Stratergy :</label>
-            <div class="dropdown"><input type="text" id="strat" name="strat"></input>
-            </div> </span>
-          <br></br>
-          <span transform="-90px">
-            <label >Assessment Tool :</label>
-            <div class="dropdown"><input type="text" id="tool" name="tool"></input>
-            </div> </span>
-          <br></br>
+        <h2>SUMMATIVE ASSESSMENT</h2>
+<hr />
+<table>
+  
+  <tr>
+    <th>Type of Assessment:</th>
+    <td><input type="text" name="TA"/></td>
+  
+  </tr>
+  <tr>
+  <th>Assessment Stratergy :</th>
+    <td><input type="text" name="AS"/></td>
+  
+  </tr>
+  <tr>
+  <th>Assessment Tool :</th>
+    <td><input type="text" name="AT"/></td>
+  
+  </tr>
+</table>
+<br>
+</br>
+<br></br>
+<table>
+  <tr>
+    <th>LEADS</th>
+    <th>CRITERIA</th>
+  </tr>
+  <tr>
+    <th>SCOPE AND SEQUENCE</th>
+    <td><input type="text" name="TA"/></td>
+  
+  </tr>
+  <tr>
+  <th>SCOPE AND SEQUENCE</th>
+    <td><input type="text" name="AS"/></td>
+  
+  </tr>
+  <tr>
+  <th>REAL WORLD APPLICATION</th>
+    <td><input type="text" name="AT"/></td>
+  
+  </tr>
+  <tr>
+  <th>NEST PILLAR REFERENCE</th>
+    <td><input type="text" name="AT"/></td>
+  
+  </tr>
+  <tr>
+  <th>APPROACHES TO PILLAR REFERENCE - I</th>
+    <td><input type="text" name="AT"/></td>
+  
+  </tr>
+  <tr>
+  <th>APPROACHES TO PILLAR REFERENCE - II</th>
+    <td><input type="text" name="AT"/></td>
+  
+  </tr>
+  <tr>
+  <th>HIGHER ORDER THINKING</th>
+    <td><input type="text" name="AT"/></td>
+  
+  </tr>
+</table>
         </div>
         <br></br>
       </div>
-
-
-    </div>
-
-  )
+      <input type="SUBMIT" name="AT"/>
+</div>
+)
 }
