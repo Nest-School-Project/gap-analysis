@@ -15,7 +15,8 @@ export const Student = () => {
       <Header></Header>
       <SideBar></SideBar>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme"></link>
-      <p class='Gradename'>Student Entry</p>
+      <div className='Sd'>
+    <p>Student Entry</p>
 
       <form>
         <label>Name:</label>
@@ -50,6 +51,7 @@ export const Student = () => {
         <button onClick={handleclick}>submit</button>
 
       </form>
+    </div>
     </div>
 
 
