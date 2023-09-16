@@ -8,8 +8,11 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const Add = () =>{
+ 
   let navigate=useNavigate();
-
+  const handleclick = () => {
+    navigate("/student")
+  };
   useEffect(()=>{
     onAuthStateChanged(auth, (user) => {
         if (user) {
@@ -36,6 +39,10 @@ export const Add = () =>{
 
         {/* <h1>ADD CLASS</h1> */}
         <form>
+          
+          <div className='St'>
+          <h1> ADD</h1>
+            <label>Class</label>
           <br></br>
             <label className='addspace'>Class</label>
             <select name="Class" id="standard">
@@ -58,6 +65,9 @@ export const Add = () =>{
     <option value="C">C</option>
     <option value="D">D</option>
     </select>
+    <br></br>
+    <button style={{height:"50px", width:"100px"}} onClick={handleclick}>submit</button>
+    </div>
 
         </form>
     </div>

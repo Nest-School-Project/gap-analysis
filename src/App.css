@@ -3,7 +3,7 @@
   background-color: #fcd6c4;
   font-family:Acme;
   font-size: 30px;
-height: 1500px;
+  height: 1500px;
   width: 1519px;
   margin-bottom:20px;
   
@@ -362,16 +362,24 @@ body {
 #nestlogo{
   margin-left: 80px;
 }
+.St{
+  position: relative;
+  top: 100px;
+}
+.Sd{
+  position: relative;
+  top: 100px;
+}
 addspace{
   margin-top: 40px;
 }
 .dropbtn {
   background-color: #adabb9;
   color: white;
-  width:250px;
+  width:350px;
   height:40px;
   font-size: 30px;
-  border-radius: 10px;
+  border-radius: 5px;
   
 }
 .dropdown {

@@ -93,6 +93,44 @@ export const Gap_analysis = () => {
         </tr>
       </table>
       <Graph></Graph>
+      <h2>Summative Assessment</h2>
+      <table className='famarks'>
+        <tr>
+          <th Style="border:1px solid black;" >CRITERIA</th>
+          <th Style="border:1px solid black;">FA1</th>
+          <th Style="border:1px solid black;">FA2</th>
+          {/* <th Style="border:1px solid black;">FA3</th> */}
+          {/* <th Style="border:1px solid black;">FA4</th>
+          <th Style="border:1px solid black;">FA5</th>
+          <th Style="border:1px solid black;">FA6</th>
+          <th Style="border:1px solid black;">FA7</th>
+          <th Style="border:1px solid black;">FA8</th>
+          <th Style="border:1px solid black;">FA9</th>
+          <th Style="border:1px solid black;">FA10</th> 
+          <th Style="border:1px solid black;">FA11</th>
+          <th Style="border:1px solid black;">FA12</th> */}
+        </tr>
+        <tr>
+          <td Style="border:1px solid black;">SCOPE AND SEQUENCE</td>
+          <td Style="border:1px solid black;">80</td>
+          <td Style="border:1px solid black;">80</td>
+        </tr>
+        <tr>
+          <td Style="border:1px solid black;">SCOPE AND SEQUENCE</td>
+          <td Style="border:1px solid black;">80</td>
+          <td Style="border:1px solid black;">80</td>
+        </tr>
+        <tr>
+          <td Style="border:1px solid black;">SUCCESS CRITERIA FROM UNIT PLANNER</td>
+          <td Style="border:1px solid black;">80</td>
+          <td Style="border:1px solid black;">80</td>
+        </tr>
+        <tr>
+          <td Style="border:1px solid black;">ASSESSMENT SPECIFIC</td>
+          <td Style="border:1px solid black;">80</td>
+          <td Style="border:1px solid black;">80</td>
+        </tr>
+      </table>
    
     </div>
 
