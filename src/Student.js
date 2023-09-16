@@ -32,7 +32,7 @@ export const Student = () => {
     navigate("/")
   };
   return (
-    <div className='Stu'>
+    <div >
       <Header></Header>
       <SideBar></SideBar>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme"></link>

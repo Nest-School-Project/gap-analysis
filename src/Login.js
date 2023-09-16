@@ -30,10 +30,8 @@ export const Login = () => {
 
     return (
       <div className="App">
-        <br></br>
-        <br></br>
-        <br></br>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme"></link>
+        <div className="login">
         <h1 className="title">WELCOME</h1>
         <span className="input">
         <input
@@ -57,6 +55,7 @@ export const Login = () => {
         <br></br>
         <img src="https://onemg.com/work/images/portfolio-images/nest/nest-banner-latest.jpg" id="logo" alt="nest logo" width="750" height="550"></img>
         <button onClick={onLogin} id="sub">Login</button>
+      </div>
       </div>
     );
   } 
