@@ -13,7 +13,7 @@ export const Add=
   return (
     <div>
       <Header></Header>
-      <SideBar></SideBar>
+      
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme"></link>
 
         {/* <h1>ADD CLASS</h1> */}
