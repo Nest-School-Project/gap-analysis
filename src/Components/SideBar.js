@@ -1,10 +1,11 @@
 import React from 'react';
-import { slide as Menu } from 'react-burger-menu';
+import { reveal as Menu } from 'react-burger-menu';
+import '../App.css'
 
 export default props => {
   return (
     <Menu>
-      <a className="menu-item" href="/">
+      <a className="menu-item" href="/grade">
         Dashboard
       </a>
 

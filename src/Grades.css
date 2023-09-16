@@ -7,13 +7,14 @@
     border-radius: 50px;
   }
   .Boxstyle{
-     position: absolute;
+     position:sticky;
      left: 250px;
      top: 150px;
-      display: flex;
+      /* display: flex; */
       flex-wrap:wrap;
       width: 1100px;
       background-color: transparent;
+      z-index: 0;
   
   }
   #title{

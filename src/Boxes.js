@@ -9,7 +9,7 @@ function Boxes(p) {
 
         
     
-    <div class="box" style={{display:"flexbox"}}>
+    <div class="box" >
   <h1 >{p.Names}</h1>
   </div>
     </div>
