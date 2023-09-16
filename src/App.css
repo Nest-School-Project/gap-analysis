@@ -364,6 +364,14 @@ body {
 #nestlogo{
   margin-left: 80px;
 }
+.St{
+  position: relative;
+  top: 100px;
+}
+.Sd{
+  position: relative;
+  top: 100px;
+}
 addspace{
   margin-top: 40px;
 }
