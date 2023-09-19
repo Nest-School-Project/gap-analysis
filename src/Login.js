@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import {  signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from './firebase';
+import creds from './firebase';
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ export const Login = () => {
   const onLogin = (e) => {
     console.log("here")
       e.preventDefault();
-      signInWithEmailAndPassword(auth, email, password)
+      signInWithEmailAndPassword(creds.auth, email, password)
       .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
@@ -54,7 +54,7 @@ export const Login = () => {
     />
 
         <br></br>
-        <button onClick={onLogin} id="sub">Login</button>
+        <button type="submit" onClick={onLogin} id="sub">Login</button>
       </form>
         
       </div>
