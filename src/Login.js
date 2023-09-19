@@ -29,13 +29,11 @@ export const Login = () => {
   }
 
     return (
-      <div className="App">
-        <br></br>
-        <br></br>
-        <br></br>
+      <div >
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme"></link>
+        <div className="login">
         <h1 className="title">WELCOME</h1>
-        <span className="input">
+        <form> 
         <input
           id="un"
           name="email"
@@ -43,7 +41,8 @@ export const Login = () => {
           required                                                                                
           placeholder="Email address"
           onChange={(e)=>setEmail(e.target.value)}
-      /></span>
+      />
+        <br></br>
         <br></br>
       <input
         id="pd"
@@ -55,8 +54,13 @@ export const Login = () => {
     />
 
         <br></br>
-        <img src="https://onemg.com/work/images/portfolio-images/nest/nest-banner-latest.jpg" id="logo" alt="nest logo" width="750" height="550"></img>
         <button onClick={onLogin} id="sub">Login</button>
+      </form>
+        
+      </div>
+      <div className="image1">
+        <img src="https://onemg.com/work/images/portfolio-images/nest/nest-banner-latest.jpg"  alt="nest logo" width="750" height="550"></img>
+        </div>
       </div>
     );
   } 

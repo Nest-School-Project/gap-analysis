@@ -32,7 +32,7 @@ export const Gap_analysis = () => {
  
   const {name}=useParams();
   return (
-    <div>
+    <div className='ga'>
       
       <Header ></Header>
         <h1>GAP ANALYSIS:{name}</h1>

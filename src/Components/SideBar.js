@@ -8,6 +8,9 @@ export default props => {
       <a className="menu-item" href="/grade">
         Dashboard
       </a>
+      <a className="menu-item" href="/Grade">
+        Select Grades
+      </a>
 
       <a className="menu-item" href="/Add">
         Add Class

@@ -21,6 +21,7 @@ import { Graph } from './Components/Graph';
 import SideBar from './Components/SideBar';
 import Signup from './SignUp';
 
+
 function App() {
       return (
             <div className="App">
@@ -35,7 +36,7 @@ function App() {
                               <Route path="/class-details/:classname" element={ <Class_details />} />
                               <Route path="/GapAnalysis/:name" element={<Gap_analysis />} />
                               <Route path="/Grade" element={<Grades />} />
-                             <Route path="/Student" element={<Student />} />
+                              <Route path="/Student" element={<Student />} />
                               <Route path="/Add" element={<Add />} />
                               <Route path="/SideBar" element={<SideBar />} />
                               <Route path="/Themes" element={<Themes />} />

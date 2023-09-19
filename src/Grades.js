@@ -46,20 +46,27 @@ export const Grades = () => {
     "8"
   ]
   let grade="LKG"
-  return(<div>
-    <Header ></Header>
-    <h1 id="title">Grades </h1>
+  return(
+  <div>
+    <Header />
+    {/* <h1 class='Gradename'>Grades </h1>
     <div className='Boxstyle'>
 
 
     {
+    <button onClick={()=>handleclick(grade)} style={{margin:"30px"}}><Boxes Names={grade}></Boxes></button>
+    <button onClick={()=>handleclick(grade)} style={{margin:"30px"}}><Boxes Names={grade}></Boxes></button>
+    <button onClick={()=>handleclick(grade)} style={{margin:"30px"}}><Boxes Names={grade}></Boxes></button>
+    <button onClick={()=>handleclick(grade)} style={{margin:"30px"}}><Boxes Names={grade}></Boxes></button> */}
+
+     {
       grades.map((grade,index)=>{
         return (
           <button onClick={()=>handleclick(grade)} style={{margin:"30px"}}><Boxes Names={grade}></Boxes></button>
         )
       })
-  }  
-    </div>
+  }   
+    
     </div>
   )
 
