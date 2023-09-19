@@ -2,7 +2,31 @@ import React, { useState } from 'react'
 import Header from './Components/Header';
 import './App.css';
 import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useNavigate} from 'react-router-dom';
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from './firebase';
+
 export const Class_details = () => {
+    let navigate=useNavigate();
+
+  useEffect(()=>{
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          const uid = user.uid;
+          // ...
+          console.log("uid", uid)
+        } else {
+          // User is signed out
+          // ...
+          window.alert("User is logged out, Log in again")
+          navigate("/");
+        }
+      });
+     
+}, [])    
     const [toggleState, setToggleState] = useState(1);
     const toggleTab = (index) => {
         setToggleState(index);
@@ -37,7 +61,6 @@ export const Class_details = () => {
     const {classname}=useParams();
     return (
         <div ><Header></Header>
-        <br></br>
             <p className="Gradename" >Class:{classname}</p>
             <ul class="nav nav-tabs" id="myTabs" role="tablist">
                 {
@@ -53,8 +76,9 @@ export const Class_details = () => {
             {
                 sections.map((section,index)=>{
                     return (
+                        
                         <div className={toggleState===index+1 ? "tab-pane face show active" : "tab-pane fade"}>
-                            <h2>Section {section}</h2>
+                            <br></br><h2>Section {section}</h2>
                             <table class="table" >
                             <thead>
                                 <tr>

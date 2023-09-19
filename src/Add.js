@@ -1,15 +1,36 @@
 import React from 'react'
 import './App.css';
-import { useNavigate } from 'react-router-dom';
 import Header from './Components/Header';
 import SideBar from './Components/SideBar';
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from './firebase';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-
-export const Add=
-() =>{  let navigate=useNavigate();
+export const Add = () =>{
+ 
+  let navigate=useNavigate();
   const handleclick = () => {
     navigate("/student")
   };
+  useEffect(()=>{
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          const uid = user.uid;
+          // ...
+          console.log("uid", uid)
+        } else {
+          // User is signed out
+          // ...
+          window.alert("User is logged out, Log in again")
+          navigate("/");
+        }
+      });
+     
+}, [])
+  
   return (
     <div>
       <Header></Header>

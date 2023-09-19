@@ -19,6 +19,7 @@ import { Themes } from './Themes';
 
 import { Graph } from './Components/Graph';
 import SideBar from './Components/SideBar';
+import Signup from './SignUp';
 
 
 function App() {
@@ -37,10 +38,9 @@ function App() {
                               <Route path="/Grade" element={<Grades />} />
                               <Route path="/Student" element={<Student />} />
                               <Route path="/Add" element={<Add />} />
-                              <Route path="/SideBar" element={<SideBar/>} />
-                              <Route path="/Themes" element={<Themes/>} />
-                              <Route path="/Themes" element={<Themes/>} />
-                             
+                              <Route path="/SideBar" element={<SideBar />} />
+                              <Route path="/Themes" element={<Themes />} />
+                              <Route path="/Signup" element={<Signup/>} />
                         </Routes >
                   </BrowserRouter >
             </div >
