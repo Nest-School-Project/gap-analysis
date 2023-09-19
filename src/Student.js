@@ -36,7 +36,7 @@ export const Student = () => {
       <Header></Header>
       
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme"></link>
-      <div className='Sd'>
+      <div  className='Sd'>
     <p>Student Entry</p>
 
       <form>
