@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css';
 import Header from './Components/Header';
 import SideBar from './Components/SideBar';
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
