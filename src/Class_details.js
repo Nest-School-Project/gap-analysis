@@ -3,12 +3,12 @@ import Header from './Components/Header';
 import './App.css';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from "firebase/auth";
 import creds from './firebase';
 
 export const Class_details = () => {
-    let navigate=useNavigate();
+    let navigate = useNavigate();
 
   useEffect(()=>{
     onAuthStateChanged(creds.auth, (user) => {
@@ -31,87 +31,94 @@ export const Class_details = () => {
     const toggleTab = (index) => {
         setToggleState(index);
     }
-    const students=[{
-        "usn":"12345",
-        "name":"Mark",
-        "section":"A",
+    const students = [{
+        "usn": "12345",
+        "name": "Mark",
+        "section": "A",
     },
     {
-        "usn":"12356",
-        "name":"Antony",
-        "section":"B"
+        "usn": "12356",
+        "name": "Antony",
+        "section": "B"
     },
     {
-        "usn":"4567",
-        "name":"Brat",
-        "section":"C"
+        "usn": "4567",
+        "name": "Brat",
+        "section": "C"
     },
     {
-        "usn":"09892",
-        "name":"Samuel",
-        "section":"D"
+        "usn": "09892",
+        "name": "Samuel",
+        "section": "D"
     }
-]
-    const sections=[
+    ]
+    const sections = [
         "A",
         "B",
         "C",
         "D"
     ]
-    const {classname}=useParams();
+    const { classname } = useParams();
     return (
         <div ><Header></Header>
             <p className="Gradename" >Class:{classname}</p>
             <ul class="nav nav-tabs" id="myTabs" role="tablist">
                 {
-                    sections.map((sec,index)=>{
+                    sections.map((sec, index) => {
                         return (<li class="nav-item">
-                    <button class={toggleState === index+1 ? "nav-link active" : "nav-link"} onClick={() => toggleTab(index+1)}>Section {sec}</button>
-                </li>)
+                            <button class={toggleState === index + 1 ? "nav-link active" : "nav-link"} onClick={() => toggleTab(index + 1)}>Section {sec}</button>
+                        </li>)
                     })
                 }
             </ul>
 
             <div class="tab-content" id="myTabsContent">
-            {
-                sections.map((section,index)=>{
-                    return (
-                        
-                        <div className={toggleState===index+1 ? "tab-pane face show active" : "tab-pane fade"}>
-                            <br></br><h2>Section {section}</h2>
-                            <table class="table" >
-                            <thead>
-                                <tr>
-                                    <th scope="col">USN</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Grades</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    students.map((student,index)=>{
-                                        if(student.section===section){
-                                            return (
-                                                <tr>
-                                                    <th scope="row">{student.usn}</th>
-                                                    <td>{student.name}</td>
-                                                    <td>G</td>
-                                                    <td><a href={"/GapAnalysis/"+student.name}>Gap Analysis</a></td>
-                                                </tr>
-                                            )
+                {
+                    sections.map((section, index) => {
+                        return (
+
+                            <div className={toggleState === index + 1 ? "tab-pane face show active" : "tab-pane fade"}>
+                                <br></br><h1 style={{ textAlign:'center' }}>Section {section}</h1><br></br>
+
+                                <table class='table' style={{ borderBlock: '2px black solid', borderInline:'2px black solid' }}>
+                                    <thead >
+                                        <tr>
+                                            <th scope="col">S.No</th>
+                                            <th scope="col">USN</th>
+                                            <th scope="col">First Name</th>
+                                            <th scope="col">Last Name</th>
+                                            <th scope="col">Grades</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            students.map((student, index) => {
+                                                if (student.section === section) {
+                                                    return (
+                                                        <tr>
+                                                            <td>{index + 1}</td>
+                                                            <th scope="row">{student.usn}</th>
+                                                            <td>{student.name}</td>
+                                                            <td>G</td>
+                                                            <td><button id="ebtn">View</button></td>
+                                                            <td><button id="ebtn">Edit</button></td>
+                                                            {/*  <td><a href={"/GapAnalysis/"+student.name}>View</a></td> */}
+                                                        </tr>
+                                                    )
+                                                }
+                                            })
                                         }
-                                    })
-                                }
-                            </tbody>
-                            </table>
-                        </div>
+                                    </tbody>
+                                </table>
 
-                    )
-                })
-            }
+                            </div>
 
-               
+                        )
+                    })
+                }
+
+
             </div>
         </div>
     )

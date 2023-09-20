@@ -52,7 +52,7 @@ export const Login = () => {
         placeholder="Password"
         onChange={(e)=>setPassword(e.target.value)}
     />
-
+<br></br>
         <br></br>
         <button type="submit" onClick={onLogin} id="sub">Login</button>
       </form>

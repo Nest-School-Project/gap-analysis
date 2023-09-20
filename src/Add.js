@@ -14,23 +14,23 @@ export const Add = () =>{
     navigate("/Grade")
   };
 
-  const handleClassChange = (e) => {
-    console.log(e.target.value)
-    setClass(e.target.value);
-  };
+  // const handleClassChange = (e) => {
+  //   console.log(e.target.value)
+  //   setClass(e.target.value);
+  // };
 
-  const handleClick= async () => {
-    try{
-    const addClass= await addDoc(collection(creds.db,"Grades"),{
-      "Class":classes,
-      "Section":[section]
-    });
-  }
-  catch (err){
-    console.log(err)
-  }
-    //console.log(classes,section);
-  };
+  // const handleClick= async () => {
+  //   try{
+  //   const addClass= await addDoc(collection(creds.db,"Grades"),{
+  //     "Class":classes,
+  //     "Section":[section]
+  //   });
+  // }
+  // catch (err){
+  //   console.log(err)
+  // }
+  //   //console.log(classes,section);
+  // };
 
   useEffect(()=>{
     onAuthStateChanged(creds.auth, (user) => {
@@ -56,29 +56,27 @@ export const Add = () =>{
       
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme"></link>
 
-        {/* <h1>ADD CLASS</h1> */}
-        
-          
-          <div className='St'>
-          <h1> ADD CLASS</h1>
-          <hr></hr>
-            
-          <br></br>
-            <label className='addspace'>Class</label>
-            
-    <input type='text'name="Class" id="standard" ></input>
+        <h1 className="Gradename">Add Class</h1>
+        <form>
+        <table style={{margin:'auto', width:'50%'}}>
+
+<tr>
+  <th>Enter New Class :</th>
+  <td><input type="text" name="TA" /></td>
+</tr>
+<br/>
+<tr>
+  <th>Enter Section :</th>
+  <td><input type="text" name="AS" /></td>
+
+</tr> <br/>
+</table>
 
 <br></br>
-<label>Section</label>
-<input type='text'name="Class" id="standard" ></input>
+    <button  onClick={handleclick} id="btn">submit</button>
+   
+</form>
 
-    <br></br>
-    <br>
-    </br>
-    <button style={{height:"50px", width:"100px"}} onClick={handleclick}>submit</button>
-    </div>
-
-      
     </div>
   )
 }
