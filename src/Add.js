@@ -3,18 +3,42 @@ import './App.css';
 import Header from './Components/Header';
 import SideBar from './Components/SideBar';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from './firebase';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {collection,addDoc} from 'firebase/firestore';
+import creds from './firebase';
 
 export const Add = () =>{
- 
   let navigate=useNavigate();
-  const handleclick = () => {
-    navigate("/student")
+  
+  const [classes, setClass] = useState('');
+  const [section, setSection] = useState('');
+  
+  const handleSectionChange = (e) => {
+    console.log(e.target.value)
+    setSection(e.target.value);
   };
+
+  const handleClassChange = (e) => {
+    console.log(e.target.value)
+    setClass(e.target.value);
+  };
+
+  const handleClick= async () => {
+    try{
+    const addClass= await addDoc(collection(creds.db,"Grades"),{
+      "Class":classes,
+      "Section":[section]
+    });
+  }
+  catch (err){
+    console.log(err)
+  }
+    //console.log(classes,section);
+  };
+
   useEffect(()=>{
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(creds.auth, (user) => {
         if (user) {
           // User is signed in, see docs for a list of available properties
           // https://firebase.google.com/docs/reference/js/firebase.User
@@ -38,38 +62,21 @@ export const Add = () =>{
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme"></link>
 
         {/* <h1>ADD CLASS</h1> */}
-        <form>
+        
           
           <div className='St'>
-          <h1> ADD</h1>
-            <label>Class</label>
+          <h1>ADD CLASS</h1>
           <br></br>
             <label className='addspace'>Class</label>
-            <select name="Class" id="standard">
-    <option value="LKG">LKG</option>
-    <option value="UKG">UKG</option>
-    <option value="1th">1th</option>
-    <option value="2nd">2nd</option>
-    <option value="3rd">3rd</option>
-    <option value="4th">4th</option>
-    <option value="5th">5th</option>
-    <option value="6th">6th</option>
-    <option value="7th">7th</option>
-    <option value="8th">8th</option>
-</select>
+           <input type="text" value={classes} onChange={handleClassChange}></input>
 <br></br>
 <label>Section</label>
-<select name="Class" id="standard">
-    <option value="A">A</option>
-    <option value="B">B</option>
-    <option value="C">C</option>
-    <option value="D">D</option>
-    </select>
-    <br></br>
-    <button style={{height:"50px", width:"100px"}} onClick={handleclick}>submit</button>
+<input type="text" value={section} onChange={handleSectionChange}></input>    
+<br></br>
+    <button style={{height:"50px", width:"100px"}} onClick={handleClick}>submit</button>
     </div>
 
-        </form>
+      
     </div>
   )
 }
