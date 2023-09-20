@@ -7,7 +7,7 @@ import nest4 from "./Components/nest4.png"
 import logo from "./Components/logo.jpg"
 import { useNavigate } from "react-router-dom";
 import {  signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from './firebase';
+import creds from './firebase';
 import "./log.css"
 import { useState } from 'react';
 
@@ -38,7 +38,7 @@ export const Slidelogin = () => {
   const onLogin = (e) => {
     console.log("here")
       e.preventDefault();
-      signInWithEmailAndPassword(auth, email, password)
+      signInWithEmailAndPassword(creds.auth, email, password)
       .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
