@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import {  signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from './firebase';
+import creds from './firebase';
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ export const Login = () => {
   const onLogin = (e) => {
     console.log("here")
       e.preventDefault();
-      signInWithEmailAndPassword(auth, email, password)
+      signInWithEmailAndPassword(creds.auth, email, password)
       .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
@@ -29,11 +29,11 @@ export const Login = () => {
   }
 
     return (
-      <div className="App">
+      <div >
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme"></link>
         <div className="login">
         <h1 className="title">WELCOME</h1>
-        <span className="input">
+        <form> 
         <input
           id="un"
           name="email"
@@ -41,7 +41,8 @@ export const Login = () => {
           required                                                                                
           placeholder="Email address"
           onChange={(e)=>setEmail(e.target.value)}
-      /></span>
+      />
+        <br></br>
         <br></br>
       <input
         id="pd"
@@ -53,9 +54,13 @@ export const Login = () => {
     />
 
         <br></br>
-        {/* <img src="https://onemg.com/work/images/portfolio-images/nest/nest-banner-latest.jpg" id="logo" alt="nest logo" width="750" height="550"></img> */}
-        <button onClick={onLogin} id="sub">Login</button>
+        <button type="submit" onClick={onLogin} id="sub">Login</button>
+      </form>
+        
       </div>
+      <div className="image1">
+        <img src="https://onemg.com/work/images/portfolio-images/nest/nest-banner-latest.jpg"  alt="nest logo" width="750" height="550"></img>
+        </div>
       </div>
     );
   } 

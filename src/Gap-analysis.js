@@ -6,14 +6,14 @@ import Header from './Components/Header';
 import { useEffect } from 'react';
 import { useNavigate} from 'react-router-dom';
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from './firebase';
+import creds from './firebase';
 
 
 export const Gap_analysis = () => {
   let navigate=useNavigate();
 
   useEffect(()=>{
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(creds.auth, (user) => {
         if (user) {
           // User is signed in, see docs for a list of available properties
           // https://firebase.google.com/docs/reference/js/firebase.User
@@ -28,31 +28,14 @@ export const Gap_analysis = () => {
         }
       });
      
-}, [])    
+})    
  
   const {name}=useParams();
   return (
     <div className='ga'>
       
       <Header ></Header>
-        <h1>GAP ANALYSIS:{name}</h1>
-
-        {/* <label className='gap1' >Formative assessment</label>
-            <input
-            type="text"
-            required
-            ></input>
-    <table>
-  <tr>
-    <th>Field Label 1 {name} </th>
-    <td><input type="text" name="field1"/></td>
-  </tr>
-  <tr>
-    <th>Field Label 2</th>
-    <td><input type="text" name="field2"/></td>
-  </tr>
-  
-</table> */}         
+        <h1>GAP ANALYSIS:{name}</h1>      
     <div className='graphst'>
       <h2>Formative Assessment</h2>
       <table className='famarks'>
@@ -60,16 +43,6 @@ export const Gap_analysis = () => {
           <th Style="border:1px solid black;" >CRITERIA</th>
           <th Style="border:1px solid black;">FA1</th>
           <th Style="border:1px solid black;">FA2</th>
-          {/* <th Style="border:1px solid black;">FA3</th> */}
-          {/* <th Style="border:1px solid black;">FA4</th>
-          <th Style="border:1px solid black;">FA5</th>
-          <th Style="border:1px solid black;">FA6</th>
-          <th Style="border:1px solid black;">FA7</th>
-          <th Style="border:1px solid black;">FA8</th>
-          <th Style="border:1px solid black;">FA9</th>
-          <th Style="border:1px solid black;">FA10</th> 
-          <th Style="border:1px solid black;">FA11</th>
-          <th Style="border:1px solid black;">FA12</th> */}
         </tr>
         <tr>
           <td Style="border:1px solid black;">SCOPE AND SEQUENCE</td>
@@ -99,16 +72,6 @@ export const Gap_analysis = () => {
           <th Style="border:1px solid black;" >CRITERIA</th>
           <th Style="border:1px solid black;">FA1</th>
           <th Style="border:1px solid black;">FA2</th>
-          {/* <th Style="border:1px solid black;">FA3</th> */}
-          {/* <th Style="border:1px solid black;">FA4</th>
-          <th Style="border:1px solid black;">FA5</th>
-          <th Style="border:1px solid black;">FA6</th>
-          <th Style="border:1px solid black;">FA7</th>
-          <th Style="border:1px solid black;">FA8</th>
-          <th Style="border:1px solid black;">FA9</th>
-          <th Style="border:1px solid black;">FA10</th> 
-          <th Style="border:1px solid black;">FA11</th>
-          <th Style="border:1px solid black;">FA12</th> */}
         </tr>
         <tr>
           <td Style="border:1px solid black;">SCOPE AND SEQUENCE</td>

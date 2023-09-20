@@ -6,13 +6,13 @@ import Boxes from './Boxes.js';
 import { useNavigate} from 'react-router-dom';
 import Header from "./Components/Header";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from './firebase';
+import creds from './firebase';
 
 export const Grades = () => {
   let navigate=useNavigate();
 
   useEffect(()=>{
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(creds.auth, (user) => {
         if (user) {
           // User is signed in, see docs for a list of available properties
           // https://firebase.google.com/docs/reference/js/firebase.User
@@ -34,6 +34,7 @@ export const Grades = () => {
     navigate(`/class-details/${e}`)
   };
   const grades=[
+    "PreKG",
     "LKG",
     "UKG",
     "1",
@@ -51,13 +52,9 @@ export const Grades = () => {
     <Header />
     {/* <h1 class='Gradename'>Grades </h1>
     <div className='Boxstyle'>
-    <button onClick={()=>handleclick(grade)} style={{margin:"30px"}}><Boxes Names={grade}></Boxes></button>
-    <button onClick={()=>handleclick(grade)} style={{margin:"30px"}}><Boxes Names={grade}></Boxes></button>
-    <button onClick={()=>handleclick(grade)} style={{margin:"30px"}}><Boxes Names={grade}></Boxes></button>
-    <button onClick={()=>handleclick(grade)} style={{margin:"30px"}}><Boxes Names={grade}></Boxes></button>
-    <button onClick={()=>handleclick(grade)} style={{margin:"30px"}}><Boxes Names={grade}></Boxes></button>
-    <button onClick={()=>handleclick(grade)} style={{margin:"30px"}}><Boxes Names={grade}></Boxes></button>
 
+
+    {
     <button onClick={()=>handleclick(grade)} style={{margin:"30px"}}><Boxes Names={grade}></Boxes></button>
     <button onClick={()=>handleclick(grade)} style={{margin:"30px"}}><Boxes Names={grade}></Boxes></button>
     <button onClick={()=>handleclick(grade)} style={{margin:"30px"}}><Boxes Names={grade}></Boxes></button>

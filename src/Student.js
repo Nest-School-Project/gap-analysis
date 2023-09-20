@@ -2,35 +2,73 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './App.css';
 import Header from './Components/Header';
-import SideBar from './Components/SideBar';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from './firebase';
+import {collection,addDoc} from 'firebase/firestore';
+import creds from './firebase';
 
 
 export const Student = () => {
-    let navigate=useNavigate();
-    useEffect(()=>{
-      onAuthStateChanged(auth, (user) => {
-          if (user) {
-            // User is signed in, see docs for a list of available properties
-            // https://firebase.google.com/docs/reference/js/firebase.User
-            const uid = user.uid;
-            // ...
-            console.log("uid", uid)
-          } else {
-            // User is signed out
-            // ...
-            window.alert("User is logged out, Log in again")
-            navigate("/");
-          }
-        });
-       
-  }, [])
-  
-  const handleclick = () => {
-    navigate("/")
+  let navigate=useNavigate();
+  const [classes, setClass] = useState('');
+  const [section, setSection] = useState('');
+  const [name, setName] = useState('');
+  const [USN, setUSN] = useState('');
+        
+  const handleSectionChange = (e) => {
+    console.log(e.target.value)
+    setSection(e.target.value);
   };
+
+  const handleClassChange = (e) => {
+    console.log(e.target.value)
+    setClass(e.target.value);
+  };
+
+  const handleNameChange = (e) => {
+    console.log(e.target.value)
+    setName(e.target.value);
+  };
+
+  const handleUSNChange = (e) => {
+    console.log(e.target.value)
+    setUSN(e.target.value);
+  };
+
+   
+  const handlesubmit = async () => {
+    try{
+      const addClass= await addDoc(collection(creds.db,"Student"),{
+        "Class":classes,
+        "Section":section,
+        "Name":name,
+        "USN":USN
+      });
+    }
+    catch (err){
+      console.log(err)
+    }
+      
+  };
+   useEffect(()=>{
+    onAuthStateChanged(creds.auth, (user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          const uid = user.uid;
+          // ...
+          console.log("uid", uid)
+        } else {
+          // User is signed out
+          // ...
+          window.alert("User is logged out, Log in again")
+          navigate("/");
+        }
+      });
+      
+})
+ 
+
   return (
     <div >
       <Header></Header>
@@ -39,12 +77,8 @@ export const Student = () => {
       <div  className='Sd'>
     <p>Student Entry</p>
 
-      <form>
-        <label>Name:</label>
-        <input type='text' name='Name' placeholder='name' ></input>
-        <br></br>
         <label >Class:</label>
-        <select name="Class" id="standard" Style="width:250px">
+        <select name="Class" id="standard" value={classes} onChange={handleClassChange} Style="width:250px">
           <option value="LKG">LKG</option>
           <option value="UKG">UKG</option>
           <option value="1th">1st</option>
@@ -59,19 +93,21 @@ export const Student = () => {
         </select>
         <br></br>
         <label>Section:</label>
-        <select name="Class" id="standard" Style="width:250px" >
+        <select name="Class" id="standard" value={section} onChange={handleSectionChange} Style="width:250px" >
           <option value="A">A</option>
           <option value="B">B</option>
           <option value="C">C</option>
           <option value="D">D</option>
         </select>
+       <br></br>
+       <label>Name:</label>
+        <input type='text' value={name} onChange={handleNameChange} name='Name' placeholder='name'></input>
         <br></br>
         <label>USN No:</label>
-        <input type='text' name='Class' placeholder='class'></input>
+        <input type='text' name='Class' value={USN} onChange={handleUSNChange}></input>
         <br></br>
-        <button onClick={handleclick}>submit</button>
+        <button onClick={handlesubmit}>submit</button>
 
-      </form>
     </div>
     </div>
 

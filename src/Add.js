@@ -2,19 +2,38 @@ import React from 'react'
 import './App.css';
 import Header from './Components/Header';
 import SideBar from './Components/SideBar';
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from './firebase';
-import { useEffect } from 'react';
+import { onAuthStateChanged } from 'firebase/auth';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {collection,addDoc} from 'firebase/firestore';
+import creds from './firebase';
 
 export const Add = () =>{
- 
   let navigate=useNavigate();
   const handleclick = () => {
     navigate("/Grade")
   };
+
+  const handleClassChange = (e) => {
+    console.log(e.target.value)
+    setClass(e.target.value);
+  };
+
+  const handleClick= async () => {
+    try{
+    const addClass= await addDoc(collection(creds.db,"Grades"),{
+      "Class":classes,
+      "Section":[section]
+    });
+  }
+  catch (err){
+    console.log(err)
+  }
+    //console.log(classes,section);
+  };
+
   useEffect(()=>{
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(creds.auth, (user) => {
         if (user) {
           // User is signed in, see docs for a list of available properties
           // https://firebase.google.com/docs/reference/js/firebase.User
@@ -38,7 +57,7 @@ export const Add = () =>{
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme"></link>
 
         {/* <h1>ADD CLASS</h1> */}
-        <form>
+        
           
           <div className='St'>
           <h1> ADD CLASS</h1>
@@ -59,7 +78,7 @@ export const Add = () =>{
     <button style={{height:"50px", width:"100px"}} onClick={handleclick}>submit</button>
     </div>
 
-        </form>
+      
     </div>
   )
 }

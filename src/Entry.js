@@ -3,14 +3,14 @@ import Header from './Components/Header';
 import { useEffect } from 'react';
 import { useNavigate} from 'react-router-dom';
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from './firebase';
+import creds from './firebase';
 
 
 export const Entry = () => {
   let navigate=useNavigate();
 
   useEffect(()=>{
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(creds.auth, (user) => {
         if (user) {
           // User is signed in, see docs for a list of available properties
           // https://firebase.google.com/docs/reference/js/firebase.User
@@ -65,16 +65,15 @@ export const Entry = () => {
           required
         ></input>
         <br></br>
-        <label >ASSESSMENT TYPE</label>
-        <span className='space'></span>
-        <input type="radio" name="color" value="red"></input>
-        <label>FORMATIVE ASSESSMENT</label>
-        <span className='space'></span>
 
-        <input type="radio" name="color" value="blue"></input>
-        <label>SUMMATIVE ASSESSMENT</label>
-        <br></br>
-        <input type="submit" name="submit"></input>
+
+        <label >ASSESSMENT ID : </label>
+        <select>
+          <option>FA1</option>
+          <option>FA2</option>
+          <option>SA1</option>
+          <option>SA2</option>
+        </select>
       </form>
 
 

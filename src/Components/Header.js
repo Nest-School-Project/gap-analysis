@@ -18,6 +18,7 @@ return (
 <div class="container-fluid">
 <SideBar></SideBar>
 <img src={logo} alt="nest" id="nestlogo" width="50" height="50"/>
+<button style={{height:"50px", width:"150px",color:"orange",position:"absolute",right:"5%",top:"5%",border-removeEventListener}}>LOGOUT</button>
 
 </div>
 </nav>
