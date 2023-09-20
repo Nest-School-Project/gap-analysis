@@ -391,5 +391,5 @@ addspace{
   background-color: #c2c0cfc0;
 }
 .ga{
-  height: auto;
+  height: max-content;
 }
