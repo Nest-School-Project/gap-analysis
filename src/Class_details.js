@@ -6,9 +6,11 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from "firebase/auth";
 import creds from './firebase';
-
+import { BsPencilSquare } from "react-icons/bs";
 export const Class_details = () => {
     let navigate = useNavigate();
+    const handleclick=()=>
+    {navigate("/Entry")};
 
   useEffect(()=>{
     onAuthStateChanged(creds.auth, (user) => {
@@ -61,7 +63,7 @@ export const Class_details = () => {
     const { classname } = useParams();
     return (
         <div ><Header></Header>
-            <p className="Gradename" >Class:{classname}</p>
+            <p className="Gradename" >Class : {classname}</p>
             <ul class="nav nav-tabs" id="myTabs" role="tablist">
                 {
                     sections.map((sec, index) => {
@@ -102,8 +104,8 @@ export const Class_details = () => {
                                                             <td>{student.name}</td>
                                                             <td>G</td>
                                                             <td><button id="ebtn">View</button></td>
-                                                            <td><button id="ebtn">Edit</button></td>
-                                                            {/*  <td><a href={"/GapAnalysis/"+student.name}>View</a></td> */}
+                                                            <td><button id="ebtn" onClick={handleclick}><BsPencilSquare/></button></td>
+                                                             {/* <td><a href={"/GapAnalysis/"+student.name}>View</a></td> */}
                                                         </tr>
                                                     )
                                                 }
