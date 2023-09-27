@@ -329,8 +329,11 @@ body {
   margin-left: 80px;
 }
 .St{
-  position: relative;
-  top: 100px;
+  margin : 200px;
+  position : absolute;
+  top : 50px;
+  left: 50px;
+  width : 1000px;
 }
 .Sd{
   position: relative;

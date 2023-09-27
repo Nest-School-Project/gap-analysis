@@ -10,8 +10,8 @@ import creds from './firebase';
 
 export const Student = () => {
   let navigate=useNavigate();
-  const [classes, setClass] = useState('');
-  const [section, setSection] = useState('');
+  const [classes, setClass] = useState('LKG');
+  const [section, setSection] = useState('A');
   const [name, setName] = useState('');
   const [USN, setUSN] = useState('');
         
