@@ -17,7 +17,7 @@ export default props => {
       </a>  
 
       <a className="menu-item" href="/Student">
-      Add Student
+      Modify Student
       </a>
 
       <a className="menu-item" href="/Themes">

@@ -7,15 +7,48 @@
   font-size: 30px;
   
 }
+input{
+  border-color: #e2f5fab7;
+  background: linear-gradient(147deg, #f3efd2 0%, #f3dbb56a 74%);;
+}
+label{
+  padding: 10px;
+}
+
 #un{
   font-family: Acme;
+  font-size: 24px;
 }
 #pd{
   font-family: Acme;
+  font-size: 24px;
 }
 #sub{
   font-family: Acme;
+  width:100px;
+  height:50px;
+  border-radius: 5px;
+  border-color: #c7f7ef;
+  background-color:#ffffff5e;
+  font-size: 24px;
   }
+
+  #btn{
+    font-family: Acme;
+    width:100px;
+    height:50px;
+    border-radius: 5px;
+    border-color: #fafafa;
+    background-color:#ffffff5e ;
+    font-size: 24px;
+  }
+  #ebtn{
+      font-family: Acme;
+      border-radius: 5px;
+      background-color:#c7eaf862 ;
+      font-size: 24px;
+      
+   }
 input{
   width:350px;
   height:40px;
@@ -49,7 +82,7 @@ th {
 }
 
 .Stu {
-  text-align: center;
+  text-align: justify;
   background-color: #f0ccc0;
   font-family: Acme;
   font-size: 30px;
@@ -63,9 +96,9 @@ th {
 
 .Edit {
   text-align: center;
-  background-color: #fcd6c4;
+  background: linear-gradient(147deg, #FFE53B 0%, #fb6e6e 74%);
   font-family: Acme;
-  height: 730px;
+  height: auto;
   width: 1500px;
   margin-bottom: 20px;
 }
@@ -100,6 +133,7 @@ th {
 .ins {
   position: relative;
   left: 5px;
+  right:10px;
 }
 
 .lab {
@@ -238,7 +272,6 @@ margin-top: 20px;*/
 
 .tab-content {
   width: 100%;
-  max-width: 800px;
 }
 
 @media (max-width: 1000px) {
@@ -336,17 +369,22 @@ body {
   width : 1000px;
 }
 .Sd{
-  position: relative;
-  top: 100%;
-  height: 100%;
+  margin:auto;
+  flex-direction: column;
+  border-radius: 5px;
+  border-color: #f0ccc0c5;
+  background-color: #f0ccc054;
+  width:50%;
+  height:fit-content;
+  
 }
 addspace{
   margin-top: 40px;
 }
 
 .dropbtn {
-  background-color: #adabb9;
-  color: white;
+  background: linear-gradient(147deg, #f3efd2 0%, #f3dbb56a 74%);
+  color: rgb(0, 0, 0);
   width: 350px;
   height: 40px;
   font-size: 30px;
@@ -394,5 +432,5 @@ addspace{
   background-color: #c2c0cfc0;
 }
 .ga{
-  height: auto;
+  height: max-content;
 }

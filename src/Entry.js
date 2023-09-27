@@ -172,16 +172,7 @@ export const Entry = () => {
       </div>
       <input type="submit" name="submit"></input>
 
-      {/* 
-<div>
-      <input
-        type="range"
-        id="myRange"
-        value={sliderValue}
-        onChange={handleSliderChange}
-      />
-      <p>Value: {sliderValue}</p>
-    </div>*/}
+     
 
     </div>
 

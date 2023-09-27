@@ -7,7 +7,6 @@ import { onAuthStateChanged } from "firebase/auth";
 import {collection,addDoc} from 'firebase/firestore';
 import creds from './firebase';
 
-
 export const Student = () => {
   let navigate=useNavigate();
   const [classes, setClass] = useState('LKG');
@@ -67,16 +66,32 @@ export const Student = () => {
       });
       
 })
- 
+const [toggleState, setToggleState] = useState(1);
+const toggleTab = (index) => {
+    setToggleState(index);
+}
 
   return (
     <div >
       <Header></Header>
-      
+      <h1 class='Gradename'>Student Entry</h1>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme"></link>
-      <div  className='Sd'>
-    <p>Student Entry</p>
-
+      <ul class="nav nav-tabs" id="myTabs" role="tablist">
+        <li class="nav-item">
+          <button class={toggleState === 1 ? "nav-link active" : "nav-link"} onClick={() => toggleTab(1)}>Add </button>
+        </li>
+        <li class="nav-item">
+          <button class={toggleState === 2 ? "nav-link active" : "nav-link"} onClick={() => toggleTab(2)}>Delete </button>
+        </li>
+        <li class="nav-item">
+          <button class={toggleState === 3 ? "nav-link active" : "nav-link"} onClick={() => toggleTab(3)}>Update </button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabsContent">
+        <div class={toggleState === 1 ? "tab-pane fade show active" : "tab-pane fade"}>
+          <form className='Sd'>
+          <h1 >Add Student</h1>
+            <br />
         <label >Class:</label>
         <select name="Class" id="standard" value={classes} onChange={handleClassChange} Style="width:250px">
           <option value="LKG">LKG</option>
@@ -101,13 +116,15 @@ export const Student = () => {
         </select>
        <br></br>
        <label>Name:</label>
-        <input type='text' value={name} onChange={handleNameChange} name='Name' placeholder='name'></input>
+        <input type='text' value={name} onChange={handleNameChange} name='Name' placeholder='enter name'></input>
         <br></br>
         <label>USN No:</label>
-        <input type='text' name='Class' value={USN} onChange={handleUSNChange}></input>
+        <input type='text' name='Class' value={USN} onChange={handleUSNChange} placeholder='enter usn'></input>
         <br></br>
-        <button onClick={handlesubmit}>submit</button>
+        <button onClick={handlesubmit} id='btn'>submit</button>
+</form>
 
+    </div>
     </div>
     </div>
 
