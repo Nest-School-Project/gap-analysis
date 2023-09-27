@@ -22,7 +22,6 @@ export const Grades = () => {
       } else {
         // User is signed out
         // ...
-        window.alert("User is logged out, Log in again")
         navigate("/");
       }
     });

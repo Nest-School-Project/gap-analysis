@@ -1,16 +1,28 @@
 import React from 'react'
 import menu3 from "./menu3.png"
-
 import logo from "./logo2.svg"
 import SideBar from './SideBar'
 import { useNavigate } from 'react-router-dom'; 
+import {  signOut } from "firebase/auth";
+import creds from '../firebase';
+
+
 const Header = () => {
 // JavaScript to toggle the hamburger state
 // JavaScript to toggle the hamburger state
-let Navigate=useNavigate();
+let navigate=useNavigate();
+
 const handleLogout = () => {
-  Navigate('/')
+  signOut(creds.auth).then(() => {
+        window.alert("Logged out successfully");
+        navigate("/");
+
+    }).catch((error) => {
+    window.alert("Logout unsuccessful, try again. ")
+    })
 }
+
+
 return (
     <div>
      

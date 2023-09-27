@@ -27,7 +27,7 @@ function App() {
 
                         <Routes>
 
-                              <Route path="/" element={<Login />} />
+                              <Route path="/" element={<Slidelogin/>} />
                               <Route path="/Entry" element={<Entry/>} />
                               <Route path="/class-details/:classname" element={ <Class_details />} />
                               <Route path="/GapAnalysis/:name" element={<Gap_analysis />} />
@@ -37,7 +37,7 @@ function App() {
                               <Route path="/SideBar" element={<SideBar />} />
                               <Route path="/Themes" element={<Themes />} />
                               <Route path="/Signup" element={<Signup/>} />
-                              <Route path="/Slogin" element={<Slidelogin/>} />
+                              {/* <Route path="/Slogin" element={<Slidelogin/>} /> */}
                         </Routes >
                   </BrowserRouter >
             </div >

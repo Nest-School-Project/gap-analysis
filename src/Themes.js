@@ -20,7 +20,7 @@ export const Themes = () => {
         } else {
           // User is signed out
           // ...
-          window.alert("User is logged out, Log in again")
+          //window.alert("User is logged out, Log in again")
           navigate("/");
         }
       });   
@@ -154,7 +154,7 @@ export const Themes = () => {
 
             </tr>
             <tr>
-              <th>Assessment Stratergy :</th>
+              <th>Assessment Strategy :</th>
               <td><input type="text" name="AS" /></td>
 
             </tr>

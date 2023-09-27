@@ -23,7 +23,7 @@ export const Gap_analysis = () => {
         } else {
           // User is signed out
           // ...
-          window.alert("User is logged out, Log in again")
+          //window.alert("User is logged out, Log in again")
           navigate("/");
         }
       });
