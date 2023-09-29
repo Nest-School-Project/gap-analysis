@@ -19,6 +19,7 @@ import { Slidelogin } from './Slogin';
 
 
 function App() {
+      
       return (
             <div className="App">
 
@@ -27,8 +28,8 @@ function App() {
 
                         <Routes>
 
-                              <Route path="/" element={<Slidelogin/>} />
-                              <Route path="/Entry" element={<Entry/>} />
+                              <Route path="/" element={< Slidelogin />} />
+                              <Route path="/Entry/:student_name" element={<Entry/>} />
                               <Route path="/class-details/:classname" element={ <Class_details />} />
                               <Route path="/GapAnalysis/:name" element={<Gap_analysis />} />
                               <Route path="/Grade" element={<Grades />} />

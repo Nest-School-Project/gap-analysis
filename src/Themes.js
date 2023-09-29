@@ -31,7 +31,7 @@ export const Themes = () => {
     setToggleState(index);
   }
   return (
-    <div ><Header></Header>
+    <div className="App" ><Header></Header>
       <p className="Gradename" >THEMES</p>
       <h1>Assessment Info and Evidence Sheet</h1>
       <br />
