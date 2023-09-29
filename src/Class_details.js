@@ -10,6 +10,13 @@ import creds from './firebase';
 export const Class_details = () => {
     let navigate = useNavigate();
 
+
+    // const handleclick = () => {
+    //     navigate("/GapAnalysis")
+    //   };
+      const handleclickk = () => {
+        navigate("/Entry")
+      };
   useEffect(()=>{
     onAuthStateChanged(creds.auth, (user) => {
         if (user) {
@@ -101,9 +108,10 @@ export const Class_details = () => {
                                                             <th scope="row">{student.usn}</th>
                                                             <td>{student.name}</td>
                                                             <td>G</td>
-                                                            <td><button id="ebtn">View</button></td>
-                                                            <td><button id="ebtn">Edit</button></td>
-                                                            {/*  <td><a href={"/GapAnalysis/"+student.name}>View</a></td> */}
+                                                            {/* <td><button id="ebtn" onClick={handleclick} >View</button></td> */}
+                                                            <td><a href={"/GapAnalysis/"+student.name}>View</a></td>
+                                                            <td><button id="ebtn" onClick={handleclickk}>Edit</button></td>
+                                                             
                                                         </tr>
                                                     )
                                                 }

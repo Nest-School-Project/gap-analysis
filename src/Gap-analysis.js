@@ -43,6 +43,7 @@ export const Gap_analysis = () => {
           <th Style="border:1px solid black;" >CRITERIA</th>
           <th Style="border:1px solid black;">FA1</th>
           <th Style="border:1px solid black;">FA2</th>
+       
         </tr>
         <tr>
           <td Style="border:1px solid black;">SCOPE AND SEQUENCE</td>

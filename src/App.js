@@ -27,7 +27,7 @@ function App() {
 
                         <Routes>
 
-                              <Route path="/" element={<Login />} />
+                              <Route path="/" element={<Slidelogin />} />
                               <Route path="/Entry" element={<Entry/>} />
                               <Route path="/class-details/:classname" element={ <Class_details />} />
                               <Route path="/GapAnalysis/:name" element={<Gap_analysis />} />

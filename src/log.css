@@ -22,6 +22,8 @@ height:750px;
 form{
     background: linear-gradient(147deg, #ffe53bbf 0%, #fb6e6ed1 74%);
     padding: 30px;
+
+   
 }
 .avatar img{
     border: 2px solid rgb(244, 241, 241);

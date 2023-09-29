@@ -1,5 +1,6 @@
 
 import React from 'react'
+import { Component } from 'react';
 import nest1 from "./Components/nest1.png"
 import nest2 from "./Components/nest2.png"
 import nest3 from "./Components/nest3.png"
@@ -24,6 +25,7 @@ export const Slidelogin = () => {
         
         
     }
+    
     const handleSliderClickNext=()=>{
         if(toggleState==4){
             setToggleState(1)
@@ -96,6 +98,8 @@ export const Slidelogin = () => {
     <div class={toggleState === 1 ? "carousel-item active" : "carousel-item"}>
         <img src={nest1} height="650px"  ></img>
     </div>
+
+
     <div class={toggleState === 2 ? "carousel-item active" : "carousel-item"}>
         <img src={nest2} height="650px"></img>
     </div>
