@@ -1,66 +1,67 @@
 import './App.css';
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import {  signInWithEmailAndPassword } from 'firebase/auth';
+import creds from './firebase';
 
 export const Login = () => {
-  const [username, setUsername] = useState('');
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loggedIn, setLoggedIn] = useState(false);
-  let navigate = useNavigate();
-
-  const handleLogin = () => {
-    // You can implement actual authentication logic here.
-    // For simplicity, we'll check if both username and password are 'admin'.
-    if (username === 'admin' && password === 'admin') {
-      setLoggedIn(true);
-      navigate("/Grade")
-    } else {
-      alert('Invalid credentials. Please try again.');
-    }
-  };
-  const handleLogout = () => {
-    setLoggedIn(false);
-    setUsername('');
-    setPassword('');
-  };
-  if (loggedIn) {
-    return (
-      <div className="App">
-        <h1>Welcome, {username}!</h1>
-        <button onClick={handleLogout}>Logout</button>
-      </div>
-    );
-  } else {
-    return (
-      <div className="App">
-        <br></br>
-        <br></br>
-        <br></br>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme"></link>
-        <h1 className="title">WELCOME</h1>
-        <span class="input">
-          <input id="un"
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          /></span>
-        <br></br>
-        <input
-          id="pd"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-
-        />
-
-        <img src="https://onemg.com/work/images/portfolio-images/nest/nest-banner-latest.jpg" id="logo" alt="nest logo" width="750" height="550"></img>
-
-        <br></br>
-
-        <button onClick={handleLogin} id="sub">Login</button>
-      </div>
-    );
+     
+  const onLogin = (e) => {
+    console.log("here")
+      e.preventDefault();
+      signInWithEmailAndPassword(creds.auth, email, password)
+      .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          navigate("/grade");
+          console.log(user);
+      })
+      .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          window.alert("Invalid Credentials, Try Again");
+          console.log(errorCode, errorMessage);
+      });
+     
   }
-}
+
+    return (
+      <div >
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme"></link>
+        <div className="login">
+        <h1 className="title">WELCOME</h1>
+        <form> 
+        <input
+          id="un"
+          name="email"
+          type="email"                                    
+          required                                                                                
+          placeholder="Email address"
+          onChange={(e)=>setEmail(e.target.value)}
+      />
+        <br></br>
+        <br></br>
+      <input
+        id="pd"
+        name="password"
+        type="password"                                    
+        required                                                                                
+        placeholder="Password"
+        onChange={(e)=>setPassword(e.target.value)}
+    />
+<br></br>
+        <br></br>
+        <button type="submit" onClick={onLogin} id="sub">Login</button>
+      </form>
+        
+      </div>
+      <div className="image1">
+        <img src="https://onemg.com/work/images/portfolio-images/nest/nest-banner-latest.jpg"  alt="nest logo" width="750" height="550"></img>
+        </div>
+      </div>
+    );
+  } 
+  

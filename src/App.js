@@ -8,34 +8,37 @@ import { Grades } from './Grades';
 import { Student } from './Student';
 import { Add } from './Add';
 import { Gap_analysis } from './Gap-analysis';
-
-
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Class_details } from './Class_details';
 import { Themes } from './Themes';
-
-
 import { Graph } from './Components/Graph';
 import SideBar from './Components/SideBar';
+import Signup from './SignUp';
+import { Slidelogin } from './Slogin';
+
 
 function App() {
+      
       return (
             <div className="App">
                   <BrowserRouter>
                         <Routes>
-                              <Route path="/" element={<Login />} />
-                              <Route path="/Entry" element={ <Entry />} />
+
+                              <Route path="/" element={< Slidelogin />} />
+                              <Route path="/Entry/:student_name" element={<Entry/>} />
                               <Route path="/class-details/:classname" element={ <Class_details />} />
                               <Route path="/GapAnalysis/:name" element={<Gap_analysis />} />
                               <Route path="/Grade" element={<Grades />} />
-                             <Route path="/Student" element={<Student />} />
+                              <Route path="/Student" element={<Student />} />
                               <Route path="/Add" element={<Add />} />
                               <Route path="/SideBar" element={<SideBar />} />
-                          
+                              <Route path="/Themes" element={<Themes />} />
+                              <Route path="/Signup" element={<Signup/>} />
+                              {/* <Route path="/Slogin" element={<Slidelogin/>} /> */}
                         </Routes >
                   </BrowserRouter >
-                  <Themes></Themes>
+                  
             </div >
 
       );

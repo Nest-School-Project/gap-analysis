@@ -1,0 +1,39 @@
+body{
+    font-family:'sans-serif';
+    background: linear-gradient(147deg, #b4b3a977 0%, #a84a4a65 74%);
+margin-left: 550px;
+height:750px;
+ 
+}
+.scontainer{
+    height: 500px;
+    width: 80%;
+}
+.slogin{
+    position: absolute;
+    height: 650px;
+    width: 50%;
+    justify-content: center;
+    display: flex;
+    padding: 10px 10px;
+    
+
+}
+form{
+    background: linear-gradient(147deg, #ffffff 0%, #e5f9ff65 74%);
+    padding: 30px;
+}
+.avatar img{
+    border: 2px solid rgb(244, 241, 241);
+    height: 120px;
+    width: 120px;
+}
+#bn{
+    width: 75px;
+    height: 35px;
+    background: linear-gradient(147deg, #ffe53b7c 0%, #fb6e6e77 74%);
+    border-color: white;
+    border-radius: 5px;
+    font-size: 15px;
+    transform: translateY(+50%);
+}
