@@ -94,10 +94,10 @@ export const Class_details = () => {
                             <div className={toggleState === index + 1 ? "tab-pane face show active" : "tab-pane fade"}>
                                 <br></br><h1 style={{ textAlign:'center' }}>Section {section}</h1><br></br>
                                 <Link to="/Ostu">
-                                <button type="button" >Overall Subject Analysis</button>
-      </Link>
-                                <button type="button" >Overall UOI Analysis</button>
-                                
+                                <button type="button"  id='btn1'  >Overall Subject Analysis</button>
+      </Link><Link to="/Ouoi">
+                                <button type="button"id='btn1' >Overall UOI Analysis</button>      <br></br>     <br></br></Link>
+                           
                                 <table class='table' style={{ borderBlock: '2px black solid', borderInline:'2px black solid' }}>
                                     <thead >
                                         <tr>

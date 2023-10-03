@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  font-family: Acme;
+  font-family: Barlow;
   width: 100%;
   height: 100%;
   font-size: 30px;
@@ -15,15 +15,15 @@ label{
 }
 
 #un{
-  font-family: Acme;
+  font-family: Barlow;
   font-size: 24px;
 }
 #pd{
-  font-family: Acme;
+  font-family: Barlow;
   font-size: 24px;
 }
 #sub{
-  font-family: Acme;
+  font-family: Barlow;
   width:100px;
   height:50px;
   border-radius: 5px;
@@ -33,7 +33,7 @@ label{
   }
 
   #btn{
-    font-family: Acme;
+    font-family: Barlow;
     width:100px;
     height:50px;
     border-radius: 5px;
@@ -42,7 +42,7 @@ label{
     font-size: 24px;
   }
   #ebtn{
-      font-family: Acme;
+      font-family: Barlow;
       border-radius: 5px;
       background-color:#c7eaf862 ;
       font-size: 24px;
@@ -83,7 +83,7 @@ th {
 .Stu {
   text-align: justify;
   background-color: #f0ccc0;
-  font-family: Acme;
+  font-family: Barlow;
   font-size: 30px;
   height: 100%;
   width: 100%;
@@ -179,7 +179,8 @@ custom-slider {
 }
 
 .Gradename {
-  font-family: Acme;
+  font-family: 'Barlow';
+  font-weight: 500;
   font-size: 60px;
   text-align: left;
   margin-left: 10px;
@@ -343,7 +344,7 @@ margin-top: 20px;*/
 }
 
 .bm-item-list {
-  color: #1a1802;
+  color: #ffffff;
 }
 
 .bm-overlay {
@@ -425,4 +426,18 @@ addspace{
 }
 .ga{
   height: max-content;
+}
+#size{
+  height: 500px;
+  width: 800px;
+}
+#btn1{
+  font-family: Barlow;
+  width:300px;
+  height:50px;
+  border-radius: 5px;
+  border-color: #fafafa;
+  background-color:#ffffff5e ;
+  font-size: 24px;
+  margin-right: 15px;
 }

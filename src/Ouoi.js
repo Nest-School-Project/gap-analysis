@@ -7,7 +7,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import creds from './firebase';
 import { Graph } from './Components/Graph';
 
-export const Ostu  = () => {
+export const Ouoi = () => {
     let navigate=useNavigate();
     useEffect(()=>{
       onAuthStateChanged(creds.auth, (user) => {
@@ -25,14 +25,13 @@ export const Ostu  = () => {
           }
         });   
   }, [])    
-    
-   
-    return (
-      <div className="App" ><Header></Header>
-  
-        <h2>Overall Student Subject analysis</h2>
+  return (
+    <div className="App">
+        <Header></Header>
+        <h2>Overall Student UOI analysis</h2>
         <br />
-        <label>Select FA/SA:</label> 
+        <label>Select FA/SA:</label>
+     
         <input placeholder='FA or SA' type='text' id='btn'></input>
         <br></br>
         <button type='Submit' id='btn'>Submit</button>
@@ -41,31 +40,20 @@ export const Ostu  = () => {
             <br/>
             <h2 >FORMATIVE ASSESSMENT</h2>
             <h3>FA1</h3>
-        <label>ENGLISH</label>
+       
              <div id='size'>
             <Graph></Graph></div>
-            <label>MATHS</label>
-            <div id='size'>
-            <Graph></Graph></div>
-            <label>SCIENCE</label>
-            <div id='size'>
-            <Graph></Graph></div>
+           
          
             <h3>SUMMATIVE ASSESSMENT</h3>
             <h3>SA1</h3>
-           <label>ENGLISH</label>
+          
            <div id='size'>
             <Graph></Graph></div>
-            <label>MATHS</label>
-            <div id='size'>
-            <Graph></Graph></div>
-            <label>SCIENCE</label>
-            <div id='size'>
-            <Graph></Graph></div>
+            
           
           <br></br>
-        </div>
-        
-   
- )
-  }
+       
+    </div>
+  )
+}
