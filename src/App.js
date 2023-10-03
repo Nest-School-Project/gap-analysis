@@ -17,6 +17,7 @@ import SideBar from './Components/SideBar';
 import Signup from './SignUp';
 import { Slidelogin } from './Slogin';
 import { Ostu } from './Ostu';
+import { Gostu } from './Gostu';
 
 
 
@@ -38,6 +39,7 @@ function App() {
                               <Route path="/Themes" element={<Themes />} />
                               <Route path="/Signup" element={<Signup/>} />
                               <Route path="/Ostu" element={<Ostu/>} />
+                              <Route path="/Gostu/:classname/:secname" element={<Gostu/>} />
                           
                               {/* <Route path="/Slogin" element={<Slidelogin/>} /> */}
                         </Routes >
