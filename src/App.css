@@ -6,6 +6,7 @@
   font-size: 30px;
   
 }
+
 input{
   border-color: #e2f5fab7;
   background: linear-gradient(147deg, #f3efd2 0%, #f3dbb56a 74%);;
@@ -39,7 +40,7 @@ label{
     border-radius: 5px;
     border-color: #fafafa;
     background-color:#ffffff5e ;
-    font-size: 24px;
+    font-size: 0.75em;
   }
   #ebtn{
       font-family: Barlow;
@@ -336,15 +337,19 @@ margin-top: 20px;*/
   background: #20217a9e;
   opacity: 90%;
   padding: 2.5em 1.5em 0;
-  font-size: 1.15em;
-}
+  font-size: 0.75em;
+  margin-left: 0;
+ }
 
 .bm-morph-shape {
   fill: #373a47;
 }
 
-.bm-item-list {
-  color: #ffffff;
+.bm-item {
+  color: #f5f5f1;
+  text-decoration: none;
+  margin-top:10px;
+  margin-bottom: 10px;
 }
 
 .bm-overlay {
