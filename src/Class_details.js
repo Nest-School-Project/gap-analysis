@@ -142,7 +142,6 @@ export const Class_details = () => {
 
             </div>
         </div>
-    )
+        
+    );
 }
-
-export default Class_details;

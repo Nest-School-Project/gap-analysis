@@ -24,10 +24,7 @@ function App() {
       
       return (
             <div className="App">
-
-
                   <BrowserRouter>
-
                         <Routes>
 
                               <Route path="/" element={< Slidelogin />} />
@@ -45,6 +42,7 @@ function App() {
                               {/* <Route path="/Slogin" element={<Slidelogin/>} /> */}
                         </Routes >
                   </BrowserRouter >
+                  
             </div >
 
       );
