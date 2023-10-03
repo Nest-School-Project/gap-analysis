@@ -9,8 +9,8 @@ import creds from './firebase';
 
 export const Student = () => {
   let navigate=useNavigate();
-  const [classes, setClass] = useState('');
-  const [section, setSection] = useState('');
+  const [classes, setClass] = useState('LKG');
+  const [section, setSection] = useState('A');
   const [name, setName] = useState('');
   const [USN, setUSN] = useState('');
         
@@ -60,7 +60,7 @@ export const Student = () => {
         } else {
           // User is signed out
           // ...
-          window.alert("User is logged out, Log in again")
+          //window.alert("User is logged out, Log in again")
           navigate("/");
         }
       });
@@ -92,8 +92,9 @@ const toggleTab = (index) => {
           <form className='Sd'>
           <h1 >Add Student</h1>
             <br />
+          
         <label >Class:</label>
-        <select name="Class" className="dropbtn" value={classes} onChange={handleClassChange} Style="width:250px">
+        <select  className="dropbtn" value={classes} onChange={handleClassChange} Style="width:250px">
           <option value="LKG">LKG</option>
           <option value="UKG">UKG</option>
           <option value="1th">1st</option>
@@ -108,7 +109,7 @@ const toggleTab = (index) => {
         </select>
         <br></br>
         <label>Section:</label>
-        <select name="Class" className="dropbtn" value={section} onChange={handleSectionChange} Style="width:250px" >
+        <select  className="dropbtn" value={section} onChange={handleSectionChange} Style="width:250px" >
           <option value="A">A</option>
           <option value="B">B</option>
           <option value="C">C</option>
@@ -131,8 +132,9 @@ const toggleTab = (index) => {
           <form className='Sd'>
           <h1 >Delete Student</h1>
             <br />
+          
         <label >Class:</label>
-        <select name="Class" className="dropbtn" value={classes} onChange={handleClassChange} Style="width:250px">
+        <select  className="dropbtn" value={classes} onChange={handleClassChange} Style="width:250px">
           <option value="LKG">LKG</option>
           <option value="UKG">UKG</option>
           <option value="1th">1st</option>
@@ -147,7 +149,7 @@ const toggleTab = (index) => {
         </select>
         <br></br>
         <label>Section:</label>
-        <select name="Class" className="dropbtn" value={section} onChange={handleSectionChange} Style="width:250px" >
+        <select  className="dropbtn" value={section} onChange={handleSectionChange} Style="width:250px" >
           <option value="A">A</option>
           <option value="B">B</option>
           <option value="C">C</option>
@@ -170,8 +172,9 @@ const toggleTab = (index) => {
           <form className='Sd'>
           <h1 >Update Student</h1>
             <br />
+          
         <label >Class:</label>
-        <select name="Class" className="dropbtn" value={classes} onChange={handleClassChange} Style="width:250px">
+        <select  className="dropbtn" value={classes} onChange={handleClassChange} Style="width:250px">
           <option value="LKG">LKG</option>
           <option value="UKG">UKG</option>
           <option value="1th">1st</option>
@@ -186,7 +189,7 @@ const toggleTab = (index) => {
         </select>
         <br></br>
         <label>Section:</label>
-        <select name="Class" className="dropbtn" value={section} onChange={handleSectionChange} Style="width:250px" >
+        <select  className="dropbtn" value={section} onChange={handleSectionChange} Style="width:250px" >
           <option value="A">A</option>
           <option value="B">B</option>
           <option value="C">C</option>

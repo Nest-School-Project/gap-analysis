@@ -20,7 +20,7 @@ export const Themes = () => {
         } else {
           // User is signed out
           // ...
-          window.alert("User is logged out, Log in again")
+          //window.alert("User is logged out, Log in again")
           navigate("/");
         }
       });   
@@ -31,7 +31,7 @@ export const Themes = () => {
     setToggleState(index);
   }
   return (
-    <div ><Header></Header>
+    <div className="App" ><Header></Header>
       <p className="Gradename" >THEMES</p>
       <h1>Assessment Info and Evidence Sheet</h1>
       <br />
@@ -120,25 +120,17 @@ export const Themes = () => {
               <th>CRITERIA</th>
             </tr>
             <tr>
-              <th>SCOPE AND SEQUENCE</th>
+              <th>CONCEPT</th>
               <td><input type="text" name="TA" /></td>
 
             </tr>
             <tr>
-              <th>SCOPE AND SEQUENCE</th>
+              <th>APPLICATION</th>
               <td><input type="text" name="AS" /></td>
 
             </tr>
-            <tr>
-              <th>SUCCESS CRITERIA FROM UNIT PLANNER</th>
-              <td><input type="text" name="AT" /></td>
-
-            </tr>
-            <tr>
-              <th>ACADEMIC SPECIFIC</th>
-              <td><input type="text" name="AT" /></td>
-
-            </tr>
+           
+           
           </table>
 
         </div>
@@ -154,7 +146,7 @@ export const Themes = () => {
 
             </tr>
             <tr>
-              <th>Assessment Stratergy :</th>
+              <th>Assessment Strategy :</th>
               <td><input type="text" name="AS" /></td>
 
             </tr>
@@ -173,40 +165,26 @@ export const Themes = () => {
               <th>CRITERIA</th>
             </tr>
             <tr>
-              <th>SCOPE AND SEQUENCE</th>
+              <th>COMPREHENDING</th>
               <td><input type="text" name="TA" /></td>
 
             </tr>
             <tr>
-              <th>SCOPE AND SEQUENCE</th>
+              <th>KNOWLEDGE</th>
               <td><input type="text" name="AS" /></td>
 
             </tr>
             <tr>
-              <th>REAL WORLD APPLICATION</th>
+              <th>CONCEPT</th>
               <td><input type="text" name="AT" /></td>
 
             </tr>
             <tr>
-              <th>NEST PILLAR REFERENCE</th>
+              <th>APPLICATION</th>
               <td><input type="text" name="AT" /></td>
 
             </tr>
-            <tr>
-              <th>APPROACHES TO PILLAR REFERENCE - I</th>
-              <td><input type="text" name="AT" /></td>
-
-            </tr>
-            <tr>
-              <th>APPROACHES TO PILLAR REFERENCE - II</th>
-              <td><input type="text" name="AT" /></td>
-
-            </tr>
-            <tr>
-              <th>HIGHER ORDER THINKING</th>
-              <td><input type="text" name="AT" /></td>
-
-            </tr>
+            
           </table>
         </div>
         <br></br>

@@ -68,9 +68,16 @@ export const data = {
   ],
 };
 
-export function Graph() {
+export function Graph(props) {
+  console.log(props.data)
+  // data.labels=props.data
+  // data.datasets[0].data=props.sc_marks
+  //  data.datasets[1].data=props.sc_marks
+  // data.datasets[2].data=props.real
+  // data.datasets[3].data=props.ass_spec
+  console.log(props.sc_marks)
   return (
-    <div>
+  <div>
       
   <Line options={options} data={data} />
   </div>);

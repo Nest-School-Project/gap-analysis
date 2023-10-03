@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  background-color: #f9a686;
   font-family: Acme;
   width: 100%;
   height: 100%;
@@ -94,15 +93,6 @@ th {
   
 }
 
-.Edit {
-  text-align: center;
-  background: linear-gradient(147deg, #FFE53B 0%, #fb6e6e 74%);
-  font-family: Acme;
-  height: auto;
-  width: 1500px;
-  margin-bottom: 20px;
-}
-
 .text-primary {
   text-align: left;
   --bs-text-opacity: 1;
@@ -128,17 +118,6 @@ th {
 
 .space {
   margin-left: 25px;
-}
-
-.ins {
-  position: relative;
-  left: 5px;
-  right:10px;
-}
-
-.lab {
-  margin-bottom: 30px;
-  align-items: safe;
 }
 
 .App-logo {
@@ -362,8 +341,11 @@ body {
   margin-left: 80px;
 }
 .St{
-  position: relative;
-  top: 100px;
+  margin : 200px;
+  position : absolute;
+  top : 50px;
+  left: 50px;
+  width : 1000px;
 }
 .Sd{
   margin:auto;

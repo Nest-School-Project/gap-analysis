@@ -6,9 +6,16 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from "firebase/auth";
 import creds from './firebase';
-
+import { BsPencilSquare } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 export const Class_details = () => {
     let navigate = useNavigate();
+    const handleclick=(e)=>
+    {
+        console.log(e.target
+            )
+        navigate("/Entry/aravi")
+    };
 
 
     // const handleclick = () => {
@@ -28,7 +35,7 @@ export const Class_details = () => {
         } else {
           // User is signed out
           // ...
-          window.alert("User is logged out, Log in again")
+          //window.alert("User is logged out, Log in again")
           navigate("/");
         }
       });
@@ -68,7 +75,7 @@ export const Class_details = () => {
     const { classname } = useParams();
     return (
         <div ><Header></Header>
-            <p className="Gradename" >Class:{classname}</p>
+            <p className="Gradename" >Class : {classname}</p>
             <ul class="nav nav-tabs" id="myTabs" role="tablist">
                 {
                     sections.map((sec, index) => {
@@ -86,7 +93,11 @@ export const Class_details = () => {
 
                             <div className={toggleState === index + 1 ? "tab-pane face show active" : "tab-pane fade"}>
                                 <br></br><h1 style={{ textAlign:'center' }}>Section {section}</h1><br></br>
-
+                                <Link to="/Ostu">
+                                <button type="button" >Overall Subject Analysis</button>
+      </Link>
+                                <button type="button" >Overall UOI Analysis</button>
+                                
                                 <table class='table' style={{ borderBlock: '2px black solid', borderInline:'2px black solid' }}>
                                     <thead >
                                         <tr>
@@ -108,9 +119,11 @@ export const Class_details = () => {
                                                             <th scope="row">{student.usn}</th>
                                                             <td>{student.name}</td>
                                                             <td>G</td>
-                                                            {/* <td><button id="ebtn" onClick={handleclick} >View</button></td> */}
+
+                                                            {/* <td><button id="ebtn">View</button></td> */}
+                                                            
                                                             <td><a href={"/GapAnalysis/"+student.name}>View</a></td>
-                                                            <td><button id="ebtn" onClick={handleclickk}>Edit</button></td>
+                                                            <td><a href={"/Entry/"+student.name}><BsPencilSquare /></a></td>
                                                              
                                                         </tr>
                                                     )

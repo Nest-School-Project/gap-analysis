@@ -16,9 +16,12 @@ import { Graph } from './Components/Graph';
 import SideBar from './Components/SideBar';
 import Signup from './SignUp';
 import { Slidelogin } from './Slogin';
+import { Ostu } from './Ostu';
+
 
 
 function App() {
+      
       return (
             <div className="App">
 
@@ -27,8 +30,8 @@ function App() {
 
                         <Routes>
 
-                              <Route path="/" element={<Slidelogin />} />
-                              <Route path="/Entry" element={<Entry/>} />
+                              <Route path="/" element={< Slidelogin />} />
+                              <Route path="/Entry/:student_name" element={<Entry/>} />
                               <Route path="/class-details/:classname" element={ <Class_details />} />
                               <Route path="/GapAnalysis/:name" element={<Gap_analysis />} />
                               <Route path="/Grade" element={<Grades />} />
@@ -37,7 +40,9 @@ function App() {
                               <Route path="/SideBar" element={<SideBar />} />
                               <Route path="/Themes" element={<Themes />} />
                               <Route path="/Signup" element={<Signup/>} />
-                              <Route path="/Slogin" element={<Slidelogin/>} />
+                              <Route path="/Ostu" element={<Ostu/>} />
+                          
+                              {/* <Route path="/Slogin" element={<Slidelogin/>} /> */}
                         </Routes >
                   </BrowserRouter >
             </div >

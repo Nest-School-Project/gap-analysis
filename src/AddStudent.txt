@@ -1,0 +1,48 @@
+
+import { useEffect, useState } from 'react';
+import { onAuthStateChanged } from "firebase/auth";
+import {collection,addDoc} from 'firebase/firestore';
+import creds from './firebase';
+
+export const Student = () => {
+  let navigate=useNavigate();
+  const [classes, setClass] = useState('LKG');
+  const [section, setSection] = useState('A');
+  const [name, setName] = useState('');
+  const [USN, setUSN] = useState('');
+        
+  const handleSectionChange = (e) => {
+    console.log(e.target.value)
+    setSection(e.target.value);
+  };
+
+  const handleClassChange = (e) => {
+    console.log(e.target.value)
+    setClass(e.target.value);
+  };
+
+  const handleNameChange = (e) => {
+    console.log(e.target.value)
+    setName(e.target.value);
+  };
+
+  const handleUSNChange = (e) => {
+    console.log(e.target.value)
+    setUSN(e.target.value);
+  };
+
+   
+  const handlesubmit = async () => {
+    try{
+      const addClass= await addDoc(collection(creds.db,"Student"),{
+        "Class":classes,
+        "Section":section,
+        "Name":name,
+        "USN":USN
+      });
+    }
+    catch (err){
+      console.log(err)
+    }
+      
+  };

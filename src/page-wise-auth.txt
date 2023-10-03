@@ -64,10 +64,10 @@ export default Home;
 
 PAGES :
 Login.js
-Grades.js
-Add.js
-Student.js
-Themes.js
-Gap-analysis.js
-Entry.js
-Class_details.js
+//Grades.js
+//Add.js
+//Student.js
+//Themes.js
+//Gap-analysis.js
+//Entry.js
+//Class_details.js
