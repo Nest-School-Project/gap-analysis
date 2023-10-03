@@ -17,7 +17,8 @@ import SideBar from './Components/SideBar';
 import Signup from './SignUp';
 import { Slidelogin } from './Slogin';
 import { Ostu } from './Ostu';
-
+import { AddAssmt } from './AddAssmt';
+import { AddSub } from './AddSub';
 
 
 function App() {
@@ -38,6 +39,8 @@ function App() {
                               <Route path="/Themes" element={<Themes />} />
                               <Route path="/Signup" element={<Signup/>} />
                               <Route path="/Ostu" element={<Ostu/>} />
+                              <Route path="/AddAssmt" element={<AddAssmt/>} />
+                              <Route path="/AddSub" element={<AddSub/>} />
                           
                               {/* <Route path="/Slogin" element={<Slidelogin/>} /> */}
                         </Routes >
