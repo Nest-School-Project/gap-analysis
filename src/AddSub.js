@@ -7,20 +7,14 @@ import { onAuthStateChanged } from "firebase/auth";
 import creds from './firebase';
 
 
-export const Themes = () => {
+export const AddSub = () => {
   let navigate=useNavigate();
   useEffect(()=>{
     onAuthStateChanged(creds.auth, (user) => {
         if (user) {
-          // User is signed in, see docs for a list of available properties
-          // https://firebase.google.com/docs/reference/js/firebase.User
           const uid = user.uid;
-          // ...
           console.log("uid", uid)
         } else {
-          // User is signed out
-          // ...
-          //window.alert("User is logged out, Log in again")
           navigate("/");
         }
       });   
@@ -32,8 +26,8 @@ export const Themes = () => {
   }
   return (
     <div className="App" ><Header></Header>
-      <p className="Gradename" >THEMES</p>
-      <h1>Add Theme</h1>
+      <p className="Gradename" >SUBJECT</p>
+      <h1>Add Subject</h1>
       <br />
       <form>
         <div class="container"><span transform="-90px">
@@ -65,21 +59,16 @@ export const Themes = () => {
         <table style={{ margin: 'auto', width: '50%' }}>
 
           <tr>
-            <th>Enter Theme Name :</th>
+            <th>Enter Subject Name :</th>
             <td><input type="text" name="TA" /></td>
 
           </tr>
           <br />
           <tr>
-            <th>Enter Central Idea :</th>
+            <th>Enter Subject Code :</th>
             <td><input type="text" name="AS" /></td>
 
           </tr> <br />
-          <tr>
-            <th>Enter Line of Inquiry :</th>
-            <td><input type="text" name="AT" /></td>
-
-          </tr>
         </table>
 
         <br></br>

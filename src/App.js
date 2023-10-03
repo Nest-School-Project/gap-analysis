@@ -18,6 +18,8 @@ import Signup from './SignUp';
 import { Slidelogin } from './Slogin';
 import { Ostu } from './Ostu';
 import MarkEntry from "./Components/MarkEntry";
+import { AddAssmt } from './AddAssmt';
+import { AddSub } from './AddSub';
 
 
 function App() {
@@ -39,6 +41,8 @@ function App() {
                               <Route path="/Signup" element={<Signup/>} />
                               <Route path="/Ostu" element={<Ostu/>} />
                               <Route path="/MarkEntry" element={ <MarkEntry />} />
+                              <Route path="/AddAssmt" element={<AddAssmt/>} />
+                              <Route path="/AddSub" element={<AddSub/>} />
                           
                               {/* <Route path="/Slogin" element={<Slidelogin/>} /> */}
                         </Routes >

@@ -29,12 +29,13 @@ return (
 
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"></link>
       <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet"></link>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme"></link>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow"></link>
+      <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap" rel="stylesheet"></link>
       <nav class="text-primary">
         <div class="container-fluid">
           <SideBar></SideBar>
           <img src={logo} alt="nest" id="nestlogo" width="50" height="50" />
-          <button style={{ position: "absolute", right: "2%", top: "8%", backgroundColor:"#f3dbb56a", borderColor:"#f3dbb56a" }} onClick={handleLogout}><RiLogoutBoxRLine style={{ color: "white", width:"40px", height:"40px"}} /></button>
+          <a href='/Slogin' style={{ position: "absolute", right: "2%", top: "8%" }} onClick={handleLogout}><RiLogoutBoxRLine style={{ color: "white", width:"40px", height:"40px"}} /></a>
 
         </div>
       </nav>
