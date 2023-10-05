@@ -20,7 +20,7 @@ import { Ostu } from './Ostu';
 import MarkEntry from "./Components/MarkEntry";
 import { AddAssmt } from './AddAssmt';
 import { AddSub } from './AddSub';
-
+import {Gostu} from "./Gostu";
 
 function App() {
       
