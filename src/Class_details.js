@@ -8,7 +8,6 @@ import { onAuthStateChanged } from "firebase/auth";
 import creds from './firebase';
 import { GrScorecard } from "react-icons/gr";
 import { Link } from 'react-router-dom';
-
 import { AiOutlineEye } from "react-icons/ai";
 import { BsPersonFillGear } from "react-icons/bs";
 export const Class_details = () => {

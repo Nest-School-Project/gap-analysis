@@ -1,6 +1,9 @@
 body{
     font-family:'sans-serif';
-    background: linear-gradient(147deg, #b4b3a977 0%, #a84a4a65 74%);
+    /* background: linear-gradient(147deg, #b4b3a977 0%, #a84a4a65 74%); */
+    background-image: url("BG-copy.png");
+    background-repeat: none;
+    background-size: cover;
     margin-left: 550px;
 
  
