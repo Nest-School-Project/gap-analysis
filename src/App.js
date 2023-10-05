@@ -21,6 +21,7 @@ import MarkEntry from "./Components/MarkEntry";
 import { AddAssmt } from './AddAssmt';
 import { AddSub } from './AddSub';
 import {Gostu} from "./Gostu";
+import { Ouoi } from './Ouoi';
 
 function App() {
       
@@ -40,6 +41,7 @@ function App() {
                               <Route path="/Themes" element={<Themes />} />
                               <Route path="/Signup" element={<Signup/>} />
                               <Route path="/Ostu" element={<Ostu/>} />
+                              <Route path="/Ouoi" element={<Ouoi/>} />
                               <Route path="/Gostu/:classname/:secname" element={<Gostu/>} />
                               <Route path="/MarkEntry" element={ <MarkEntry />} />
                               <Route path="/AddAssmt" element={<AddAssmt/>} />
