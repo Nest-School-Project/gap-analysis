@@ -27,6 +27,9 @@ export const Class_details = () => {
       const handleclickk = () => {
         navigate("/Entry")
       };
+      const handleChange=()=>{
+     navigate(`/${classname}/${secname}`)
+      };
   useEffect(()=>{
     onAuthStateChanged(creds.auth, (user) => {
         if (user) {
@@ -45,8 +48,10 @@ export const Class_details = () => {
      
 }, [])    
     const [toggleState, setToggleState] = useState(1);
+    const [secname,setsecname]=useState('A');
     const toggleTab = (index) => {
         setToggleState(index);
+        setsecname(String.fromCharCode(index+64))
     }
     const students = [{
         "usn": "12345",
@@ -102,10 +107,8 @@ export const Class_details = () => {
                         return (
 
                             <div className={toggleState === index + 1 ? "tab-pane face show active" : "tab-pane fade"}>
-                                <h1 style={{ textAlign:'center' }}>Section {section}
-                                <div><a href='\Student' style={{ position: "absolute", right: "2%",top: "28%" }} onClick={addStu} ><BsPersonFillGear style={{ color: "black", width:"40px", height:"40px"}} /></a>
-                                <p style={{ position: "absolute", right: "2.3%", top: "35%",fontSize:15 }}>Edit</p></div>
-                                </h1><br></br>
+                                <br></br><h1 style={{ textAlign:'center' }}>Section {section}</h1><br></br>
+                                <button style={{color:"greenyellow",backgroundColor:"green"}} onClick={handleChange}>MARKS UPLOAD</button>
                                 <Link to="/Ostu">
                                 <button type="button"  id='btn1'  >Overall Subject Analysis</button>
       </Link><Link to="/Ouoi">
