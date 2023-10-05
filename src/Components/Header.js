@@ -36,7 +36,7 @@ return (
           <SideBar></SideBar>
           <img src={logo} alt="nest" id="nestlogo" width="50" height="50" />
           <a href='/Slogin' style={{ position: "absolute", right: "2%", top: "8%" }} onClick={handleLogout}><RiLogoutBoxRLine style={{ color: "white", width:"40px", height:"40px"}} /></a>
-
+  
         </div>
       </nav>
 

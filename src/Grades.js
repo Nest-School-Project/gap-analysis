@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from "./Components/Header";
 import { onAuthStateChanged } from "firebase/auth";
 import creds from './firebase';
+import { MdAddCircleOutline } from "react-icons/md";
 
 export const Grades = () => {
   let navigate = useNavigate();
@@ -33,7 +34,7 @@ export const Grades = () => {
     navigate(`/class-details/${e}`)
   };
   const grades = [
-    "PreKG",
+    "PKG",
     "LKG",
     "UKG",
     "1",
@@ -46,19 +47,27 @@ export const Grades = () => {
     "8"
   ]
   let grade = "LKG"
+  const addStu = () => {
+    
+          navigate("/Add");
+  
+      }
+  
   return (
     <div>
       <Header />
       {/* <h1 class='Gradename'>Grades </h1>
     <div className='Boxstyle'>
-
-
     {
     <button onClick={()=>handleclick(grade)} style={{margin:"30px"}}><Boxes Names={grade}></Boxes></button>
     <button onClick={()=>handleclick(grade)} style={{margin:"30px"}}><Boxes Names={grade}></Boxes></button>
     <button onClick={()=>handleclick(grade)} style={{margin:"30px"}}><Boxes Names={grade}></Boxes></button>
     <button onClick={()=>handleclick(grade)} style={{margin:"30px"}}><Boxes Names={grade}></Boxes></button> */}
-      <h1 class='Gradename'>Grades </h1>
+      <h1 class='Gradename'>Grades 
+      <div><a href='/Add' style={{ position: "absolute", right: "2%", top: "7%" }} onClick={addStu}><MdAddCircleOutline style={{ color: "white", width:"40px", height:"40px"}} /></a>
+      <p style={{ position: "absolute", right: "1.5%", top: "16%",fontSize:15 }}>Add Class</p>
+</div>
+      </h1>
       <div className='Boxstyle'>
         {
           grades.map((grade, index) => {

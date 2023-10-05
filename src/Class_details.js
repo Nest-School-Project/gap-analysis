@@ -6,8 +6,11 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from "firebase/auth";
 import creds from './firebase';
-import { BsPencilSquare } from "react-icons/bs";
+import { GrScorecard } from "react-icons/gr";
 import { Link } from 'react-router-dom';
+
+import { AiOutlineEye } from "react-icons/ai";
+import { BsPersonFillGear } from "react-icons/bs";
 export const Class_details = () => {
     let navigate = useNavigate();
     const handleclick=(e)=>
@@ -73,9 +76,16 @@ export const Class_details = () => {
         "D"
     ]
     const { classname } = useParams();
+    
+    const addStu = () => {
+    
+        navigate("/Student");
+
+    }
     return (
         <div ><Header></Header>
-            <p className="Gradename" >Class : {classname}</p>
+            <h1 className="Gradename" >Class : {classname}
+            </h1>
             <ul class="nav nav-tabs" id="myTabs" role="tablist">
                 {
                     sections.map((sec, index) => {
@@ -92,7 +102,10 @@ export const Class_details = () => {
                         return (
 
                             <div className={toggleState === index + 1 ? "tab-pane face show active" : "tab-pane fade"}>
-                                <br></br><h1 style={{ textAlign:'center' }}>Section {section}</h1><br></br>
+                                <h1 style={{ textAlign:'center' }}>Section {section}
+                                <div><a href='\Student' style={{ position: "absolute", right: "2%",top: "28%" }} onClick={addStu} ><BsPersonFillGear style={{ color: "black", width:"40px", height:"40px"}} /></a>
+                                <p style={{ position: "absolute", right: "2.3%", top: "35%",fontSize:15 }}>Edit</p></div>
+                                </h1><br></br>
                                 <Link to="/Ostu">
                                 <button type="button"  id='btn1'  >Overall Subject Analysis</button>
       </Link><Link to="/Ouoi">
@@ -122,8 +135,8 @@ export const Class_details = () => {
 
                                                             {/* <td><button id="ebtn">View</button></td> */}
                                                             
-                                                            <td><a href={"/GapAnalysis/"+student.name}>View</a></td>
-                                                            <td><a href={"/Entry/"+student.name}><BsPencilSquare /></a></td>
+                                                            <td><a href={"/GapAnalysis/"+student.name} ><AiOutlineEye style={{ color: "black"}}/></a></td>
+                                                            <td><a href={"/Entry/"+student.name}><GrScorecard style={{ color: "black"}}/></a></td>
                                                              
                                                         </tr>
                                                     )
