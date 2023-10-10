@@ -36,7 +36,7 @@ class MarkEntry extends React.Component{
                             "c2":0
                         },
                         "FA2":{
-                            "c1":3,
+                            "c1":9,
                             "c2":0,
                         }
                     },

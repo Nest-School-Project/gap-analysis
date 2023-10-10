@@ -22,14 +22,18 @@ export const Gostu = () => {
       // console.log(type);
     }
     function handleSubjects(e){
-      setype("subjects/"+e.target.value);
+      setype(e.target.value);
       // console.log(type);
       // setSub({borderRadius:"5px",marginBottom:"15px",backgroundColor:"green"});
       // c=1;
     }
     function handleSubmit(){
-      console.log(type);
-      navigate(`/Gostu/PKG/A/${type}`);
+      if(type==="UOI"){
+        navigate(`/entry/theme/${classname}/${secname}`)
+      }
+      else{
+        navigate(`/entry/subject/${classname}/${secname}/${type}`);
+      }
     }
     
     return (
