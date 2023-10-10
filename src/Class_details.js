@@ -29,7 +29,7 @@ export const Class_details = () => {
         navigate("/Entry")
       };
       const handleChange=()=>{
-     navigate(`/${classname}/${secname}`)
+     navigate(`/Gostu/${classname}/${secname}`)
       };
   useEffect(()=>{
     onAuthStateChanged(creds.auth, (user) => {
