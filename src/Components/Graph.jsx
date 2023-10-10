@@ -77,7 +77,7 @@ export function Graph(props) {
   // data.datasets[3].data=props.ass_spec
   console.log(props.sc_marks)
   return (
-  <div>
+  <div style={{backgroundColor:'white', height:'400px', width:'800px', alignContent:'center'}}>
       
   <Line options={options} data={data} />
   </div>);

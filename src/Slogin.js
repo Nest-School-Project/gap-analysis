@@ -56,6 +56,7 @@ export const Slidelogin = () => {
      
   }
 
+
   return (
     <div>
 <head>
@@ -72,7 +73,7 @@ export const Slidelogin = () => {
 <link rel='stylesheet' id='compiled.css-css'  href='https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/css/compiled-4.19.2.min.css?ver=4.19.2' type='text/css' media='all' /> */}
 {/* <link rel="stylesheet" href="css/log.css"/> */}
 </head>
-<body>
+<body >
     
     {/* <script>
   $(document).ready(function () {

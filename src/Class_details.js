@@ -31,6 +31,11 @@ export const Class_details = () => {
       const handleChange=()=>{
      navigate(`/Gostu/${classname}/${secname}`)
       };
+      const handleDelete=()=>{
+      let d=window.confirm("Confirm Delete \nDisclaimer: Deleting this student will delete the record from the database");
+      console.log(d);
+         };
+         
   useEffect(()=>{
     onAuthStateChanged(creds.auth, (user) => {
         if (user) {
@@ -108,7 +113,9 @@ export const Class_details = () => {
                         return (
 
                             <div className={toggleState === index + 1 ? "tab-pane face show active" : "tab-pane fade"}>
-                                <br></br><h1 style={{ textAlign:'center' }}>Section {section}</h1><br></br>
+                                <br></br>
+                                <br></br>
+                                {/* <br></br><h1 style={{ textAlign:'center',color:"white", fontStyle:"bold"}}>SECTION {section}</h1><br></br> */}
                                 <button  type="button"  id='btn1' >MARKS UPLOAD</button>
                                 <Link to="/Ostu">
                                 <button type="button"  id='btn1'  >Overall Subject Analysis</button>
@@ -142,7 +149,7 @@ export const Class_details = () => {
                                                             {/* <td><button id="ebtn">View</button></td> */}
                                                             
                                                             <td><a href={"/GapAnalysis/"+student.name} ><AiOutlineEye style={{ color: "black"}}/></a></td>
-                                                            <td><a href={"/DeleteStu/"+student.name} ><RiDeleteBinLine style={{ color: "black"}}/></a></td>
+                                                            <td><button onClick={handleDelete} ><RiDeleteBinLine style={{ color: "black"}}/></button></td>
                                                             <td><a href={"/UpdateStu/"+student.name} ><BiPencil style={{ color: "black"}}/></a></td>
                                                              
                                                         </tr>

@@ -1,12 +1,12 @@
 .App {
   text-align: center;
   font-family: Barlow;
-  width: 100%;
-  height: 100%;
+  background-position: center;
   font-size: 30px;
-  
 }
-
+.h1{
+  color: white;
+}
 input{
   border-color: #e2f5fab7;
   background: linear-gradient(147deg, #f3efd2 0%, #f3dbb56a 74%);;
@@ -442,7 +442,8 @@ addspace{
   height:50px;
   border-radius: 5px;
   border-color: #fafafa;
-  background-color:#ffffff5e ;
+  background-color:#ffffffda ;
   font-size: 24px;
+
   margin-right: 15px;
 }

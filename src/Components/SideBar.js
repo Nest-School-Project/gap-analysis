@@ -15,7 +15,7 @@ export default props => {
       </a>
 
       <a className="menu-item" href="/Student">
-      <BsPersonFillGear style={{ color: "white"}}/> Modify Student
+      <BsPersonFillGear style={{ color: "white"}}/> Add Student
       </a>
 
       <a className="menu-item" href="/Themes">
