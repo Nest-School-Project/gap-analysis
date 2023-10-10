@@ -40,7 +40,7 @@ export const Gostu = () => {
       }
     }
     const toggleTab = (index) => {
-      
+      setype(undefined)
       setToggleState(index);
   }
     
