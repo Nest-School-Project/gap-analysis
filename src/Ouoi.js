@@ -60,9 +60,18 @@ export const Ouoi = () => {
         <Header></Header>
         <h2>Overall Student UOI analysis</h2>
         <br />
-        <label>Select FA/SA:</label>
+        <label>Select Theme</label>
      
-        <input placeholder='FA or SA' type='text' id='btn'></input>
+        <select className="dropbtn" Style="width:350px">
+            <option value="Theme 1">Theme 1</option>
+            <option value="Theme 2">Theme 2</option>
+            <option value="Theme 3">Theme 3</option>
+            <option value="Theme 4">Theme 4</option>
+            <option value="Theme 5">Theme 5</option>
+            <option value="Theme 6">Theme 6</option>
+         
+
+          </select>
         <br></br>
         <button type='Submit' id='btn'>Submit</button>
        <br></br>

@@ -9,6 +9,8 @@ import creds from './firebase';
 import { GrScorecard } from "react-icons/gr";
 import { Link } from 'react-router-dom';
 import { AiOutlineEye } from "react-icons/ai";
+import { BiPencil } from "react-icons/bi";
+import { RiDeleteBinLine} from "react-icons/ri";
 import { BsPersonFillGear } from "react-icons/bs";
 export const Class_details = () => {
     let navigate = useNavigate();
@@ -107,7 +109,7 @@ export const Class_details = () => {
 
                             <div className={toggleState === index + 1 ? "tab-pane face show active" : "tab-pane fade"}>
                                 <br></br><h1 style={{ textAlign:'center' }}>Section {section}</h1><br></br>
-                                <button style={{color:"greenyellow",backgroundColor:"green"}} onClick={handleChange} >MARKS UPLOAD</button>
+                                <button  type="button"  id='btn1' >MARKS UPLOAD</button>
                                 <Link to="/Ostu">
                                 <button type="button"  id='btn1'  >Overall Subject Analysis</button>
       </Link><Link to="/Ouoi">
@@ -120,8 +122,10 @@ export const Class_details = () => {
                                             <th scope="col">USN</th>
                                             <th scope="col">First Name</th>
                                             <th scope="col">Last Name</th>
-                                            <th scope="col">Grades</th>
-                                            <th scope="col"></th>
+                                            <th scope="col">View</th>
+                                            <th scope="col">Delete</th>
+                                            <th scope="col">Update</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -138,7 +142,8 @@ export const Class_details = () => {
                                                             {/* <td><button id="ebtn">View</button></td> */}
                                                             
                                                             <td><a href={"/GapAnalysis/"+student.name} ><AiOutlineEye style={{ color: "black"}}/></a></td>
-                                                            <td><a href={"/Entry/"+student.name}><GrScorecard style={{ color: "black"}}/></a></td>
+                                                            <td><a href={"/DeleteStu/"+student.name} ><RiDeleteBinLine style={{ color: "black"}}/></a></td>
+                                                            <td><a href={"/UpdateStu/"+student.name} ><BiPencil style={{ color: "black"}}/></a></td>
                                                              
                                                         </tr>
                                                     )

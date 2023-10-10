@@ -23,6 +23,10 @@ import { AddSub } from './AddSub';
 import {Gostu} from "./Gostu";
 import { Ouoi } from './Ouoi';
 
+import { UpdateStu } from './UpdateStu';
+
+
+
 function App() {
       
       return (
@@ -46,7 +50,7 @@ function App() {
                               <Route path="/MarkEntry" element={ <MarkEntry />} />
                               <Route path="/AddAssmt" element={<AddAssmt/>} />
                               <Route path="/AddSub" element={<AddSub/>} />
-                          
+                              <Route path="/UpdateStu/:student_name" element={<UpdateStu/>} />
                               {/* <Route path="/Slogin" element={<Slidelogin/>} /> */}
                         </Routes >
                   </BrowserRouter >
