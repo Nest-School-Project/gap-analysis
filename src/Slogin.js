@@ -101,7 +101,7 @@ export const Slidelogin = () => {
 
 
     <div class={toggleState === 2 ? "carousel-item active" : "carousel-item"}>
-        <img src={nest2} height="650px"></img>
+        <img src={nest2} height="650px" ></img>
     </div>
     <div class={toggleState === 3 ? "carousel-item active" : "carousel-item"}>
         <img src={nest3} height="650px"></img>

@@ -25,7 +25,7 @@ export const Gap_analysis = () => {
         .then((querySnapshot)=>{               
           const newData = querySnapshot.docs
           .map((doc) => ({...doc.data(), id:doc.id }));
-            setGrades(newData);
+           setGrades(newData);
           const ass_array=newData.map((ndata)=>(ndata.assessment_id));
           setAssessments(ass_array)
           const sc_marks=newData.map((ndata)=>(ndata.grades.scope_and_sequence));
@@ -80,7 +80,7 @@ export const Gap_analysis = () => {
           }
         </tr>
         <tr>
-          <td Style="border:1px solid black;">SCOPE AND SEQUENCE</td>
+          <td Style="border:1px solid black;">CONCEPT</td>
           {
               grades.map((grade,index)=>{
                 return (
@@ -90,7 +90,32 @@ export const Gap_analysis = () => {
           }
         </tr>
         <tr>
-          <td Style="border:1px solid black;">SCOPE AND SEQUENCE</td>
+          <td Style="border:1px solid black;">APPLICATION</td>
+          {
+              grades.map((grade,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
+                )
+              })
+          }
+        </tr>
+       
+      </table>
+      <Graph data={assessments} sc_marks={sc} real={real} ass_spec={ass_spec}></Graph>
+      <h2>Summative Assessment</h2>
+      <table className='famarks'>
+        <tr>
+          <th Style="border:1px solid black;" >CRITERIA</th>
+          {
+              grades.map((grade,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{grade.assessment_id}</td>
+                )
+              })
+          }
+        </tr>
+        <tr>
+          <td Style="border:1px solid black;">CONCEPT</td>
           {
               grades.map((grade,index)=>{
                 return (
@@ -100,7 +125,17 @@ export const Gap_analysis = () => {
           }
         </tr>
         <tr>
-          <td Style="border:1px solid black;">SUCCESS CRITERIA FROM UNIT PLANNER</td>
+          <td Style="border:1px solid black;">APPLICATION</td>
+          {
+              grades.map((grade,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
+                )
+              })
+          }
+        </tr>
+        <tr>
+          <td Style="border:1px solid black;">COMPREHENDING</td>
           {
               grades.map((grade,index)=>{
                 return (
@@ -110,7 +145,7 @@ export const Gap_analysis = () => {
           }
         </tr>
         <tr>
-          <td Style="border:1px solid black;">ASSESSMENT SPECIFIC</td>
+          <td Style="border:1px solid black;">KNOWLEDGE</td>
           {
               grades.map((grade,index)=>{
                 return (
@@ -118,35 +153,6 @@ export const Gap_analysis = () => {
                 )
               })
           }
-        </tr>
-      </table>
-      <Graph data={assessments} sc_marks={sc} real={real} ass_spec={ass_spec}></Graph>
-      <h2>Summative Assessment</h2>
-      <table className='famarks'>
-        <tr>
-          <th Style="border:1px solid black;" >CRITERIA</th>
-          <th Style="border:1px solid black;">FA1</th>
-          <th Style="border:1px solid black;">FA2</th>
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">SCOPE AND SEQUENCE</td>
-          <td Style="border:1px solid black;">80</td>
-          <td Style="border:1px solid black;">80</td>
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">SCOPE AND SEQUENCE</td>
-          <td Style="border:1px solid black;">80</td>
-          <td Style="border:1px solid black;">80</td>
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">SUCCESS CRITERIA FROM UNIT PLANNER</td>
-          <td Style="border:1px solid black;">80</td>
-          <td Style="border:1px solid black;">80</td>
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">ASSESSMENT SPECIFIC</td>
-          <td Style="border:1px solid black;">80</td>
-          <td Style="border:1px solid black;">80</td>
         </tr>
       </table>
    
