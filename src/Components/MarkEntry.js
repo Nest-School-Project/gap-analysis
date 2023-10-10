@@ -76,9 +76,9 @@ class MarkEntry extends React.Component{
         return (
             <div >
                 <Header />
-                <table style={{border:"1px solid black"}}>
-                    <thead style={{border:"1px solid black"}}>
-                        <tr>
+                <table style={{border:"1px solid black",height:"10px",width:"10px"}}>
+                    <thead style={{border:"1px solid black",height:"10px",width:"10px"}}>
+                        <tr style={{height:"10px",width:"10px"}}>
                             <th style={{border:"1px solid black"}}>Name</th>
                             {
                                 this.state.assessmentList.map((assessment,index)=>{
@@ -93,13 +93,13 @@ class MarkEntry extends React.Component{
                         {
                             this.state.students.map((student,index)=>{
                                 return (
-                                    <tr style={{border:"1px solid black"}}>
-                                        <td style={{border:"1px solid black"}}>{student.name}</td>
+                                    <tr style={{border:"1px solid black",height:"10px",width:"10px"}}>
+                                        <td style={{border:"1px solid black",height:"10px",width:"10px"}}>{student.name}</td>
                                         {
                                             this.state.assessmentList.map((assessment,index)=>{
                                                 
                                         return (<td style={{border:"1px solid black"}}>
-                                            <table>
+                                            <table style={{height:"10px",width:"10px"}}>
                                                 <thead style={{border:"1px solid black"}}>
                                                     <tr>{
                                                         this.state.leads.map((lead,index)=>{
