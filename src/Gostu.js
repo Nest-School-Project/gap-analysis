@@ -22,7 +22,7 @@ export const Gostu = () => {
       // console.log(type);
     }
     function handleSubjects(e){
-      setype(e.target.value);
+      setype("subjects/"+e.target.value);
       // console.log(type);
       // setSub({borderRadius:"5px",marginBottom:"15px",backgroundColor:"green"});
       // c=1;
@@ -49,8 +49,8 @@ export const Gostu = () => {
           {/* <br></br> */}
           {/* <button style={subStyle} value="subjects" onClick={handleSubjects}>subjects</button> */}
           <label>Subject</label>
-          <select name="subjects" id="sub" onClick={handleSubjects}>
-          {/* <option value="nil">Select</option> */}
+          <select name="subjects" id="sub" onClick={handleSubjects} placeholder='evgh'>
+          <option value="" disabled selected hidden>🍑💋</option>
   <option value="eng">Eng</option>
   <option value="mat">Math</option>
   <option value="sci">Science</option>
