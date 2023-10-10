@@ -61,7 +61,7 @@ export const Slidelogin = () => {
 <head>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/>
    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow"/>
    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"/>
     
@@ -124,15 +124,15 @@ export const Slidelogin = () => {
                     <img src={logo} class="rounded-circle mr-3"></img>
                 </div>
                 <div class="md-form mt-5">
-                    <input type="text" class="form-control text-black font-weight-bold" id="text" name="text" placeholder='Email' onChange={(e)=>setEmail(e.target.value)}/>  
+                    <input type="text" id="text" class = "logtxt" name="text" placeholder='Email' onChange={(e)=>setEmail(e.target.value)}/>  
                     <label for="text"  class="text-black"></label>          
                      </div>
                      <div class="md-form mt-5">
-                    <input type="password" class="form-control text-black font-weight-bold" id="pswd" name="pswd"  placeholder='Password' onChange={(e)=>setPassword(e.target.value)}/>  
-                    <label for="pswd"  class="text-black"></label>          
+                    <input type="password" class = "logtxt" id="pswd" name="pswd"  placeholder='Password' onChange={(e)=>setPassword(e.target.value)}/>  
+                    <label for="pswd" class="text-black"></label>          
                      </div>
                      
-                     <button type="button" class="form-control text-black font-weight-bold" onClick={onLogin} >Submit</button>
+                     <button type="button" class = "logtxt-btn" onClick={onLogin} >Submit</button>
             </form>
         </div>
     </div>
