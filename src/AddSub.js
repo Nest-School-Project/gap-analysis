@@ -30,8 +30,8 @@ export const AddSub = () => {
       <h1>Add Subject</h1>
       <br />
       <form>
-        <div class="container"><span transform="-90px">
-          <label >Select Class</label>
+        <div class="container"><span style={{ margin: 'auto', width: '50%' }}>
+          <label >Select Class :</label>
           <select className="dropbtn" Style="width:350px">
             <option value="LKG">LKG</option>
             <option value="UKG">UKG</option>
@@ -46,15 +46,7 @@ export const AddSub = () => {
 
           </select>
         </span>
-          <span transform="-90px">
-            <label >Select Section</label>
-            <select className="dropbtn" Style="width:350px" >
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D">D</option>
-            </select>
-          </span>
+          
         </div > <br></br>
         <table style={{ margin: 'auto', width: '50%' }}>
 

@@ -334,19 +334,19 @@ margin-top: 20px;*/
 }
 
 .bm-menu {
-  background: #20217a9e;
-  opacity: 90%;
+  background: #20217ada;
   padding: 2.5em 1.5em 0;
   font-size: 0.75em;
-  margin-left: 0;
+  margin-left: 0%;
  }
 
 .bm-morph-shape {
   fill: #373a47;
 }
 
-.bm-item {
+.menu-item, .bm-item {
   color: #f5f5f1;
+  font-weight: 500;
   text-decoration: none;
   margin-top:10px;
   margin-bottom: 10px;

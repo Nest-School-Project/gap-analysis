@@ -12,7 +12,6 @@ export const AddAssmt = () => {
   const [classes, setClass] = useState('LKG');
   const [section, setSection] = useState('A');
   const [theme, setTheme] = useState('');
-  const [subject, setSubject] = useState('');
   const [assessment, setAssessment] = useState('');
         
   const handleSectionChange = (e) => {
@@ -34,17 +33,14 @@ export const AddAssmt = () => {
     console.log(e.target.value)
     setAssessment(e.target.value);
   };
-  const handleSubjectChange = (e) => {
-    console.log(e.target.value)
-    setSubject(e.target.value);
-  };
+  
 
   const handleSubmit = async () => {
     try{
       const addClass= await addDoc(collection(creds.db,"Assessment"),{
         "Class":classes,
         "Section":section,
-        "Theme/Subject":theme,
+        "Theme":theme,
         "Assessment ID":assessment
       });
     }
@@ -151,9 +147,6 @@ const toggleTab = (index) => {
           <option value="C">C</option>
           <option value="D">D</option>
         </select>
-       <br></br>
-       <label>Enter Subject Name:</label>
-        <input type='text' name='Subject' value={subject} onChange={handleSubjectChange} placeholder='Subject Name'></input>
        <br></br>
        <label>Enter Assessment:</label>
         <input type='text' name='Assessment' value={assessment} onChange={handleAssessmentChange} placeholder='Assessment ID'></input>
