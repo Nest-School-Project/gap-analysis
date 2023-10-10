@@ -8,7 +8,6 @@ import { onAuthStateChanged } from "firebase/auth";
 import creds from './firebase';
 import { GrScorecard } from "react-icons/gr";
 import { Link } from 'react-router-dom';
-
 import { AiOutlineEye } from "react-icons/ai";
 import { BsPersonFillGear } from "react-icons/bs";
 export const Class_details = () => {
@@ -108,7 +107,7 @@ export const Class_details = () => {
 
                             <div className={toggleState === index + 1 ? "tab-pane face show active" : "tab-pane fade"}>
                                 <br></br><h1 style={{ textAlign:'center' }}>Section {section}</h1><br></br>
-                                <button style={{color:"greenyellow",backgroundColor:"green"}} onClick={handleChange}>MARKS UPLOAD</button>
+                                <button style={{color:"greenyellow",backgroundColor:"green"}} onClick={handleChange} >MARKS UPLOAD</button>
                                 <Link to="/Ostu">
                                 <button type="button"  id='btn1'  >Overall Subject Analysis</button>
       </Link><Link to="/Ouoi">

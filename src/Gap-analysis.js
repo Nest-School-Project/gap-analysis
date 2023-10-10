@@ -25,7 +25,7 @@ export const Gap_analysis = () => {
         .then((querySnapshot)=>{               
           const newData = querySnapshot.docs
           .map((doc) => ({...doc.data(), id:doc.id }));
-            setGrades(newData);
+           setGrades(newData);
           const ass_array=newData.map((ndata)=>(ndata.assessment_id));
           setAssessments(ass_array)
           const sc_marks=newData.map((ndata)=>(ndata.grades.scope_and_sequence));
@@ -59,15 +59,28 @@ export const Gap_analysis = () => {
       });
      
 },[])    
- 
+const [toggleState, setToggleState] = useState(1);
+const toggleTab = (index) => {
+  setToggleState(index);
+}
   console.log(grades)
   return (
-    <div className='ga'>
+    <div >
       
       <Header ></Header>
         <h1>GAP ANALYSIS:{name}</h1>      
-    <div className='graphst'>
-      <h2>Formative Assessment</h2>
+        <ul class="nav nav-tabs" id="myTabs" role="tablist">
+        <li class="nav-item">
+          <button class={toggleState === 1 ? "nav-link active" : "nav-link"} onClick={() => toggleTab(1)}>Formative Assessment</button>
+        </li>
+        <li class="nav-item">
+          <button class={toggleState === 2 ? "nav-link active" : "nav-link"} onClick={() => toggleTab(2)}>Summative Assessment</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabsContent">
+      <div class={toggleState === 1 ? "tab-pane fade show active" : "tab-pane fade"}>
+      <h2> FORMATIVE ASSESSMENT </h2>
+      <h2> UOI </h2>
       <table className='famarks'>
         <tr>
           <th Style="border:1px solid black;" >CRITERIA</th>
@@ -80,7 +93,7 @@ export const Gap_analysis = () => {
           }
         </tr>
         <tr>
-          <td Style="border:1px solid black;">SCOPE AND SEQUENCE</td>
+          <td Style="border:1px solid black;">CONCEPT</td>
           {
               grades.map((grade,index)=>{
                 return (
@@ -90,7 +103,7 @@ export const Gap_analysis = () => {
           }
         </tr>
         <tr>
-          <td Style="border:1px solid black;">SCOPE AND SEQUENCE</td>
+          <td Style="border:1px solid black;">APPLICATION</td>
           {
               grades.map((grade,index)=>{
                 return (
@@ -99,59 +112,124 @@ export const Gap_analysis = () => {
               })
           }
         </tr>
-        <tr>
-          <td Style="border:1px solid black;">SUCCESS CRITERIA FROM UNIT PLANNER</td>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.grades.real_world_application}</td>
-                )
-              })
-          }
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">ASSESSMENT SPECIFIC</td>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.grades.assessmentSpecific}</td>
-                )
-              })
-          }
-        </tr>
+       
       </table>
       <Graph data={assessments} sc_marks={sc} real={real} ass_spec={ass_spec}></Graph>
-      <h2>Summative Assessment</h2>
+     <br/>
+     <h2> Subjects </h2>
       <table className='famarks'>
         <tr>
           <th Style="border:1px solid black;" >CRITERIA</th>
-          <th Style="border:1px solid black;">FA1</th>
-          <th Style="border:1px solid black;">FA2</th>
+          {
+              grades.map((grade,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{grade.assessment_id}</td>
+                )
+              })
+          }
         </tr>
         <tr>
-          <td Style="border:1px solid black;">SCOPE AND SEQUENCE</td>
-          <td Style="border:1px solid black;">80</td>
-          <td Style="border:1px solid black;">80</td>
+          <td Style="border:1px solid black;">CONCEPT</td>
+          {
+              grades.map((grade,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
+                )
+              })
+          }
         </tr>
         <tr>
-          <td Style="border:1px solid black;">SCOPE AND SEQUENCE</td>
-          <td Style="border:1px solid black;">80</td>
-          <td Style="border:1px solid black;">80</td>
+          <td Style="border:1px solid black;">APPLICATION</td>
+          {
+              grades.map((grade,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
+                )
+              })
+          }
         </tr>
-        <tr>
-          <td Style="border:1px solid black;">SUCCESS CRITERIA FROM UNIT PLANNER</td>
-          <td Style="border:1px solid black;">80</td>
-          <td Style="border:1px solid black;">80</td>
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">ASSESSMENT SPECIFIC</td>
-          <td Style="border:1px solid black;">80</td>
-          <td Style="border:1px solid black;">80</td>
-        </tr>
+       
       </table>
-   
+      <Graph data={assessments} sc_marks={sc} real={real} ass_spec={ass_spec}></Graph>
+      </div>
+      <div class={toggleState === 2 ? "tab-pane fade show active" : "tab-pane fade"}>
+      <h2> SUMMATIVE ASSESSMENT </h2>
+      <h2> UOI </h2>
+      <table className='famarks'>
+        <tr>
+          <th Style="border:1px solid black;" >CRITERIA</th>
+          {
+              grades.map((grade,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{grade.assessment_id}</td>
+                )
+              })
+          }
+        </tr>
+        <tr>
+          <td Style="border:1px solid black;">CONCEPT</td>
+          {
+              grades.map((grade,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
+                )
+              })
+          }
+        </tr>
+        <tr>
+          <td Style="border:1px solid black;">APPLICATION</td>
+          {
+              grades.map((grade,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
+                )
+              })
+          }
+        </tr>
+       
+      </table>
+      <Graph data={assessments} sc_marks={sc} real={real} ass_spec={ass_spec}></Graph>
+     
+     <h2> Subjects </h2>
+      <table className='famarks'>
+        <tr>
+          <th Style="border:1px solid black;" >CRITERIA</th>
+          {
+              grades.map((grade,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{grade.assessment_id}</td>
+                )
+              })
+          }
+        </tr>
+        <tr>
+          <td Style="border:1px solid black;">CONCEPT</td>
+          {
+              grades.map((grade,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
+                )
+              })
+          }
+        </tr>
+        <tr>
+          <td Style="border:1px solid black;">APPLICATION</td>
+          {
+              grades.map((grade,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
+                )
+              })
+          }
+        </tr>
+       
+      </table>
+      <Graph data={assessments} sc_marks={sc} real={real} ass_spec={ass_spec}></Graph>
+     
+        
+      </div>
+    
     </div>
-
     </div>
   )
 }
