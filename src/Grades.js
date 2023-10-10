@@ -72,7 +72,7 @@ export const Grades = () => {
         {
           grades.map((grade, index) => {
             return (
-              <button onClick={() => handleclick(grade)} style={{ margin: "30px" }}><Boxes Names={grade}></Boxes></button>
+              <button onClick={() => handleclick(grade)} style={{ margin: "30px", verticalAlign:"middle"}}><Boxes Names={grade}></Boxes></button>
             )
           })
         }   </div>
