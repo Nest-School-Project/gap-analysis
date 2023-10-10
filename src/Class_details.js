@@ -27,7 +27,7 @@ export const Class_details = () => {
         navigate("/Entry")
       };
       const handleChange=()=>{
-     navigate(`/${classname}/${secname}`)
+     navigate(`/Gostu/${classname}/${secname}`)
       };
   useEffect(()=>{
     onAuthStateChanged(creds.auth, (user) => {
@@ -107,7 +107,7 @@ export const Class_details = () => {
 
                             <div className={toggleState === index + 1 ? "tab-pane face show active" : "tab-pane fade"}>
                                 <br></br><h1 style={{ textAlign:'center' }}>Section {section}</h1><br></br>
-                                <button id='btn1'  onClick={handleChange}>MARKS UPLOAD</button>
+                                <button style={{color:"greenyellow",backgroundColor:"green"}} onClick={handleChange} >MARKS UPLOAD</button>
                                 <Link to="/Ostu">
                                 <button type="button"  id='btn1'  >Overall Subject Analysis</button>
       </Link><Link to="/Ouoi">

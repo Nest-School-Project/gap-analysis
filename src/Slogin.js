@@ -96,18 +96,18 @@ export const Slidelogin = () => {
             <div class="carousel slide z-depth-5" data-ride="carousel" id="demo">
                  <div class="carousel-inner">
     <div class={toggleState === 1 ? "carousel-item active" : "carousel-item"}>
-        <img src={nest1} height="650px"  ></img>
+        <img src={nest1} height="650px" width="700px" ></img>
     </div>
 
 
     <div class={toggleState === 2 ? "carousel-item active" : "carousel-item"}>
-        <img src={nest2} height="650px" ></img>
+        <img src={nest2} height="650px" width="700px"></img>
     </div>
     <div class={toggleState === 3 ? "carousel-item active" : "carousel-item"}>
-        <img src={nest3} height="650px"></img>
+        <img src={nest3} height="650px" width="700px"></img>
     </div>
     <div class={toggleState === 4 ? "carousel-item active" : "carousel-item"} >
-        <img src={nest4} height="650px"></img>
+        <img src={nest4} height="650px" width="700px"></img>
     </div>
 </div>
 <a href="#demo" class="carousel-control-prev" data-slide="prev" onClick={handleSliderClickPrev}>
