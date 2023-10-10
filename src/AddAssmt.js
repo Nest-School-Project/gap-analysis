@@ -10,15 +10,9 @@ import creds from './firebase';
 export const AddAssmt = () => {
   let navigate=useNavigate();
   const [classes, setClass] = useState('LKG');
-  const [section, setSection] = useState('A');
   const [theme, setTheme] = useState('');
   const [assessment, setAssessment] = useState('');
         
-  const handleSectionChange = (e) => {
-    console.log(e.target.value)
-    setSection(e.target.value);
-  };
-
   const handleClassChange = (e) => {
     console.log(e.target.value)
     setClass(e.target.value);
@@ -39,7 +33,6 @@ export const AddAssmt = () => {
     try{
       const addClass= await addDoc(collection(creds.db,"Assessment"),{
         "Class":classes,
-        "Section":section,
         "Theme":theme,
         "Assessment ID":assessment
       });
@@ -100,14 +93,6 @@ const toggleTab = (index) => {
 
         </select>
         <br></br>
-        <label>Section:</label>
-        <select  className="dropbtn" value={section} onChange={handleSectionChange} Style="width:250px" >
-          <option value="A">A</option>
-          <option value="B">B</option>
-          <option value="C">C</option>
-          <option value="D">D</option>
-        </select>
-       <br></br>
        <label>Enter Theme:</label>
         <input type='text' value={theme} onChange={handleThemeChange} name='Theme' placeholder='Theme Name'></input>
         <br></br>
@@ -140,14 +125,6 @@ const toggleTab = (index) => {
 
         </select>
         <br></br>
-        <label>Section:</label>
-        <select  className="dropbtn" value={section} onChange={handleSectionChange} Style="width:250px" >
-          <option value="A">A</option>
-          <option value="B">B</option>
-          <option value="C">C</option>
-          <option value="D">D</option>
-        </select>
-       <br></br>
        <label>Enter Assessment:</label>
         <input type='text' name='Assessment' value={assessment} onChange={handleAssessmentChange} placeholder='Assessment ID'></input>
        <br></br>
