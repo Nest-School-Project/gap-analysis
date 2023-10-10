@@ -7,6 +7,16 @@
 .h1{
   color: white;
 }
+.nav-tabs
+{
+  background-color: #bcbab8a8;
+}
+.nav-item
+{
+  background-color: #0000007c;
+  border: #043643 1px solid;
+  border-radius: 5px;
+}
 input{
   border-color: #e2f5fab7;
   background: linear-gradient(147deg, #f3efd2 0%, #f3dbb56a 74%);;

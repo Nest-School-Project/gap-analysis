@@ -8,10 +8,9 @@ import { onAuthStateChanged } from "firebase/auth";
 import creds from './firebase';
 import { GrScorecard } from "react-icons/gr";
 import { Link } from 'react-router-dom';
-import { AiOutlineEye } from "react-icons/ai";
-import { BiPencil } from "react-icons/bi";
-import { RiDeleteBinLine} from "react-icons/ri";
-import { BsPersonFillGear } from "react-icons/bs";
+import { IoEyeSharp } from "react-icons/io5";
+import { BiSolidEditAlt } from "react-icons/bi";
+import { RiDeleteBin5Line} from "react-icons/ri";
 export const Class_details = () => {
     let navigate = useNavigate();
     const handleclick=(e)=>
@@ -113,10 +112,8 @@ export const Class_details = () => {
                         return (
 
                             <div className={toggleState === index + 1 ? "tab-pane face show active" : "tab-pane fade"}>
-                                <br></br>
-                                <br></br>
-                                {/* <br></br><h1 style={{ textAlign:'center',color:"white", fontStyle:"bold"}}>SECTION {section}</h1><br></br> */}
-                                <button  type="button"  id='btn1' >MARKS UPLOAD</button>
+                                <br></br><br></br>
+                                <button  type="button"  id='btn1' onClick={handleChange}>Upload Marks</button>
                                 <Link to="/Ostu">
                                 <button type="button"  id='btn1'  >Overall Subject Analysis</button>
       </Link><Link to="/Ouoi">
@@ -148,9 +145,9 @@ export const Class_details = () => {
 
                                                             {/* <td><button id="ebtn">View</button></td> */}
                                                             
-                                                            <td><a href={"/GapAnalysis/"+student.name} ><AiOutlineEye style={{ color: "black"}}/></a></td>
-                                                            <td><button onClick={handleDelete} ><RiDeleteBinLine style={{ color: "black"}}/></button></td>
-                                                            <td><a href={"/UpdateStu/"+student.name} ><BiPencil style={{ color: "black"}}/></a></td>
+                                                            <td><a href={"/GapAnalysis/"+student.name} ><IoEyeSharp style={{ color: "black"}}/></a></td>
+                                                            <td><button onClick={handleDelete} style={{border:'none',backgroundColor:'white'}}><RiDeleteBin5Line style={{ color: "black"}}/></button></td>
+                                                            <td><a href={"/UpdateStu/"+student.name} ><BiSolidEditAlt style={{ color: "black"}}/></a></td>
                                                              
                                                         </tr>
                                                     )
