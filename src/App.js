@@ -43,7 +43,7 @@ function App() {
                               <Route path="/Ostu" element={<Ostu/>} />
                               <Route path="/Ouoi" element={<Ouoi/>} />
                               <Route path="/Gostu/:classname/:secname" element={<Gostu/>} />
-                              <Route path="/MarkEntry" element={ <MarkEntry />} />
+                              <Route path="/MarkEntry/:classname/:type/:subject" element={ <MarkEntry />} />
                               <Route path="/AddAssmt" element={<AddAssmt/>} />
                               <Route path="/AddSub" element={<AddSub/>} />
                           

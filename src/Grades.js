@@ -1,18 +1,28 @@
 import './Grades.css';
 import './App.css';
 import './Boxes.js';
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import Boxes from './Boxes.js';
 import { useNavigate } from 'react-router-dom';
 import Header from "./Components/Header";
 import { onAuthStateChanged } from "firebase/auth";
 import creds from './firebase';
 import { MdAddCircleOutline } from "react-icons/md";
-
+import axios from "axios";
+const baseURL = "http://localhost:8000/";
 export const Grades = () => {
   let navigate = useNavigate();
-
+  let [grades,setGrades]=useState([])
   useEffect(() => {
+    axios.get("http://localhost:8000/get-grades/").then((response) => {
+      let temp=[]
+      response.data.map((d,index)=>{
+        temp.push(d.name)
+      })
+      setGrades(temp)
+    }).catch(err=>{
+      console.log(err)
+    });
     onAuthStateChanged(creds.auth, (user) => {
       if (user) {
         // User is signed in, see docs for a list of available properties
@@ -33,19 +43,19 @@ export const Grades = () => {
     console.log(e)
     navigate(`/class-details/${e}`)
   };
-  const grades = [
-    "PKG",
-    "LKG",
-    "UKG",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8"
-  ]
+  // const grades = [
+  //   "PKG",
+  //   "LKG",
+  //   "UKG",
+  //   "1",
+  //   "2",
+  //   "3",
+  //   "4",
+  //   "5",
+  //   "6",
+  //   "7",
+  //   "8"
+  // ]
   let grade = "LKG"
   const addStu = () => {
     
