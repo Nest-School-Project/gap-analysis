@@ -56,12 +56,13 @@ export const Slidelogin = () => {
      
   }
 
+
   return (
     <div>
 <head>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/>
    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow"/>
    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"/>
     
@@ -72,7 +73,7 @@ export const Slidelogin = () => {
 <link rel='stylesheet' id='compiled.css-css'  href='https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/css/compiled-4.19.2.min.css?ver=4.19.2' type='text/css' media='all' /> */}
 {/* <link rel="stylesheet" href="css/log.css"/> */}
 </head>
-<body>
+<body >
     
     {/* <script>
   $(document).ready(function () {
@@ -96,18 +97,18 @@ export const Slidelogin = () => {
             <div class="carousel slide z-depth-5" data-ride="carousel" id="demo">
                  <div class="carousel-inner">
     <div class={toggleState === 1 ? "carousel-item active" : "carousel-item"}>
-        <img src={nest1} height="650px"  ></img>
+        <img src={nest1} height="650px" width="700px" ></img>
     </div>
 
 
     <div class={toggleState === 2 ? "carousel-item active" : "carousel-item"}>
-        <img src={nest2} height="650px"></img>
+        <img src={nest2} height="650px" width="700px"></img>
     </div>
     <div class={toggleState === 3 ? "carousel-item active" : "carousel-item"}>
-        <img src={nest3} height="650px"></img>
+        <img src={nest3} height="650px" width="700px"></img>
     </div>
     <div class={toggleState === 4 ? "carousel-item active" : "carousel-item"} >
-        <img src={nest4} height="650px"></img>
+        <img src={nest4} height="650px" width="700px"></img>
     </div>
 </div>
 <a href="#demo" class="carousel-control-prev" data-slide="prev" onClick={handleSliderClickPrev}>
@@ -124,15 +125,15 @@ export const Slidelogin = () => {
                     <img src={logo} class="rounded-circle mr-3"></img>
                 </div>
                 <div class="md-form mt-5">
-                    <input type="text" class="form-control text-black font-weight-bold" id="text" name="text" placeholder='Email' onChange={(e)=>setEmail(e.target.value)}/>  
+                    <input type="text" id="text" class = "logtxt" name="text" placeholder='Email' onChange={(e)=>setEmail(e.target.value)}/>  
                     <label for="text"  class="text-black"></label>          
                      </div>
                      <div class="md-form mt-5">
-                    <input type="password" class="form-control text-black font-weight-bold" id="pswd" name="pswd"  placeholder='Password' onChange={(e)=>setPassword(e.target.value)}/>  
-                    <label for="pswd"  class="text-black"></label>          
+                    <input type="password" class = "logtxt" id="pswd" name="pswd"  placeholder='Password' onChange={(e)=>setPassword(e.target.value)}/>  
+                    <label for="pswd" class="text-black"></label>          
                      </div>
                      
-                     <button type="button" class="form-control text-black font-weight-bold" onClick={onLogin} >Submit</button>
+                     <button type="button" class = "logtxt-btn" onClick={onLogin} >Submit</button>
             </form>
         </div>
     </div>

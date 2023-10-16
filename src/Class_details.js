@@ -8,28 +8,104 @@ import { onAuthStateChanged } from "firebase/auth";
 import creds from './firebase';
 import { GrScorecard } from "react-icons/gr";
 import { Link } from 'react-router-dom';
-import { AiOutlineEye } from "react-icons/ai";
-import { BsPersonFillGear } from "react-icons/bs";
+import { IoEyeSharp } from "react-icons/io5";
+import { BiSolidEditAlt } from "react-icons/bi";
+import { RiDeleteBin5Line} from "react-icons/ri";
+import axios from "axios";
 export const Class_details = () => {
     let navigate = useNavigate();
-    const handleclick=(e)=>
-    {
-        console.log(e.target
-            )
-        navigate("/Entry/aravi")
-    };
+    const [toggleState, setToggleState] = useState(1);
+    const [secname,setsecname]=useState('A');
+    const [sections,setSections]=useState([])
+    const [students,setStudents]=useState([])
+    const toggleTab = (index) => {
+        setToggleState(index);
+        setsecname(String.fromCharCode(index+64))
+    }
+    // const students = [{
+    //     "usn": "12345",
+    //     "name": "Mark",
+    //     "section": "A",
+    // },
+    // {
+    //     "usn": "12356",
+    //     "name": "Antony",
+    //     "section": "B"
+    // },
+    // {
+    //     "usn": "4567",
+    //     "name": "Brat",
+    //     "section": "C"
+    // },
+    // {
+    //     "usn": "09892",
+    //     "name": "Samuel",
+    //     "section": "D"
+    // }
+    // ]
+    // const sections = [
+    //     "A",
+    //     "B",
+    //     "C",
+    //     "D"
+    // ]
+    
+    // const handleclick=(e)=>
+    // {
+    //     console.log(e.target
+    //         )
+    //     navigate("/Entry/aravi")
+    // };
 
 
     // const handleclick = () => {
     //     navigate("/GapAnalysis")
     //   };
-      const handleclickk = () => {
-        navigate("/Entry")
-      };
+    //   const handleclickk = () => {
+    //     navigate("/Entry")
+    //   };
       const handleChange=()=>{
-     navigate(`/${classname}/${secname}`)
+     navigate(`/Gostu/${classname}/${secname}`)
       };
+      const handleDelete=()=>{
+      let d=window.confirm("Confirm Delete \nDisclaimer: Deleting this student will delete the record from the database");
+      console.log(d);
+         };
+    const { classname } = useParams();
   useEffect(()=>{
+
+    axios.get(`http://localhost:8000/get-grade/?grade=${classname}`).then((response) => {
+      setSections(response.data.section)
+    }).catch(err=>{
+      console.log(err)
+    });
+
+    axios.get(`http://localhost:8000/get-students/?grade=${classname}`).then((response) => {
+        let arr=[]   
+        let data=response.data.data
+        
+        data.map((student,index)=>{
+        arr.push({
+            "usn":student.usn,
+            "name":student.name,
+            "section":student.section,
+            "grade":student.grade
+        })
+        })
+        setStudents(arr)
+    // let arr=[]
+        // let data=response.data
+        // data.map((student,index)=>{
+        //     arr.push({
+        //         "usn":student.usn,
+        //         "name":student.name,
+        //         "section":student.section
+        //     })
+        // })
+        // setStudents(arr)
+    }).catch(err=>{
+      console.log(err)
+    });
     onAuthStateChanged(creds.auth, (user) => {
         if (user) {
           // User is signed in, see docs for a list of available properties
@@ -46,40 +122,7 @@ export const Class_details = () => {
       });
      
 }, [])    
-    const [toggleState, setToggleState] = useState(1);
-    const [secname,setsecname]=useState('A');
-    const toggleTab = (index) => {
-        setToggleState(index);
-        setsecname(String.fromCharCode(index+64))
-    }
-    const students = [{
-        "usn": "12345",
-        "name": "Mark",
-        "section": "A",
-    },
-    {
-        "usn": "12356",
-        "name": "Antony",
-        "section": "B"
-    },
-    {
-        "usn": "4567",
-        "name": "Brat",
-        "section": "C"
-    },
-    {
-        "usn": "09892",
-        "name": "Samuel",
-        "section": "D"
-    }
-    ]
-    const sections = [
-        "A",
-        "B",
-        "C",
-        "D"
-    ]
-    const { classname } = useParams();
+    
     
     const addStu = () => {
     
@@ -106,8 +149,8 @@ export const Class_details = () => {
                         return (
 
                             <div className={toggleState === index + 1 ? "tab-pane face show active" : "tab-pane fade"}>
-                                <br></br><h1 style={{ textAlign:'center' }}>Section {section}</h1><br></br>
-                                <button id='btn1'  onClick={handleChange}>MARKS UPLOAD</button>
+                                <br></br><br></br>
+                                <button  type="button"  id='btn1' onClick={handleChange}>Upload Marks</button>
                                 <Link to="/Ostu">
                                 <button type="button"  id='btn1'  >Overall Subject Analysis</button>
       </Link><Link to="/Ouoi">
@@ -120,8 +163,10 @@ export const Class_details = () => {
                                             <th scope="col">USN</th>
                                             <th scope="col">First Name</th>
                                             <th scope="col">Last Name</th>
-                                            <th scope="col">Grades</th>
-                                            <th scope="col"></th>
+                                            <th scope="col">View</th>
+                                            <th scope="col">Delete</th>
+                                            <th scope="col">Update</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -137,8 +182,9 @@ export const Class_details = () => {
 
                                                             {/* <td><button id="ebtn">View</button></td> */}
                                                             
-                                                            <td><a href={"/GapAnalysis/"+student.name} ><AiOutlineEye style={{ color: "black"}}/></a></td>
-                                                            <td><a href={"/Entry/"+student.name}><GrScorecard style={{ color: "black"}}/></a></td>
+                                                            <td><a href={"/GapAnalysis/"+student.name} ><IoEyeSharp style={{ color: "black"}}/></a></td>
+                                                            <td><button onClick={handleDelete} style={{border:'none',backgroundColor:'white'}}><RiDeleteBin5Line style={{ color: "black"}}/></button></td>
+                                                            <td><a href={"/UpdateStu/"+student.usn} ><BiSolidEditAlt style={{ color: "black"}}/></a></td>
                                                              
                                                         </tr>
                                                     )

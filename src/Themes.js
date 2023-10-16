@@ -5,11 +5,27 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from "firebase/auth";
 import creds from './firebase';
-
+import axios from "axios";
 
 export const Themes = () => {
   let navigate=useNavigate();
+  const [grades,setGrades]=useState([]);
+    const [grade,setGrade]=useState();
+    const [themename,setThemeName]=useState();
+    const [centralidea,setCentralIdea]=useState();
+    const [lineofinquiry,setLineOfInquiry]=useState();
   useEffect(()=>{
+    axios.get("http://localhost:8000/get-grades/").then((response) => {
+      let temp=[]
+      response.data.map((d,index)=>{
+        temp.push(d.name)
+      })
+      setGrades(temp)
+    }).catch(err=>{
+      console.log(err)
+    });
+
+
     onAuthStateChanged(creds.auth, (user) => {
         if (user) {
           // User is signed in, see docs for a list of available properties
@@ -26,9 +42,35 @@ export const Themes = () => {
       });   
 }, [])    
   
-  const [toggleState, setToggleState] = useState(1);
-  const toggleTab = (index) => {
-    setToggleState(index);
+  
+
+  let handleGradeChange=(e)=>{
+    setGrade(e.target.value)
+  }
+
+  let handleCentralChange=(e)=>{
+    setCentralIdea(e.target.value)
+  }
+
+  let handleThemeChange=(e)=>{
+    setThemeName(e.target.value)
+  }
+
+  let handleLineChange=(e)=>{
+    setLineOfInquiry(e.target.value)
+  }
+
+  let handleSubmit=(e)=>{
+    axios.post("http://localhost:8000/create-theme/",{
+      "grade":grade,
+      "name":themename,
+      "centralidea":centralidea,
+      "lineofinquiry":lineofinquiry
+    }).then((response)=>{
+      console.log(response)
+    }).catch(err=>{
+      console.log(err)
+    })
   }
   return (
     <div className="App" ><Header></Header>
@@ -36,55 +78,41 @@ export const Themes = () => {
       <h1>Add Theme</h1>
       <br />
       <form>
-        <div class="container"><span transform="-90px">
-          <label >Select Class</label>
-          <select className="dropbtn" Style="width:350px">
-            <option value="LKG">LKG</option>
-            <option value="UKG">UKG</option>
-            <option value="1st">1st</option>
-            <option value="2nd">2nd</option>
-            <option value="3rd">3rd</option>
-            <option value="4th">4th</option>
-            <option value="5th">5th</option>
-            <option value="6th">6th</option>
-            <option value="7th">7th</option>
-            <option value="8th">8th</option>
+        <div class="container" style={{ margin: 'auto', width: '50%' }}>
+          <label>Select Class</label>
+          <select className="dropbtn" Style="width:350px" onChange={handleGradeChange}>
+          <option value=""></option>
+            {
+              grades.map((grade,index)=>{
+                return <option value={grade}>{grade}</option>
+              })
+            }
 
           </select>
-        </span>
-          <span transform="-90px">
-            <label >Select Section</label>
-            <select className="dropbtn" Style="width:350px" >
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D">D</option>
-            </select>
-          </span>
-        </div > <br></br>
+         </div > <br></br>
         <table style={{ margin: 'auto', width: '50%' }}>
 
           <tr>
             <th>Enter Theme Name :</th>
-            <td><input type="text" name="TA" /></td>
+            <td><input type="text" name="TA" value={themename} onChange={handleThemeChange}/></td>
 
           </tr>
           <br />
           <tr>
             <th>Enter Central Idea :</th>
-            <td><input type="text" name="AS" /></td>
+            <td><input type="text" name="AS" value={centralidea} onChange={handleCentralChange}/></td>
 
           </tr> <br />
           <tr>
             <th>Enter Line of Inquiry :</th>
-            <td><input type="text" name="AT" /></td>
+            <td><input type="text" name="AT" value={lineofinquiry} onChange={handleLineChange}/></td>
 
           </tr>
         </table>
 
         <br></br>
       </form>
-      <button id="btn" type="SUBMIT" name="AT" >Submit</button>
+      <button id="btn" type="SUBMIT" name="AT" onClick={handleSubmit}>Submit</button>
     </div>
   )
 }

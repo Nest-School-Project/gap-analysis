@@ -1,19 +1,36 @@
 body{
     font-family:'sans-serif';
-    /* background: linear-gradient(147deg, #b4b3a977 0%, #a84a4a65 74%); */
-    background-image: url("BG-copy.png");
+     background-image: url("BG-copy.png");
     background-repeat: none;
     background-size: cover;
     margin-left: 550px;
-
  
 }
+
+
 .scontainer{
     height: 100%;
     width: 80%;
  margin-top: 20px;
    
 }
+
+.logtxt{
+    font-family: Barlow;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+.logtxt-btn{
+    font-family: Barlow;
+    width:100px;
+    height:50px;
+    border-radius: 5px;
+    border-color: #fafafa;
+    background-color:#ffffffa7 ;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
 .slogin{
     position: absolute;
     height: 650px;
