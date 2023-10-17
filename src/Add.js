@@ -7,10 +7,11 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {collection , addDoc} from 'firebase/firestore';
 import creds from './firebase';
+import axios from "axios";
 
 export const Add = () =>{
-  const [classes, setClass] = useState('LKG');
-  const [section, setSection] = useState('A');
+  const [classes, setClass] = useState();
+  const [section, setSection] = useState();
 
   let navigate=useNavigate();
 
@@ -23,16 +24,17 @@ export const Add = () =>{
     setSection(e.target.value);
   };
 
-  const handleClick= async () => {
-    try{
-    const addClass= await addDoc(collection(creds.db,"Grades"),{
-      "Class":classes,
-      "Section":[section]
-    });
-  }
-  catch (err){
-    console.log(err)
-  }
+  const handleClick= () => {
+    axios.post("http://localhost:8000/new-grade/",{
+      "class":classes,
+      "section":section
+    }).then(response=>{
+      window.alert("Success...")
+      navigate("/grade")
+    }).catch(err=>{
+      window.alert("some error occured")
+      navigate("/grade")
+    })
     //console.log(classes,section);
   };
 
