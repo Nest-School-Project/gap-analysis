@@ -3,12 +3,12 @@ import Header from "./Header"
 import axios  from "axios";
 import { useParams } from 'react-router-dom';
 
-class MarkEntry extends React.Component{
+class SubjectEntry extends React.Component{
     constructor(props){
         super(props)
         this.class_name=window.location.href.split('/')[5]
         this.section=window.location.href.split('/')[6]
-        this.theme_name=window.location.href.split('/')[7]
+        this.subject_name=window.location.href.split('/')[7]
         
         this.state={
             "students":[
@@ -86,7 +86,7 @@ class MarkEntry extends React.Component{
         console.log("hjg",marks)
         await axios.get(`http://localhost:8000/get-assessments/?grade=${this.class_name}`).then(response=>{
             response.data.map((assessment,index)=>{
-                if(assessment.assessmentFor=="UOI"&&assessment.theme.name==this.theme_name){
+                if(assessment.assessmentFor=="subject"){
                     assessments.push({
                         "name":assessment.assessmentName,
                         "type":assessment.assessmentType
@@ -107,7 +107,7 @@ class MarkEntry extends React.Component{
             console.log(err)
         })
         
-        await axios.get(`http://localhost:8000/get-theme-marks/?grade=${this.class_name}&theme=${this.theme_name}&section=${this.section}`).then(response=>{
+        await axios.get(`http://localhost:8000/get-subject-marks/?grade=${this.class_name}&subject=${this.subject_name}&section=${this.section}`).then(response=>{
             response.data.map((d,index)=>{
                 if(d.marks!=null){
                     
@@ -125,13 +125,13 @@ class MarkEntry extends React.Component{
             "assessment":"FA",
             "assessmentList":assessments,
             "class_name":this.class_name,
-            "theme_name":this.theme_name,
+            "subject_name":this.subject_name,
             "section":this.section
         })
         
     }
     submitMarks=()=>{
-        axios.post("http://localhost:8000/update-theme-marks/",{"data":this.state}).then((resp)=>{
+        axios.post("http://localhost:8000/update-subject-marks/",{"data":this.state}).then((resp)=>{
             console.log(resp)
             window.alert("Marks updated Successfully")
         }).catch(err=>{
@@ -253,4 +253,4 @@ class MarkEntry extends React.Component{
     }
 }
 
-export default  MarkEntry;
+export default  SubjectEntry;

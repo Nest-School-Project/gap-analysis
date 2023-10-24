@@ -69,13 +69,17 @@ export const data = {
 };
 
 export function Graph(props) {
-  console.log(props.data)
-  // data.labels=props.data
-  // data.datasets[0].data=props.sc_marks
-  //  data.datasets[1].data=props.sc_marks
-  // data.datasets[2].data=props.real
-  // data.datasets[3].data=props.ass_spec
-  console.log(props.sc_marks)
+  
+  let params_data=props.data
+  let l=[]
+  params_data.map((params,index)=>{
+    params.marks.map((p)=>{
+      if(l.includes(p.name)==false){
+        l.push(p.name)
+      }
+    })
+  })
+  console.log(l)
   return (
   <div style={{backgroundColor:'white', height:'400px', width:'800px', alignContent:'center'}}>
       

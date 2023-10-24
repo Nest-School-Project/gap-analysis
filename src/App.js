@@ -24,6 +24,7 @@ import {Gostu} from "./Gostu";
 import { Ouoi } from './Ouoi';
 
 import { UpdateStu } from './UpdateStu';
+import SubjectEntry from './Components/SubjectEntry';
 
 
 
@@ -48,7 +49,7 @@ function App() {
                               <Route path="/Ouoi" element={<Ouoi/>} />
                               <Route path="/Gostu/:classname/:secname" element={<Gostu/>} />
                               <Route path="/entry/theme/:class_name/:section/:theme_name" element={ <MarkEntry />} />
-                              <Route path="/entry/subject/:class_name/:section/:subject_name" element={ <MarkEntry />} />
+                              <Route path="/entry/subject/:class_name/:section/:subject_name" element={ <SubjectEntry />} />
                               <Route path="/AddAssmt" element={<AddAssmt/>} />
                               <Route path="/AddSub" element={<AddSub/>} />
                               <Route path="/UpdateStu/:student_name" element={<UpdateStu/>} />

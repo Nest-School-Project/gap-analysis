@@ -182,7 +182,7 @@ export const Class_details = () => {
 
                                                             {/* <td><button id="ebtn">View</button></td> */}
                                                             
-                                                            <td><a href={"/GapAnalysis/"+student.name} ><IoEyeSharp style={{ color: "black"}}/></a></td>
+                                                            <td><a href={"/GapAnalysis/"+student.usn} ><IoEyeSharp style={{ color: "black"}}/></a></td>
                                                             <td><button onClick={handleDelete} style={{border:'none',backgroundColor:'white'}}><RiDeleteBin5Line style={{ color: "black"}}/></button></td>
                                                             <td><a href={"/UpdateStu/"+student.usn} ><BiSolidEditAlt style={{ color: "black"}}/></a></td>
                                                              

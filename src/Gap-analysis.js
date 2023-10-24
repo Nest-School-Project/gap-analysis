@@ -8,7 +8,7 @@ import { useNavigate} from 'react-router-dom';
 import { onAuthStateChanged } from "firebase/auth";
 import creds from './firebase';
 import {collection , getDocs} from 'firebase/firestore';
-
+import axios from "axios";
 
 export const Gap_analysis = () => {
   let navigate=useNavigate();
@@ -19,30 +19,19 @@ export const Gap_analysis = () => {
   const [sc,setSc]=useState([]);
   const [real,setReal]=useState([]);
   const [ass_spec,setAss]=useState([]);
-  const fetchPost = async () => {
-       
-    await getDocs(collection(creds.db, "MarkEntry"))
-        .then((querySnapshot)=>{               
-          const newData = querySnapshot.docs
-          .map((doc) => ({...doc.data(), id:doc.id }));
-           setGrades(newData);
-          const ass_array=newData.map((ndata)=>(ndata.assessment_id));
-          setAssessments(ass_array)
-          const sc_marks=newData.map((ndata)=>(ndata.grades.scope_and_sequence));
-          setSc(sc_marks)  
-          const real_marks=newData.map((ndata)=>(ndata.grades.real_world_application));
-          setReal(real_marks) 
-          const ass_marks=newData.map((ndata)=>(ndata.grades.assessmentSpecific));
-          setAss(ass_marks)    
-            console.log(grades) 
-            
-        })
-   
-  }
   
+  const [student_name,setStudentName]=useState("");
+  const [themes,setThemes]=useState([]);
+  const [subjects,setSubject]=useState([]);
   useEffect(()=>{
     
-    fetchPost()
+    axios.get(`http://localhost:8000/get-indiv-fa-analysis?usn=${name}`).then(resp=>{
+      let data=resp.data
+      setStudentName(data.student_name)
+      setThemes(data.themes)
+      setSubject(data.subjects)
+    })
+    
     onAuthStateChanged(creds.auth, (user) => {
         if (user) {
           // User is signed in, see docs for a list of available properties
@@ -63,12 +52,12 @@ const [toggleState, setToggleState] = useState(1);
 const toggleTab = (index) => {
   setToggleState(index);
 }
-  console.log(grades)
+  console.log(themes)
   return (
     <div >
       
       <Header ></Header>
-        <h1>GAP ANALYSIS:{name}</h1>      
+        <h1>GAP ANALYSIS:{student_name}</h1>      
         <ul class="nav nav-tabs" id="myTabs" role="tablist">
         <li class="nav-item">
           <button class={toggleState === 1 ? "nav-link active" : "nav-link"} onClick={() => toggleTab(1)}>Formative Assessment</button>
@@ -81,7 +70,51 @@ const toggleTab = (index) => {
       <div class={toggleState === 1 ? "tab-pane fade show active" : "tab-pane fade"}>
       <h2> FORMATIVE ASSESSMENT </h2>
       <h2> UOI </h2>
-      <table className='famarks'>
+      {
+        
+        themes.map((theme,index)=>{
+          return <div>
+            <h3>Theme:{theme.name}</h3>
+        <table className='famarks'>
+        <tr>
+          <th Style="border:1px solid black;" >CRITERIA</th>
+          {
+          
+              theme.marks.map((mark,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{mark.name}</td>
+                )
+              })
+              
+          }
+        </tr>
+        <tr>
+          <td Style="border:1px solid black;">CONCEPT</td>
+          {
+              theme.marks.map((mark,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{mark.mark.c1}</td>
+                )
+              })
+          }
+        </tr>
+        <tr>
+          <td Style="border:1px solid black;">APPLICATION</td>
+          {
+              theme.marks.map((mark,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{mark.mark.c2}</td>
+                )
+              })
+          }
+        </tr>
+       
+      </table>
+      <Graph data={themes} sc_marks={sc} real={real} ass_spec={ass_spec}></Graph>
+      </div>
+        })
+      }
+      {/* <table className='famarks'>
         <tr>
           <th Style="border:1px solid black;" >CRITERIA</th>
           {
@@ -113,11 +146,54 @@ const toggleTab = (index) => {
           }
         </tr>
        
-      </table>
-      <Graph data={assessments} sc_marks={sc} real={real} ass_spec={ass_spec}></Graph>
+      </table> */}
+      
      <br/>
      <h2> Subjects </h2>
-      <table className='famarks'>
+     {
+      subjects.map((subject,index)=>{
+        return <div>
+            <h3>Subject Name:{subject.name}</h3>
+        <table className='famarks'>
+        <tr>
+          <th Style="border:1px solid black;" >CRITERIA</th>
+          {
+          
+              subject.marks.map((mark,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{mark.name}</td>
+                )
+              })
+              
+          }
+        </tr>
+        <tr>
+          <td Style="border:1px solid black;">CONCEPT</td>
+          {
+              subject.marks.map((mark,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{mark.mark.c1}</td>
+                )
+              })
+          }
+        </tr>
+        <tr>
+          <td Style="border:1px solid black;">APPLICATION</td>
+          {
+              subject.marks.map((mark,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{mark.mark.c2}</td>
+                )
+              })
+          }
+        </tr>
+       
+      </table>
+      <Graph data={subjects} sc_marks={sc} real={real} ass_spec={ass_spec}></Graph>
+      </div>
+      })
+     }
+      {/* <table className='famarks'>
         <tr>
           <th Style="border:1px solid black;" >CRITERIA</th>
           {
@@ -149,8 +225,8 @@ const toggleTab = (index) => {
           }
         </tr>
        
-      </table>
-      <Graph data={assessments} sc_marks={sc} real={real} ass_spec={ass_spec}></Graph>
+      </table> */}
+      {/* <Graph data={assessments} sc_marks={sc} real={real} ass_spec={ass_spec}></Graph> */}
       </div>
       <div class={toggleState === 2 ? "tab-pane fade show active" : "tab-pane fade"}>
       <h2> SUMMATIVE ASSESSMENT </h2>
