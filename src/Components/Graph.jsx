@@ -12,6 +12,7 @@ import {
 import { Line } from 'react-chartjs-2';
  import faker from 'faker';
 import Header from './Header';
+import { useEffect, useState } from 'react';
 
 ChartJS.register(
   CategoryScale,
@@ -38,51 +39,88 @@ export const options = {
 
 const labels = ['FA1', 'FA2', 'FA3', 'FA4', 'FA5', 'FA6', 'FA7'];
 
-export const data = {
+let data = {
   labels,
   datasets: [
     {
       label: 'SCOPE',
-      data: [30,300,200,250,100,300,80],
+      data: [30,300],
       borderColor: 'red',
       backgroundColor: 'rgba(255, 99, 132, 0.5)',
     },
     {
       label: 'SEQUENCE',
-      data: [70,30,40,50,60,70,80],
+      data: [70,30],
       borderColor: 'yellow',
       backgroundColor: 'rgba(53, 162, 235, 0.5)',
     },
-    {
-        label: 'SUCCESS',
-        data: [60,300,400,500,600,70,800],
-        borderColor: 'green',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
-      {
-        label: 'ASSESSMENT SPECIFIC',
-        data: [50,150,170,360,600,700,800],
-        borderColor: 'blue',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
   ],
 };
 
 export function Graph(props) {
-  
-  let params_data=props.data
-  let l=[]
-  params_data.map((params,index)=>{
-    params.marks.map((p)=>{
-      if(l.includes(p.name)==false){
-        l.push(p.name)
-      }
-    })
+
+  const [data,setData]=useState({
+    labels,
+    datasets: [
+      {
+        label: 'SCOPE',
+        data: [30,300],
+        borderColor: 'red',
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      },
+      {
+        label: 'SEQUENCE',
+        data: [70,30],
+        borderColor: 'yellow',
+        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      },
+    ],
   })
-  console.log(l)
+  let connection={
+    "NA":0,
+    "Emerging":1,
+    "Developing":2,
+    "Proficient":3,
+    "Exemplary":4
+  }
+  
+  useEffect(()=>{
+    let c1_arr=[]
+  let c2_arr=[]
+  let la=[]
+  for(let i=0;i<props.data.length;i++){
+    if(props.data[i].name==props.name){
+      for(let j=0;j<props.data[i].marks.length;j++){
+        la.push(props.data[i].marks[j].name)
+        c1_arr.push(connection[props.data[i].marks[j].mark.c1])
+        c2_arr.push(connection[props.data[i].marks[j].mark.c2])
+      }
+    }
+  }
+  let set=[]
+  set.push({
+    "label":"c1",
+    "data":c1_arr,
+    borderColor: 'red',
+    backgroundColor: 'rgba(255, 99, 132, 0.5)',
+
+  })
+  set.push({
+    "label":"c2",
+    "data":c2_arr,
+    borderColor: 'blue',
+    backgroundColor: 'rgba(53, 162, 235, 0.5)',
+
+  })
+    setData({labels:la,datasets:set})
+    console.log(data)
+  },[])
+  
+  
   return (
   <div style={{backgroundColor:'white', height:'400px', width:'800px', alignContent:'center'}}>
       
   <Line options={options} data={data} />
   </div>);
+  
 }

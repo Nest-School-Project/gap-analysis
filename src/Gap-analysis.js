@@ -110,7 +110,7 @@ const toggleTab = (index) => {
         </tr>
        
       </table>
-      <Graph data={themes} sc_marks={sc} real={real} ass_spec={ass_spec}></Graph>
+      <Graph data={themes} sc_marks={sc} real={real} ass_spec={ass_spec} type="theme" name={theme.name}></Graph>
       </div>
         })
       }
@@ -189,7 +189,7 @@ const toggleTab = (index) => {
         </tr>
        
       </table>
-      <Graph data={subjects} sc_marks={sc} real={real} ass_spec={ass_spec}></Graph>
+      <Graph data={subjects} sc_marks={sc} real={real} ass_spec={ass_spec} name={subject.name}></Graph>
       </div>
       })
      }
@@ -264,7 +264,7 @@ const toggleTab = (index) => {
         </tr>
        
       </table>
-      <Graph data={assessments} sc_marks={sc} real={real} ass_spec={ass_spec}></Graph>
+      {/* <Graph data={assessments} sc_marks={sc} real={real} ass_spec={ass_spec}></Graph> */}
      
      <h2> Subjects </h2>
       <table className='famarks'>
@@ -300,7 +300,7 @@ const toggleTab = (index) => {
         </tr>
        
       </table>
-      <Graph data={assessments} sc_marks={sc} real={real} ass_spec={ass_spec}></Graph>
+      {/* <Graph data={assessments} sc_marks={sc} real={real} ass_spec={ass_spec}></Graph> */}
      
         
       </div>
