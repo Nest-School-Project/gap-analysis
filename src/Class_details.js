@@ -151,9 +151,9 @@ export const Class_details = () => {
                             <div className={toggleState === index + 1 ? "tab-pane face show active" : "tab-pane fade"}>
                                 <br></br><br></br>
                                 <button  type="button"  id='btn1' onClick={handleChange}>Upload Marks</button>
-                                <Link to="/Ostu">
+                                <Link to={"/Ostu/"+classname}>
                                 <button type="button"  id='btn1'  >Overall Subject Analysis</button>
-      </Link><Link to="/Ouoi">
+      </Link><Link to={"/Ouoi/"+classname}>
                                 <button type="button"id='btn1' >Overall UOI Analysis</button>      <br></br>     <br></br></Link>
                            
                                 <table class='table' style={{ borderBlock: '2px black solid', borderInline:'2px black solid' }}>

@@ -9,7 +9,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import creds from './firebase';
 import {collection , getDocs} from 'firebase/firestore';
 import axios from "axios";
-
+import { SaGraph } from './Components/SaGraph'
 export const Gap_analysis = () => {
   let navigate=useNavigate();
 
@@ -23,6 +23,9 @@ export const Gap_analysis = () => {
   const [student_name,setStudentName]=useState("");
   const [themes,setThemes]=useState([]);
   const [subjects,setSubject]=useState([]);
+
+  const [sathemes,setsaThemes]=useState([]);
+  const [sasubjects,setsaSubject]=useState([]);
   useEffect(()=>{
     
     axios.get(`http://localhost:8000/get-indiv-fa-analysis?usn=${name}`).then(resp=>{
@@ -31,6 +34,14 @@ export const Gap_analysis = () => {
       setThemes(data.themes)
       setSubject(data.subjects)
     })
+
+    axios.get(`http://localhost:8000/get-indiv-sa-analysis?usn=${name}`).then(resp=>{
+      let data=resp.data
+      
+      setsaThemes(data.themes)
+      setsaSubject(data.subjects)
+    })
+    
     
     onAuthStateChanged(creds.auth, (user) => {
         if (user) {
@@ -231,23 +242,30 @@ const toggleTab = (index) => {
       <div class={toggleState === 2 ? "tab-pane fade show active" : "tab-pane fade"}>
       <h2> SUMMATIVE ASSESSMENT </h2>
       <h2> UOI </h2>
-      <table className='famarks'>
+      {
+        
+        sathemes.map((theme,index)=>{
+          return <div>
+            <h3>Theme:{theme.name}</h3>
+        <table className='famarks'>
         <tr>
           <th Style="border:1px solid black;" >CRITERIA</th>
           {
-              grades.map((grade,index)=>{
+          
+              theme.marks.map((mark,index)=>{
                 return (
-                  <td Style="border:1px solid black;">{grade.assessment_id}</td>
+                  <td Style="border:1px solid black;">{mark.name}</td>
                 )
               })
+              
           }
         </tr>
         <tr>
           <td Style="border:1px solid black;">CONCEPT</td>
           {
-              grades.map((grade,index)=>{
+              theme.marks.map((mark,index)=>{
                 return (
-                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
+                  <td Style="border:1px solid black;">{mark.mark.c1}</td>
                 )
               })
           }
@@ -255,35 +273,74 @@ const toggleTab = (index) => {
         <tr>
           <td Style="border:1px solid black;">APPLICATION</td>
           {
-              grades.map((grade,index)=>{
+              theme.marks.map((mark,index)=>{
                 return (
-                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
+                  <td Style="border:1px solid black;">{mark.mark.c2}</td>
                 )
               })
           }
         </tr>
-       
+        <tr>
+          <td Style="border:1px solid black;">C3</td>
+          {
+              theme.marks.map((mark,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{mark.mark.c3}</td>
+                )
+              })
+          }
+        </tr>
+        <tr>
+          <td Style="border:1px solid black;">C4</td>
+          {
+              theme.marks.map((mark,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{mark.mark.c4}</td>
+                )
+              })
+          }
+        </tr>
+        <tr>
+          <td Style="border:1px solid black;">C5</td>
+          {
+              theme.marks.map((mark,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{mark.mark.c5}</td>
+                )
+              })
+          }
+        </tr>
       </table>
+      <SaGraph data={sathemes} sc_marks={sc} real={real} ass_spec={ass_spec} type="theme" name={theme.name}></SaGraph>
+      </div>
+        })
+      }
       {/* <Graph data={assessments} sc_marks={sc} real={real} ass_spec={ass_spec}></Graph> */}
      
      <h2> Subjects </h2>
-      <table className='famarks'>
+     {
+      sasubjects.map((subject,index)=>{
+        return <div>
+            <h3>Subject Name:{subject.name}</h3>
+        <table className='famarks'>
         <tr>
           <th Style="border:1px solid black;" >CRITERIA</th>
           {
-              grades.map((grade,index)=>{
+          
+              subject.marks.map((mark,index)=>{
                 return (
-                  <td Style="border:1px solid black;">{grade.assessment_id}</td>
+                  <td Style="border:1px solid black;">{mark.name}</td>
                 )
               })
+              
           }
         </tr>
         <tr>
           <td Style="border:1px solid black;">CONCEPT</td>
           {
-              grades.map((grade,index)=>{
+              subject.marks.map((mark,index)=>{
                 return (
-                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
+                  <td Style="border:1px solid black;">{mark.mark.c1}</td>
                 )
               })
           }
@@ -291,15 +348,49 @@ const toggleTab = (index) => {
         <tr>
           <td Style="border:1px solid black;">APPLICATION</td>
           {
-              grades.map((grade,index)=>{
+              subject.marks.map((mark,index)=>{
                 return (
-                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
+                  <td Style="border:1px solid black;">{mark.mark.c2}</td>
+                )
+              })
+          }
+        </tr>
+        <tr>
+          <td Style="border:1px solid black;">C3</td>
+          {
+              subject.marks.map((mark,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{mark.mark.c3}</td>
+                )
+              })
+          }
+        </tr>
+        <tr>
+          <td Style="border:1px solid black;">C4</td>
+          {
+              subject.marks.map((mark,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{mark.mark.c4}</td>
+                )
+              })
+          }
+        </tr>
+        <tr>
+          <td Style="border:1px solid black;">C5</td>
+          {
+              subject.marks.map((mark,index)=>{
+                return (
+                  <td Style="border:1px solid black;">{mark.mark.c5}</td>
                 )
               })
           }
         </tr>
        
       </table>
+      <SaGraph data={sasubjects} sc_marks={sc} real={real} ass_spec={ass_spec} name={subject.name}></SaGraph>
+      </div>
+      })
+     }
       {/* <Graph data={assessments} sc_marks={sc} real={real} ass_spec={ass_spec}></Graph> */}
      
         

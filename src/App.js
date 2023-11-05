@@ -45,8 +45,8 @@ function App() {
                               <Route path="/SideBar" element={<SideBar />} />
                               <Route path="/Themes" element={<Themes />} />
                               <Route path="/Signup" element={<Signup/>} />
-                              <Route path="/Ostu" element={<Ostu/>} />
-                              <Route path="/Ouoi" element={<Ouoi/>} />
+                              <Route path="/Ostu/:name" element={<Ostu/>} />
+                              <Route path="/Ouoi/:name" element={<Ouoi/>} />
                               <Route path="/Gostu/:classname/:secname" element={<Gostu/>} />
                               <Route path="/entry/theme/:class_name/:section/:theme_name" element={ <MarkEntry />} />
                               <Route path="/entry/subject/:class_name/:section/:subject_name" element={ <SubjectEntry />} />

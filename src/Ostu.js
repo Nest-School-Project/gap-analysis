@@ -5,13 +5,44 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from "firebase/auth";
 import creds from './firebase';
-import { Graph } from './Components/Graph';
+import { OGraph } from './Components/OGraph';
 import { useParams } from 'react-router-dom';
 import {collection , getDocs} from 'firebase/firestore';
+import axios from "axios";
+import { SaOGraph } from './Components/SaOGraph';
 
 export const Ostu  = () => {
+    const {name}=useParams();
     let navigate=useNavigate();
+    const [assessmentList,setAssessmentList]=useState([])
+    const [studentList,setStudentList]=useState([])
+    const [assessments,setAssessments]=useState([])
+
+    const [saassessmentList,setSaAssessmentList]=useState([])
+    
+    const [saassessments,setSaAssessments]=useState([])
     useEffect(()=>{
+      axios.get(`http://localhost:8000/get-ostu-fa/?grade=${name}`).then((response)=>{
+        let data=response.data
+        setAssessmentList(data["assessment_list"])
+        setStudentList(data["student_list"])
+        setAssessments(data["assessments"])
+        console.log(data)
+
+      }).catch((err)=>{
+        console.log(err)
+      })
+
+      axios.get(`http://localhost:8000/get-ostu-sa/?grade=${name}`).then((response)=>{
+        let data=response.data
+        setSaAssessmentList(data["assessment_list"])
+        //setStudentList(data["student_list"])
+        setSaAssessments(data["assessments"])
+        console.log(data)
+
+      }).catch((err)=>{
+        console.log(err)
+      })
       onAuthStateChanged(creds.auth, (user) => {
           if (user) {
             // User is signed in, see docs for a list of available properties
@@ -27,329 +58,171 @@ export const Ostu  = () => {
           }
         });   
   }, [])   
-  const {name}=useParams();
-  const [grades,setGrades]=useState([]);
-  const [assessments,setAssessments]=useState([]);
-  const [sc,setSc]=useState([]);
-  const [real,setReal]=useState([]);
-  const [ass_spec,setAss]=useState([]);
-  const fetchPost = async () => {
-       
-    await getDocs(collection(creds.db, "MarkEntry"))
-        .then((querySnapshot)=>{               
-          const newData = querySnapshot.docs
-          .map((doc) => ({...doc.data(), id:doc.id }));
-           setGrades(newData);
-          const ass_array=newData.map((ndata)=>(ndata.assessment_id));
-          setAssessments(ass_array)
-          const sc_marks=newData.map((ndata)=>(ndata.grades.scope_and_sequence));
-          setSc(sc_marks)  
-          const real_marks=newData.map((ndata)=>(ndata.grades.real_world_application));
-          setReal(real_marks) 
-          const ass_marks=newData.map((ndata)=>(ndata.grades.assessmentSpecific));
-          setAss(ass_marks)    
-            console.log(grades) 
-            
-        })
-   
+  const [toggleState, setToggleState] = useState(1);
+  const toggleTab = (index) => {
+    setToggleState(index);
   }
    
     
    
     return (
-      <div className="App" ><Header></Header>
-     <h2>Overall Student Subject analysis</h2>
-        <br />
-        <label>Select FA/SA:</label> 
-        <input placeholder='FA or SA' type='text' id='btn'></input>
-        <br></br>
-        <button type='Submit' id='btn'>Submit</button>
-       <br></br>
-        
-            <br/>
+    <div className="App" ><Header></Header>
+      <h2>Overall Class Subject analysis</h2>
+      <ul class="nav nav-tabs" id="myTabs" role="tablist">
+        <li class="nav-item">
+          <button class={toggleState === 1 ? "nav-link active" : "nav-link"} onClick={() => toggleTab(1)}>Formative Assessment</button>
+        </li>
+        <li class="nav-item">
+          <button class={toggleState === 2 ? "nav-link active" : "nav-link"} onClick={() => toggleTab(2)}>Summative Assessment</button>
+        </li>
+      </ul>
+      <br></br>
+      <div class="tab-content" id="myTabsContent">
+        <div class={toggleState === 1 ? "tab-pane fade show active" : "tab-pane fade"}>
             <h2 >FORMATIVE ASSESSMENT</h2>
-            <h3>FA1</h3>
-        <label>ENGLISH</label>
-        <table className='famarks'>
-        <tr>
-          <th Style="border:1px solid black;" >CRITERIA</th>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.assessment_id}</td>
-                )
+            {
+              assessmentList.map((ass)=>{
+                return <div>
+                  <h1>{ass}</h1>
+                  {
+                    assessments[ass].map((a)=>{
+                      return <div>
+                        <h1>{a.name}</h1>
+                        {
+                          <div>
+                          <table className='famarks'>
+                            <tr>
+                              <th Style="border:1px solid black;">CRITERIA</th>
+                              {
+                                a["students"].map(s=>{
+                                  return (
+                                    <th Style="border:1px solid black;">{s.name}</th>
+                                  )
+                                })
+                              }
+                            </tr>
+                            <tr>
+                              <th Style="border:1px solid black;">Concept</th>
+                              {
+                                a["students"].map(s=>{
+                                  return (
+                                    <td Style="border:1px solid black;">{s.c1}</td>
+                                  )
+                                })
+                              }
+                            </tr>
+                            <tr>
+                              <th Style="border:1px solid black;">APPLICATION</th>
+                              {
+                                a["students"].map(s=>{
+                                  return (
+                                    <td Style="border:1px solid black;">{s.c2}</td>
+                                  )
+                                })
+                              }
+                            </tr>
+                          </table>
+                          <br></br>
+                          <OGraph data={assessments[ass]} subject={a.name}></OGraph>
+                              </div>
+                        }
+                        </div>
+
+                    })
+                  }
+                </div>
               })
-          }
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">CONCEPT</td>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
-                )
-              })
-          }
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">APPLICATION</td>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
-                )
-              })
-          }
-        </tr>
-       
-      </table>
-             <div id='size'>
-            <Graph></Graph></div>
-            <label>MATHS</label>
-            <table className='famarks'>
-        <tr>
-          <th Style="border:1px solid black;" >CRITERIA</th>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.assessment_id}</td>
-                )
-              })
-          }
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">CONCEPT</td>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
-                )
-              })
-          }
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">APPLICATION</td>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
-                )
-              })
-          }
-        </tr>
-       
-      </table>
-            <div id='size'>
-            
-            <Graph></Graph></div>
-            <label>SCIENCE</label>
-            <table className='famarks'>
-        <tr>
-          <th Style="border:1px solid black;" >CRITERIA</th>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.assessment_id}</td>
-                )
-              })
-          }
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">CONCEPT</td>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
-                )
-              })
-          }
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">APPLICATION</td>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
-                )
-              })
-          }
-        </tr>
-       
-      </table>
-            <div id='size'>
-            <Graph></Graph></div>
-         
-            <h3>SUMMATIVE ASSESSMENT</h3>
-            <h3>SA1</h3>
-           <label>ENGLISH</label>
-           <table className='famarks'>
-        <tr>
-          <th Style="border:1px solid black;" >CRITERIA</th>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.assessment_id}</td>
-                )
-              })
-          }
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">CONCEPT</td>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
-                )
-              })
-          }
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">APPLICATION</td>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
-                )
-              })
-          }
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">COMPREHENDING</td>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.grades.real_world_application}</td>
-                )
-              })
-          }
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">KNOWLEDGE</td>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.grades.assessmentSpecific}</td>
-                )
-              })
-          }
-        </tr>
-      </table>
-           <div id='size'>
-            <Graph></Graph></div>
-            
-            <label>MATHS</label>
-            <table className='famarks'>
-        <tr>
-          <th Style="border:1px solid black;" >CRITERIA</th>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.assessment_id}</td>
-                )
-              })
-          }
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">CONCEPT</td>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
-                )
-              })
-          }
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">APPLICATION</td>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
-                )
-              })
-          }
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">COMPREHENDING</td>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.grades.real_world_application}</td>
-                )
-              })
-          }
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">KNOWLEDGE</td>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.grades.assessmentSpecific}</td>
-                )
-              })
-          }
-        </tr>
-      </table>
-            <div id='size'>
-            <Graph></Graph></div>
-            <label>SCIENCE</label>
-            <table className='famarks'>
-        <tr>
-          <th Style="border:1px solid black;" >CRITERIA</th>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.assessment_id}</td>
-                )
-              })
-          }
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">CONCEPT</td>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
-                )
-              })
-          }
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">APPLICATION</td>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.grades.scope_and_sequence}</td>
-                )
-              })
-          }
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">COMPREHENDING</td>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.grades.real_world_application}</td>
-                )
-              })
-          }
-        </tr>
-        <tr>
-          <td Style="border:1px solid black;">KNOWLEDGE</td>
-          {
-              grades.map((grade,index)=>{
-                return (
-                  <td Style="border:1px solid black;">{grade.grades.assessmentSpecific}</td>
-                )
-              })
-          }
-        </tr>
-      </table>
-            <div id='size'>
-            <Graph></Graph></div>
-          
-          <br></br>
+            }
         </div>
+        <div class={toggleState === 2 ? "tab-pane fade show active" : "tab-pane fade"}>
+        <h2 >SUMMATIVE ASSESSMENT</h2>
+            {
+              saassessmentList.map((ass)=>{
+                return <div>
+                  <h1>{ass}</h1>
+                  {
+                    saassessments[ass].map((a)=>{
+                      return <div>
+                        <h1>{a.name}</h1>
+                        {
+                          <div>
+                          <table className='famarks'>
+                            <tr>
+                              <th Style="border:1px solid black;">CRITERIA</th>
+                              {
+                                a["students"].map(s=>{
+                                  return (
+                                    <th Style="border:1px solid black;">{s.name}</th>
+                                  )
+                                })
+                              }
+                            </tr>
+                            <tr>
+                              <th Style="border:1px solid black;">Concept</th>
+                              {
+                                a["students"].map(s=>{
+                                  return (
+                                    <td Style="border:1px solid black;">{s.c1}</td>
+                                  )
+                                })
+                              }
+                            </tr>
+                            <tr>
+                              <th Style="border:1px solid black;">APPLICATION</th>
+                              {
+                                a["students"].map(s=>{
+                                  return (
+                                    <td Style="border:1px solid black;">{s.c2}</td>
+                                  )
+                                })
+                              }
+                            </tr>
+                            <tr>
+                              <th Style="border:1px solid black;">C3</th>
+                              {
+                                a["students"].map(s=>{
+                                  return (
+                                    <td Style="border:1px solid black;">{s.c3}</td>
+                                  )
+                                })
+                              }
+                            </tr>
+                            <tr>
+                              <th Style="border:1px solid black;">C4</th>
+                              {
+                                a["students"].map(s=>{
+                                  return (
+                                    <td Style="border:1px solid black;">{s.c4}</td>
+                                  )
+                                })
+                              }
+                            </tr>
+                            <tr>
+                              <th Style="border:1px solid black;">C5</th>
+                              {
+                                a["students"].map(s=>{
+                                  return (
+                                    <td Style="border:1px solid black;">{s.c5}</td>
+                                  )
+                                })
+                              }
+                            </tr>
+                          </table>
+                          <br></br>
+                          <SaOGraph data={saassessments[ass]} subject={a.name}></SaOGraph>
+                              </div>
+                        }
+                        </div>
+
+                    })
+                  }
+                </div>
+              })
+            }
+        </div>
+        </div>
+    </div>
+        
         
    
  )
